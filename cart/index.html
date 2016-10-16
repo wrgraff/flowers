@@ -1,0 +1,705 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLOVER</title>
+
+    <link rel="stylesheet" href="/templates/flover/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Инфоблок корзины (он отличается от сайта в целом) -->
+      <section class="top-info">
+        <div class="row">
+          <!-- Лого -->
+          <div class="small-3 columns">
+            <img src="/templates/flover/img/logo.png" />
+          </div>
+          <!-- /Лого -->
+
+          <!-- Мини УТП -->
+          <div class="small-2 columns">
+            <div class="info">
+              <strong>Цветы и&nbsp;букеты с&nbsp;доставкой</strong>
+            </div>
+          </div>
+          <!-- /Мини УТП -->
+
+          <!-- Контакты -->
+          <div class="small-4 columns">
+            <div class="info">
+              <a class="phone" href="tel:88123545145">(812) 354-51-45</a><small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
+              <small>Время работы с 9:00 до 21:00</small>
+            </div>
+          </div>
+          <!-- /Контакты -->
+
+          <!-- Авторизация и регистрация -->
+          <div class="small-3 columns text-right">
+            <div class="pay info">
+              <small>Безопасные платежи PCI DSS</small>
+              <img src="/templates/flover/img/pay.jpg" />
+            </div>
+          </div>
+          <!-- /Авторизация и регистрация -->
+        </div>
+      </section>
+      <!-- /Инфоблок корзины -->
+
+      <!-- Хлебные крошки -->
+      <div class="row">
+        <div class="small-12 columns">
+          <ul class="breadcrumbs">
+            <li><a href="/"><i class="material-icons md-18">home</i></a></li>
+            <li class="current"><a href="/catalog/item/">Корзина</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Хлебные крошки -->
+    </header>
+
+    <!-- Заголовок -->
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Корзина</h1>
+      </div>
+    </div>
+    <!-- /Заголовок -->
+
+    <!-- Контент -->
+    <section class="basket">
+      <form>
+        <div class="row" data-equalizer="layout">
+          <div class="small-10 columns" data-equalizer-watch="layout">
+            <div class="row" data-equalizer="items">
+              <div class="small-6 columns">
+                <!-- Товар букет -->
+                <div class="item cart-item" data-equalizer-watch="items" data-price="2120">
+                  <div class="row">
+                    <!-- Картинка -->
+                    <div class="small-4 columns">
+                      <a class="th radius modal" href="/templates/flover/img/catalog/fl_3_2.jpg">
+                        <img src="/templates/flover/img/catalog/fl_3_2.jpg" /><!-- Thumbnail 200x200 -->
+                      </a>
+                    </div>
+                    <!-- /Картинка -->
+
+                    <!-- Опции -->
+                    <div class="small-8 columns">
+                      <!-- Название -->
+                      <span class="h4">Пэрис Хилтон</span>
+                      <!-- /Название -->
+
+                      <!-- Счетчик -->
+                      <div class="row">
+                        <div class="small-6 columns">
+                          <div class="row collapse">
+                            <div class="small-3 columns no-select">
+                              <span class="button secondary prefix count-down"><i class="material-icons">keyboard_arrow_left</i></span>
+                            </div>
+                            <div class="small-6 columns">
+                              <input type="number" value="2" min="1" id="num_item_1">
+                            </div>
+                            <div class="small-3 columns no-select">
+                              <span class="button secondary postfix count-up"><i class="material-icons">keyboard_arrow_right</i></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="small-6 columns">
+                          <label class="inline" for="num_item_1">× 2120 р.</label>
+                        </div>
+                      </div>
+                      <!-- /Счетчик -->
+
+                      <!-- Открытка -->
+                      <input class="add-card" type="checkbox" name="card" id="card-1" /><label for="card-1">Добавить открытку — 150 р.</label>
+                      <!-- /Открытка -->
+
+                      <!-- Удаление -->
+                      <a class="del" href="#"><i class="material-icons">delete</i></a>
+                      <!-- /Удаление -->
+                    </div>
+                    <!-- /Опции -->
+                  </div>
+
+                  <!-- Текст открытки -->
+                  <div class="card-text">
+                    <textarea rows="5" placeholder="Введите текст открытки"></textarea>
+                  </div>
+                  <!-- /Текст открытки -->
+                </div>
+                <!-- /Товар букет -->
+              </div>
+              <div class="small-6 columns">
+                <!-- Товар сувенир -->
+                <div class="item cart-item" data-equalizer-watch="items" data-price="1250">
+                  <div class="row">
+                    <!-- Картинка -->
+                    <div class="small-4 columns">
+                      <a class="th radius modal" href="/templates/flover/img/catalog/bike.jpg">
+                        <img src="/templates/flover/img/catalog/bike.jpg" /><!-- Thumbnail 200x200 -->
+                      </a>
+                    </div>
+                    <!-- /Картинка -->
+
+                    <!-- Опции -->
+                    <div class="small-8 columns">
+                      <!-- Наименование -->
+                      <span class="h4">Байк какой-то</span>
+                      <!-- /Наименование -->
+
+                      <!-- Количество -->
+                      <div class="row">
+                        <div class="small-6 columns">
+                          <div class="row collapse">
+                            <div class="small-3 columns no-select">
+                              <span class="button secondary prefix count-down"><i class="material-icons">keyboard_arrow_left</i></span>
+                            </div>
+                            <div class="small-6 columns">
+                              <input type="number" value="1" min="1" id="num_item_1">
+                            </div>
+                            <div class="small-3 columns no-select">
+                              <span class="button secondary postfix count-up"><i class="material-icons">keyboard_arrow_right</i></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="small-6 columns">
+                          <label class="inline" for="num_item_2">× 1250 р.</label>
+                        </div>
+                      </div>
+                      <!-- /Количество -->
+
+                      <!-- Удаление -->
+                      <a class="del" href="#"><i class="material-icons">delete</i></a>
+                      <!-- /Удаление -->
+                    </div>
+                    <!-- /Опции -->
+                  </div>
+                </div>
+                <!-- /Товар сувенир -->
+              </div>
+            </div>
+            <div class="row" data-equalizer="items">
+              <div class="small-6 columns">
+                <!-- Товар букет -->
+                <div class="item cart-item" data-equalizer-watch="items" data-price="3500">
+                  <div class="row">
+                    <!-- Картинка -->
+                    <div class="small-4 columns">
+                      <a class="th radius modal" href="/templates/flover/img/catalog/fl_4.jpg">
+                        <img src="/templates/flover/img/catalog/fl_4.jpg" /><!-- Thumbnail 200x200 -->
+                      </a>
+                    </div>
+                    <!-- /Картинка -->
+
+                    <!-- Опции -->
+                    <div class="small-8 columns">
+                      <!-- Название -->
+                      <span class="h4">Сара Джессика Паркер</span>
+                      <!-- /Название -->
+
+                      <!-- Счетчик -->
+                      <div class="row">
+                        <div class="small-6 columns">
+                          <div class="row collapse">
+                            <div class="small-3 columns no-select">
+                              <span class="button secondary prefix count-down"><i class="material-icons">keyboard_arrow_left</i></span>
+                            </div>
+                            <div class="small-6 columns">
+                              <input type="number" value="1" min="1" id="num_item_2">
+                            </div>
+                            <div class="small-3 columns no-select">
+                              <span class="button secondary postfix count-up"><i class="material-icons">keyboard_arrow_right</i></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="small-6 columns">
+                          <label class="inline" for="num_item_2">× 3500 р.</label>
+                        </div>
+                      </div>
+                      <!-- /Счетчик -->
+
+                      <!-- Открытка -->
+                      <input class="add-card" type="checkbox" name="card" id="card-2" checked="" /><label for="card-2">Добавить открытку — 150 р.</label>
+                      <!-- /Открытка -->
+
+                      <!-- Удаление -->
+                      <a class="del" href="#"><i class="material-icons">delete</i></a>
+                      <!-- /Удаление -->
+                    </div>
+                    <!-- /Опции -->
+                  </div>
+
+                  <!-- Текст открытки -->
+                  <div class="card-text">
+                    <textarea rows="5" placeholder="Введите текст открытки"></textarea>
+                  </div>
+                  <!-- /Текст открытки -->
+                </div>
+                <!-- /Товар букет -->
+              </div>
+            </div>
+
+            <!-- Сопутствующие товары, максимум 5 штук -->
+            <div class="row">
+              <div class="small-12 columns">
+                <span class="h5">Получателю может понравиться</span>
+                <ul class="small-block-grid-5 objects" data-equalizer="related">
+                  <li>
+                    <div class="item">
+                      <div class="top">
+                        <figure>
+                          <img src="/templates/flover/img/catalog/bike.jpg" />
+                          <figcaption>
+                            <small>Конфеты</small>
+                            <strong data-equalizer-watch="related">Ferrero Rocher, 24 шт</strong>
+                            <span class="price">1300 р.</span>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <div class="bottom">
+                        <ul class="buttons">
+                          <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i> Добавить</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item">
+                      <div class="top">
+                        <figure>
+                          <img src="/templates/flover/img/catalog/basket.jpg" />
+                          <figcaption>
+                            <small>Плюшевая игрушка</small>
+                            <strong data-equalizer-watch="related">Мишка Завитушка (ппц название)</strong>
+                            <span class="price">1450 р.</span>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <div class="bottom">
+                        <ul class="buttons">
+                          <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i> Добавить</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item">
+                      <div class="top">
+                        <figure>
+                          <img src="/templates/flover/img/catalog/case.jpg" />
+                          <figcaption>
+                            <small>Ваза</small>
+                            <strong data-equalizer-watch="related">Фестиво</strong>
+                            <span class="price">500 р.</span>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <div class="bottom">
+                        <ul class="buttons">
+                          <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i> Добавить</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item">
+                      <div class="top">
+                        <figure>
+                          <img src="/templates/flover/img/catalog/girl.jpg" />
+                          <figcaption>
+                            <small>Конфеты</small>
+                            <strong data-equalizer-watch="related">Ferrero Rocher, 24 шт</strong>
+                            <span class="price">1300 р.</span>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <div class="bottom">
+                        <ul class="buttons">
+                          <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i> Добавить</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item">
+                      <div class="top">
+                        <figure>
+                          <img src="/templates/flover/img/catalog/lock.jpg" />
+                          <figcaption>
+                            <small>Плюшевая игрушка</small>
+                            <strong data-equalizer-watch="related">Мишка Завитушка (ппц название)</strong>
+                            <span class="price">1450 р.</span>
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <div class="bottom">
+                        <ul class="buttons">
+                          <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i> Добавить</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /Сопутствующие товары -->
+          </div>
+          <div class="small-2 columns" data-equalizer-watch="layout">
+            <!-- Итог -->
+            <div class="summary">
+              <!-- Итого -->
+              Итого
+              <!-- /Итого -->
+
+              <!-- Цена -->
+              <div class="final price"></div>
+              <!-- /Цена -->
+            </div>
+            <!-- /Итог -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-12 columns">
+            <h2>Данные заказа</h2>
+            <fieldset>
+              <legend>Контактная информация</legend>
+              <!-- Имя -->
+              <div class="row">
+                <div class="small-3 columns">
+                  <label class="inline" for="name">Имя</label>
+                </div>
+                <div class="small-6 columns end">
+                  <label class="required">
+                    <input id="name" type="text" placeholder="Илья Муромец" required />
+                    <small>Обязательное поле</small>
+                  </label>
+                </div>
+              </div>
+              <!-- /Имя -->
+
+              <!-- Телефон -->
+              <div class="row">
+                <div class="small-3 columns">
+                  <label class="inline" for="tel">Номер телефона</label>
+                </div>
+                <div class="small-6 columns end">
+                  <label class="required">
+                    <input id="tel" type="tel" placeholder="8 921 123-45-67" required />
+                    <small>Обязательное поле</small>
+                  </label>
+                </div>
+              </div>
+              <!-- /Телефон -->
+
+              <!-- Электропочта -->
+              <div class="row">
+                <div class="small-3 columns">
+                  <label class="inline" for="email">Электронная почта</label>
+                </div>
+                <div class="small-6 columns">
+                  <input id="email" type="email" placeholder="name@domain.ru" />
+                </div>
+                <div class="small-3 columns">
+                  <label class="inline" for="email">E-mail не обязателен, но необходим для получения статуса заказа</label>
+                </div>
+              </div>
+              <!-- /Электропочта -->
+            </fieldset>
+
+            <fieldset>
+              <legend>Получатель букета</legend>
+              <div class="row">
+                <div class="small-9 columns">
+                  <div class="destination">
+                    <!-- Имя -->
+                    <div class="row">
+                      <div class="small-4 columns">
+                        <label class="inline" for="name">Имя</label>
+                      </div>
+                      <div class="small-8 columns">
+                        <label class="required">
+                          <input id="name" type="text" placeholder="Варвара Краса" required />
+                          <small>Обязательное поле</small>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- /Имя -->
+
+                    <!-- Телефон -->
+                    <div class="row">
+                      <div class="small-4 columns">
+                        <label class="inline" for="tel">Номер телефона</label>
+                      </div>
+                      <div class="small-8 columns">
+                        <label class="required">
+                          <input id="tel" type="tel" placeholder="8 921 123-45-67" required />
+                          <small>Обязательное поле</small>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- /Телефон -->
+
+                    <!-- Электропочта -->
+                    <div class="row">
+                      <div class="small-4 columns">
+                        <label class="inline" for="email">Электронная почта</label>
+                      </div>
+                      <div class="small-8 columns end">
+                        <input id="email" type="email" placeholder="name@domain.ru" />
+                      </div>
+                    </div>
+                    <!-- /Электропочта -->
+                  </div>
+                </div>
+                <div class="small-3 columns">
+                  <input id="for_me" type="checkbox" /><label class="inline for_me" for="for_me">Я сам получу цветы</label>
+
+                  <input id="secret" type="checkbox" /><label class="inline radius secret" for="secret" data-tooltip aria-haspopup="true" title="Мы постараемся, но возможно, нам придется, чтобы нас впустили">Не сообщать, что это цветы</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Адрес доставки</legend>
+              <!-- Доставка -->
+              <div class="row">
+                <div class="small-9 columns">
+                  <div class="row">
+                    <div class="small-5 columns">
+                      <input id="delivery_spb" name="delivery" type="radio" checked="" /><label class="inline" for="delivery_spb">Доставка по Санкт-Петербургу — 350 р.</label>
+                    </div>
+                    <div class="small-5 columns">
+                      <input id="delivery_out" name="delivery" type="radio" /><label class="inline" for="delivery_out">Доставка в пригород — 600 р.</label>
+                    </div>
+                    <div class="small-2 columns">
+                      <input id="take_myself" name="delivery" type="radio" /><label class="inline" for="take_myself">Самовывоз</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="small-4 columns">
+                      <label class="inline" for="address">Адрес</label>
+                    </div>
+                    <div class="small-8 columns">
+                      <input id="address" type="text" placeholder="ул. Советская, д. 5, кв. 147, г. Санкт-Петербург, 154575" />
+                      <select class="hide" id="take">
+                        <option selected="">Купчино, Балканская пл. 5, ТЦ Астра</option>
+                        <option>Пл. Восстания, Лиговский пр. 53, напротив ТЦ Галерея</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="small-3 columns">
+                  <label id="delivery_comment" class="inline" for="address">Пожалуйста, укажите адрес настолько полно, насколько знаете. Это поможет избежать трудностей при доставке</label>
+                </div>
+              </div>
+              <!-- /Доставка -->
+
+              <!-- Дата -->
+              <div class="row">
+                <div class="small-3 columns">
+                  <label class="inline" for="date">Дата и время</label>
+                </div>
+                <div class="small-3 columns">
+                  <label class="required">
+                    <input id="date" type="date" value="2016-02-04" min="2016-02-04" /><!-- Можно ли ставить по умолчанию текущее число? -->
+                    <small>Обязательное поле</small>
+                  </label>
+                </div>
+                <div class="small-3 columns">
+                  <div class="row collapse">
+                    <div class="small-5 columns">
+                      <input id="time" type="time" min="06:00" max="22:00" />
+                    </div>
+                    <div class="small-2 columns text-center">
+                      <label class="inline">—</label>
+                    </div>
+                    <div class="small-5 columns">
+                      <input id="time" type="time" min="07:00" max="23:00" />
+                    </div>
+                  </div>
+                </div>
+                <div class="small-3 columns">
+                  <input id="call_her" type="checkbox" /><label class="inline radius" for="call_her">Позвонить получателю для уточнения времени и адреса</label>
+                </div>
+              </div>
+              <!-- /Дата -->
+            </fieldset>
+
+            <div class="summary">
+              <div class="row">
+                <div class="small-6 columns">
+                  <input id="info_subscribe" type="checkbox" /><label for="info_subscribe">Хочу получать информацию о скидках и ценах</label>
+                  <input id="info_subscribe" type="checkbox" checked="" /><label for="info_subscribe">Я согласен с <a class="modal" href="#doc">условиями работы</a></label>
+                </div>
+                <div class="small-1 columns text-right">
+                  <p class="sum">Итого</p>
+                </div>
+                <div class="small-2 columns">
+                  <span class="final price"></span>
+                </div>
+                <div class="small-3 columns text-right">
+                  <input class="button radius large" type="submit" value="Перейти к оплате" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+    <!-- /Контент -->
+
+    <footer>
+      <div class="row">
+        <!-- Основное меню -->
+        <div class="small-9 columns">
+          <ul class="inline-list">
+            <li><a href="#">Букеты</a></li>
+            <li><a href="#">Композиции</a></li>
+            <li><a href="#">Свадебные букеты</a></li>
+            <li><a href="#">Мероприятия</a></li>
+            <li><a href="#">Игрушки</a></li>
+            <li><a href="#">Сувениры</a></li>
+          </ul>
+        </div>
+        <!-- /Основное меню -->
+        <!-- Поиск -->
+        <div class="small-3 columns">
+          <form>
+            <input class="radius" type="search" placeholder="Искать" />
+          </form>
+        </div>
+        <!-- /Поиск -->
+        
+        <div class="small-12 columns">
+          <hr />
+        </div>
+
+        <!-- Второстепенное меню -->
+        <div class="small-9 columns">
+          <ul class="inline-list">
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Как заказать</a></li>
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Свадебный флорист</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        <!-- /Второстепенное меню -->
+
+        <!-- Контакты -->
+        <div class="small-3 columns text-right">
+          <div class="info">
+            <a class="phone" href="tel:88123545145">(812) 354-51-45</a><br /><small><a class="callback modal" href="#callback">Заказать звонок</a></small>
+          </div>
+        </div>
+        <!-- /Контакты -->
+      </div>
+
+      <div class="copy">
+        <div class="row">
+          <!-- Копирайт -->
+          <div class="small-9 columns">
+            © 2015 FLOVER — Доставка букетов в Санкт-Петербурге
+          </div>
+          <!-- /Копирайт -->
+
+          <!-- Авторство -->
+          <div class="small-3 columns text-right">
+            <a href="#">Сделано в UD</a>
+          </div>
+          <!-- /Авторство -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- Модальные окна -->
+    <!-- Заказ звонка -->
+    <div class="hide" id="callback">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Заказ звонка</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Заказ звонка -->
+    <!-- Быстрый заказ -->
+    <div class="hide" id="fast_order">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Быстрый заказ</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Примечания</label>
+          </div>
+          <div class="small-9 columns">
+            <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить заказ">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Быстрый заказ -->
+    <!-- /Модальные окна -->
+
+    <script src="/templates/flover/js/vendor/modernizr.js"></script>
+   
+    <script src="/templates/flover/js/vendor/jquery.js"></script>
+    <script src="/templates/flover/js/foundation.min.js"></script>
+    <script src="/templates/flover/js/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="/templates/flover/js/vendor/jquery-ui.min.js"></script>
+
+    <!-- Для корзины -->
+    <script src="/templates/flover/js/vendor/jquery.sticky-kit.min.js"></script>
+    <script src="/templates/flover/js/cart.js"></script>
+
+  </body>
+</html>

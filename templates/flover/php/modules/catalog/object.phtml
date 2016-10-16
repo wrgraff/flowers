@@ -1,0 +1,145 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$page = $variables['full:page'];
+
+/* @var umiHierarchyElement $page*/
+
+$images = $this->macros('catalog', 'getCatalogObjectImages', array(PAGE_ID));
+$bouquet = $this->macros('catalog', 'getCatalogObjectBouquet', array(PAGE_ID));
+$params = $this->macros('catalog', 'getCatalogObjectParams', array(PAGE_ID));
+$price = $this->macros('emarket', 'price', array(PAGE_ID, 'notemplate', false));
+$paperColor = $this->macros('catalog', 'getCatalogObjectPaperColor', array(PAGE_ID));
+
+$labelHit = $page->getValue('icon_hit');
+$labelNew = $page->getValue('icon_new');
+?>
+<section class="object-info" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="small-4 columns">
+            <?php if(is_array($images)):
+                $bigImage = $images['items']['nodes:item'][0]['value']->getFilePath(true);
+                $lastPosition = count($images['items']['nodes:item']) - 1;?>
+                <div class="img_cont">
+                    <?php if($labelHit || $labelNew):?>
+                        <div class="labels">
+                            <?php if($labelHit):?>
+                                <span class="label alert">Хит недели</span>
+                            <?php endif;?>
+                            <?php if($labelNew):?>
+                                <span class="label success">Новинка</span>
+                            <?php endif;?>
+                        </div>
+                    <?php endif;?>
+                </div>
+
+                <a class="th radius modal the_big_one" rel="flower-photo" href="<?php echo $bigImage;?>">
+                    <img src="<?php echo $bigImage;?>">
+                </a>
+
+                <div class="row">
+                    <?php for($i = 1; $i <= $lastPosition; $i++):
+                        $image = $images['items']['nodes:item'][$i];?>
+                        <div class="small-3 columns<?php if($i == $lastPosition):?> end<?php endif;?>">
+                            <a class="th radius modal" rel="flower-photo" href="<?php echo $image['value']->getFilePath(true);?>">
+                                <img src="<?php echo $this->makeThumbnailFull($image['value']->getFilePath(), 80, 80);?>">
+                            </a>
+                        </div>
+                    <?php endfor;?>
+                </div>
+            <?php endif;?>
+        </div>
+
+        <!-- Параметры и описание -->
+        <div class="small-5 columns">
+            <h1 umi:element-id="<?php echo PAGE_ID?>" umi:field-name="h1"><?php echo $page->getValue('h1');?></h1>
+            <?php if($anons = $page->getValue('object_anons')):?>
+                <div umi:element-id="<?php echo PAGE_ID?>" umi:field-name="object_anons">
+                    <?php echo $this->parseTplMacros($anons, PAGE_ID);?>
+                </div>
+            <?php endif;?>
+            <?php if(is_array($params)):?>
+                <table>
+                    <?php foreach($params['items']['nodes:item'] as $param):?>
+                        <tr>
+                            <td><?php echo $param['attribute:title'];?></td>
+                            <td umi:element-id="<?php echo PAGE_ID?>" umi:field-name="<?php echo $param['attribute:name'];?>"><?php echo $param['value'];?></td>
+                        </tr>
+                    <?php endforeach;?>
+                </table>
+            <?php endif;?>
+            <?php if(is_array($bouquet)):?>
+                <h3>Состав букета</h3>
+                <ul class="inline-list">
+                    <?php foreach($bouquet['items']['nodes:item'] as $bouquetItem):?>
+                        <li><?php echo $bouquetItem['name'];?><?php if($amount = getArrayKey($bouquetItem, 'amount')):?> <span class="label info round"><?php echo $amount;?></span><?php endif;?></li>
+                    <?php endforeach;?>
+                </ul>
+            <?php endif;?>
+        </div>
+        <div class="small-3 columns">
+            <div class="panel radius">
+                <form method="POST" action="/emarket/basket/put/element/<?php echo PAGE_ID?>/" data-cart="form" data-id="<?php echo PAGE_ID?>">
+                    <?php if(is_array($price)):?>
+                        <?php if(isset($price['price']['original'])):?>
+                            <div class="price sale"><span class="old" umi:element-id="<?php echo $id;?>" umi:field-name="price"><?php echo $price['price']['original']?> р.</span> <?php echo $price['price']['actual'];?> р.</div>
+                        <?php else:?>
+                            <div class="price" umi:element-id="<?php echo $id;?>" umi:field-name="price"><?php echo $price['price']['actual'];?> р.</div>
+                        <?php endif;?>
+                    <?php endif;?>
+                    <a class="button info outline expand modal" href="#fast_order" data-purchase-one-click="link" data-element-id="<?php echo PAGE_ID?>">Заказать сразу</a>
+                    <div class="variables">
+                        <?php if(is_array($paperColor)):?>
+                            <div class="row">
+                                <div class="small-6 columns">
+                                    <label class="inline">Цвет бумаги</label>
+                                </div>
+                                <div class="small-6 columns">
+                                    <div class="colors">
+                                        <?php foreach($paperColor['items']['nodes:item'] as $paperColorItem):
+                                            $paperColorItemId = $paperColorItem['attribute:id'];?>
+                                            <input type="radio" name="options[<?php echo $paperColor['attribute:name'];?>]" id="paper_color_<?php echo $paperColorItemId;?>" value="<?php echo $paperColorItemId;?>" /><label class="radius" for="paper_color_<?php echo $paperColorItemId;?>" style="background-color: <?php echo $paperColorItem['html_code'];?>;" data-tooltip aria-haspopup="true" title="<?php echo $paperColorItem['node:text'];?>"></label>
+                                        <?php endforeach;?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif;?>
+
+                        <div class="row">
+                            <div class="small-6 columns">
+                                <label class="inline" for="num">Количество</label>
+                            </div>
+                            <div class="small-6 columns">
+                                <div class="row collapse">
+                                    <div class="small-3 columns no-select">
+                                        <span class="button secondary prefix count-down"><i class="material-icons">keyboard_arrow_left</i></span>
+                                    </div>
+                                    <div class="small-6 columns">
+                                        <input type="number" value="1" id="num" name="amount" min="1">
+                                    </div>
+                                    <div class="small-3 columns no-select">
+                                        <span class="button secondary postfix count-up"><i class="material-icons">keyboard_arrow_right</i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php if($this->isCatalogObjectTypeIdBouquet($page->getObjectTypeId())):?>
+                        <input type="checkbox" name="add_card" id="card" value="1" /><label for="card">Добавить открытку — 150 р.</label>
+                    <?php endif;?>
+                    <button type="submit" class="button radius expand"><i class="material-icons">add_shopping_cart</i> Добавить в корзину</button>
+                </form>
+            </div>
+            <?php/*
+            <div class="favorites">
+                <a href="#"><i class="material-icons">star_border</i> Добавить в избранное</a>
+            </div>*/?>
+        </div>
+    </div>
+</section>
+
+<?php echo $this->render(null, 'modules/catalog/object/related');?>
+
+<?php echo $this->render(null, 'modules/catalog/object/vk_widget');?>
+
+<?php echo $this->render($variables, 'modules/catalog/object/description');?>

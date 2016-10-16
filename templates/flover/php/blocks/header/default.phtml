@@ -1,0 +1,43 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<header>
+    <?php echo $this->render(null, 'blocks/header/blocks/top_menu');?>
+    <section class="top-info">
+        <div class="row">
+            <div class="small-3 columns">
+                <?php if(!IS_DEFAULT):?>
+                    <a href="/"><img src="<?php echo TEMPLATE_RESOURCES?>/img/logo.svg" /></a>
+                <?php else:?>
+                    <img src="<?php echo TEMPLATE_RESOURCES?>/img/logo.svg" />
+                <?php endif;?>
+            </div>
+            <div class="small-2 columns">
+                <?php echo $this->render(null, 'blocks/header/blocks/mini_utp');?>
+            </div>
+            <div class="small-4 columns">
+                <?php echo $this->render(null, 'blocks/header/blocks/contacts');?>
+            </div>
+            <div class="small-3 columns text-right">
+                <?php echo $this->render(null, 'blocks/header/blocks/auth');?>
+            </div>
+        </div>
+    </section>
+    <div class="row">
+        <div class="small-12 columns sticked">
+            <nav class="main-menu">
+                <div class="row">
+                    <div class="small-9 columns">
+                        <?php echo $this->render(null, 'blocks/header/blocks/main_menu');?>
+                    </div>
+                    <div class="small-3 columns">
+                        <?php echo $this->render(null, 'blocks/header/blocks/cart');?>
+                        <?php echo $this->render(null, 'blocks/header/blocks/favorites');?>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <?php if(!IS_DEFAULT):?>
+        <?php echo $this->render(null, 'blocks/header/blocks/breadcrumbs');?>
+    <?php endif;?>
+</header>

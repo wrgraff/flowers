@@ -1,0 +1,460 @@
+// Slider
+$da-slider-width: 100%;
+$da-slider-height: 400px;
+$da-slider-min-width: 520px;
+$da-slider-border: 8px solid $primary-color;
+$da-slider-bg: $silver;
+$da-slider-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+
+// Slide
+$da-slide-text-align: left;
+$da-slide-width: 100%;
+$da-slide-height: 100%;
+
+// Elements
+$da-elements-position-left: 110%;
+$da-elements-opacity: 0;
+$da-current-elements-position-left: 10%;
+$da-current-elements-opacity: 1;
+// H2
+$da-h2-width: 50%;
+$da-h2-position-top: 60px;
+$da-h2-color: $white;
+$da-h2-font-size: rem-calc(66);
+$da-h2-text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+// p
+$da-p-width: 45%;
+$da-p-height: 80px;
+$da-p-position-top: 155px;
+$da-p-color: $jet;
+$da-p-font-size: rem-calc(18);
+// da-img
+$da-img-width: 30%;
+$da-img-height: 256px;
+$da-img-position-top: 70px;
+$da-img-position-left: 110%;
+$da-current-img-position-left: 60%;
+$da-img-line-height: 320px;
+// da-link
+$da-link-position-top: 270px;
+
+// Dots
+$da-dots-width: 100%;
+$da-dots-align: center;
+$da-dots-position-left: 0;
+$da-dots-position-bottom: 20px;
+$da-dots-user-select: none;
+// Dot
+$da-dot-size: 12px;
+$da-dot-margin: 3px;
+$da-dot-radius: 50%;
+$da-dot-bg: $primary-color;
+$da-dot-shadow-size: 1px 1px 1px;
+// Dot in
+$da-dot-in-size: 8px;
+$da-dot-in-bg: $white;
+$da-dot-in-gradient-1-color: $white;
+$da-dot-in-gradient-2-color: $smoke;
+$da-dot-in-gradient-3-color: $iron;
+$da-dot-in-percent-2-color: 47%;
+
+// Arrows
+$da-arrows-size: 30px;
+$da-arrows-opacity: 0;
+$da-arrows-hover-opacity: 1;
+$da-arrows-bg: $smoke;
+$da-arrows-position-top: 50%;
+$da-arrows-radius: 50%;
+$da-arrows-user-select: none;
+$da-arrows-shadow-size: 1px 1px 1px;
+// Arrow
+$da-arrow-size: 20px;
+$da-arrow-radius: 50%;
+$da-arrow-bg: transparent url(../images/arrows.png) no-repeat top left;
+$da-arrow-shadow-size: 1px 1px 2px;
+$da-arrow-hover-shadow-size: 1px 1px 4px;
+$da-arrow-active-shadow-size: 1px 1px 1px;
+$da-arrow-position: 15px;
+
+
+// Mixins
+$da-slider-transition-property: background-position 1.4s ease-in-out 0.3s;
+@mixin da-slider-transition {
+	-webkit-transition: $da-slider-transition-property;
+	-moz-transition: $da-slider-transition-property;
+	-o-transition: $da-slider-transition-property;
+	-ms-transition: $da-slider-transition-property;
+	transition: $da-slider-transition-property;
+}
+@mixin da-slide-position {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+@mixin da-dot-shadow {
+	box-shadow: $da-dot-shadow-size rgba(0,0,0,0.1) inset, $da-dot-shadow-size rgba(255,255,255,0.1);
+}
+@mixin da-dot-in-gradient {
+	background: -moz-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $da-dot-in-gradient-1-color), color-stop($da-dot-in-percent-2-color, $da-dot-in-gradient-2-color), color-stop(100%, $da-dot-in-gradient-3-color));
+	background: -webkit-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: -o-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: -ms-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$da-dot-in-gradient-1-color', endColorstr='$da-dot-in-gradient-3-color',GradientType=0 );
+}
+@mixin da-arrows-shadow {
+	box-shadow: $da-arrows-shadow-size rgba(0,0,0,0.1) inset, $da-arrows-shadow-size rgba(255,255,255,0.1);
+}
+$da-arrows-transition-property: opacity 0.4s ease-in-out 0.2s;
+@mixin da-arrows-transition {
+	-webkit-transition: $da-arrows-transition-property;
+	-moz-transition: $da-arrows-transition-property;
+	-o-transition: $da-arrows-transition-property;
+	-ms-transition: $da-arrows-transition-property;
+	transition: $da-arrows-transition-property;
+}
+@mixin da-arrow-shadow {
+	box-shadow: $da-arrow-shadow-size rgba(0,0,0,0.1);
+}
+@mixin da-arrow-hover-shadow {
+	box-shadow: $da-arrow-hover-shadow-size rgba(0,0,0,0.3);
+}
+@mixin da-arrow-active-shadow {
+	box-shadow: $da-arrow-active-shadow-size rgba(255,255,255,0.1);
+}
+
+.da-slider {
+	width: $da-slider-width;
+	min-width: $da-slider-min-width;
+	height: $da-slider-height;
+	position: relative;
+	overflow: hidden;
+	background: $da-slider-bg;
+	border-top: $da-slider-border;
+	border-bottom: $da-slider-border;
+	box-shadow: $da-slider-shadow;
+	@include da-slider-transition();
+
+	.da-slide {
+		@include da-slide-position();
+		width: $da-slide-width;
+		height: $da-slide-height;
+		text-align: $da-slide-text-align;
+
+		h2, p, .da-link, .da-img {
+			position: absolute;
+			opacity: $da-elements-opacity;
+			left: $da-elements-position-left;
+		}
+		h2 {
+			color: $da-h2-color;
+			font-size: $da-h2-font-size;
+			width: $da-h2-width;
+			top: $da-h2-position-top;
+			white-space: nowrap;
+			z-index: 10;
+			text-shadow: $da-h2-text-shadow;
+		}
+		p {
+			width: $da-p-width;
+			top: $da-p-position-top;
+			color: $da-p-color;
+			font-size: $da-p-font-size;
+			height: $da-p-height;
+			overflow: hidden;
+		}
+		.da-img {
+			text-align: center;
+			width: $da-img-width;
+			top: $da-img-position-top;
+			height: $da-img-height;
+			line-height: $da-img-line-height;
+			left: $da-img-position-left; /*60%*/
+		}
+		.da-link {
+			top: $da-link-position-top; /*depends on p height*/
+		}
+	}
+	.da-slide-current {
+		z-index: 1000;
+
+		h2, p, .da-link, .da-img {
+			left: $da-current-elements-position-left;
+			opacity: $da-current-elements-opacity;
+		}
+		.da-img {
+			left: $da-current-img-position-left;
+		}
+	}
+
+	.da-dots {
+		width: $da-dots-width;
+		position: absolute;
+		text-align: $da-dots-align;
+		left: $da-dots-position-left;
+		bottom: $da-dots-position-bottom;
+		z-index: 2000;
+		-moz-user-select: $da-dots-user-select;
+		-webkit-user-select: $da-dots-user-select;
+
+		span {
+			display: inline-block;
+			position: relative;
+			width: $da-dot-size;
+			height: $da-dot-size;
+			border-radius: $da-dot-radius;
+			background: $da-dot-bg;
+			margin: $da-dot-margin;
+			cursor: pointer;
+			@include da-dot-shadow();
+
+			&.da-dots-current:after{
+				content: '';
+				width: $da-dot-in-size;
+				height: $da-dot-in-size;
+				position: absolute;
+				top: ($da-dot-size - $da-dot-in-size) / 2;
+				left: ($da-dot-size - $da-dot-in-size) / 2;
+				border-radius: $da-dot-radius;
+				background: $da-dot-in-bg;
+				@include da-dot-in-gradient();
+			}
+		}
+	}
+
+	.da-arrows {
+		-moz-user-select: $da-arrows-user-select;
+		-webkit-user-select: $da-arrows-user-select;
+
+		span {
+			position: absolute;
+			top: $da-arrows-position-top;
+			height: $da-arrows-size;
+			width: $da-arrows-size;
+			border-radius: $da-arrows-radius;
+			background: $da-arrows-bg;
+			cursor: pointer;
+			z-index: 2000;
+			opacity: $da-arrows-opacity;
+			@include da-arrows-shadow();
+			@include da-arrows-transition();
+
+			&:after {
+				content: '';
+				position: absolute;
+				width: $da-arrow-size;
+				height: $da-arrow-size;
+				top: ($da-arrows-size - $da-arrow-size) / 2;
+				left: ($da-arrows-size - $da-arrow-size) / 2;
+				background: $da-arrow-bg;
+				border-radius: $da-arrow-radius;
+				@include da-arrow-shadow();
+			}
+			&:hover:after {
+				@include da-arrow-hover-shadow();
+			}
+			&.active:after {
+				@include da-arrow-active-shadow();
+			}
+			&.da-arrows-prev {
+				left: $da-arrow-position;
+			}
+			&.da-arrows-next{
+				right: $da-arrow-position;
+				&:after {
+					background-position: top right;
+				}
+			}
+		}
+	}
+	&:hover {
+		.da-arrows span {
+			opacity: $da-arrows-hover-opacity;
+		}
+	}
+}
+
+/* Animation classes and animations */
+$anim-timing: ease-in;
+$anim-mode: both;
+
+@mixin slide-animate($anim-name: fromRightAnim1, $anim-duration: 600ms, $anim-delay: 800ms ) {
+	-webkit-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	-moz-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	-o-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	-ms-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+}
+
+/* Slide in from the right*/
+.da-slide-fromright h2 {
+	@include slide-animate($anim-name: fromRightAnim1);
+}
+.da-slide-fromright p {
+	@include slide-animate($anim-name: fromRightAnim1);
+}
+.da-slide-fromright .da-link {
+	@include slide-animate($anim-name: fromRightAnim2, $anim-duration: 400ms, $anim-delay: 1200ms);
+}
+.da-slide-fromright .da-img {
+	@include slide-animate($anim-name: fromRightAnim3);
+}
+@mixin fromRightAnim1 {
+	0%{ left: 110%; opacity: 0; }
+	100%{ left: 10%; opacity: 1; }
+}
+@mixin fromRightAnim2 {
+	0%{ left: 110%; opacity: 0; }
+	1%{ left: 10%; opacity: 0; }
+	100%{ left: 10%; opacity: 1; }
+}
+@mixin fromRightAnim3 {
+	0%{ left: 110%; opacity: 0; }
+	100%{ left: 60%; opacity: 1; }
+}
+@-webkit-keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+@-webkit-keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+@-webkit-keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+   @-moz-keyframes fromRightAnim1 { @include fromRightAnim1(); }
+   @-moz-keyframes fromRightAnim2 { @include fromRightAnim2(); }
+   @-moz-keyframes fromRightAnim3 { @include fromRightAnim3(); }
+	 @-o-keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+	 @-o-keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+	 @-o-keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+	@-ms-keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+	@-ms-keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+	@-ms-keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+		@keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+		@keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+		@keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+
+/* Slide in from the left*/
+.da-slide-fromleft h2 {
+	@include slide-animate($anim-name: fromLeftAnim1, $anim-delay: 600ms);
+}
+.da-slide-fromleft p {
+	@include slide-animate($anim-name: fromLeftAnim1, $anim-delay: 600ms);
+}
+.da-slide-fromleft .da-link {
+	@include slide-animate($anim-name: fromLeftAnim2, $anim-duration: 400ms, $anim-delay: 1200ms);
+}
+.da-slide-fromleft .da-img {
+	@include slide-animate($anim-name: fromLeftAnim3, $anim-delay: 600ms);
+}
+@mixin fromLeftAnim1 {
+	0%{ left: -110%; opacity: 0; }
+	100%{ left: 10%; opacity: 1; }
+}
+@mixin fromLeftAnim2 {
+	0%{ left: -110%; opacity: 0; }
+	1%{ left: 10%; opacity: 0; }
+	100%{ left: 10%; opacity: 1; }
+}
+@mixin fromLeftAnim3 {
+	0%{ left: -110%; opacity: 0; }
+	100%{ left: 60%; opacity: 1; }
+}
+@-webkit-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+@-webkit-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+@-webkit-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+   @-moz-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+   @-moz-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+   @-moz-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+	 @-o-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+	 @-o-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+	 @-o-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+	@-ms-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+	@-ms-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+	@-ms-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+		@keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+		@keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+		@keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+
+/* Slide out to the right */
+.da-slide-toright h2{
+	@include slide-animate($anim-name: toRightAnim1, $anim-delay: 600ms);
+}
+.da-slide-toright p{
+	@include slide-animate($anim-name: toRightAnim1, $anim-delay: 300ms);
+}
+.da-slide-toright .da-link{
+	@include slide-animate($anim-name: toRightAnim2, $anim-duration: 400ms, $anim-delay: 0ms);
+}
+.da-slide-toright .da-img{
+	@include slide-animate($anim-name: toRightAnim3, $anim-delay: 0ms);
+}
+@mixin toRightAnim1 {
+	0%{ left: 10%;  opacity: 1; }
+	100%{ left: 100%; opacity: 0; }
+}
+@mixin toRightAnim2 {
+	0%{ left: 10%;  opacity: 1; }
+	99%{ left: 10%; opacity: 0; }
+	100%{ left: 100%; opacity: 0; }
+}
+@mixin toRightAnim3 {
+	0%{ left: 60%;  opacity: 1; }
+	30%{ left: 55%;  opacity: 1; }
+	100%{ left: 100%; opacity: 0; }
+}
+@-webkit-keyframes toRightAnim1 { @include toRightAnim1(); }
+@-webkit-keyframes toRightAnim2 { @include toRightAnim2(); }
+@-webkit-keyframes toRightAnim3 { @include toRightAnim3(); }
+   @-moz-keyframes toRightAnim1 { @include toRightAnim1(); }
+   @-moz-keyframes toRightAnim2 { @include toRightAnim2(); }
+   @-moz-keyframes toRightAnim3 { @include toRightAnim3(); }
+	 @-o-keyframes toRightAnim1 { @include toRightAnim1(); }
+	 @-o-keyframes toRightAnim2 { @include toRightAnim2(); }
+	 @-o-keyframes toRightAnim3 { @include toRightAnim3(); }
+	@-ms-keyframes toRightAnim1 { @include toRightAnim1(); }
+	@-ms-keyframes toRightAnim2 { @include toRightAnim2(); }
+	@-ms-keyframes toRightAnim3 { @include toRightAnim3(); }
+		@keyframes toRightAnim1 { @include toRightAnim1(); }
+		@keyframes toRightAnim2 { @include toRightAnim2(); }
+		@keyframes toRightAnim3 { @include toRightAnim3(); }
+
+/* Slide out to the left*/
+.da-slide-toleft h2 {
+	@include slide-animate($anim-name: toLeftAnim1, $anim-delay: 0ms);
+}
+.da-slide-toleft p {
+	@include slide-animate($anim-name: toLeftAnim1, $anim-delay: 300ms);
+}
+.da-slide-toleft .da-link {
+	@include slide-animate($anim-name: toLeftAnim2, $anim-duration: 400ms, $anim-delay: 0ms);
+}
+.da-slide-toleft .da-img{
+	@include slide-animate($anim-name: toLeftAnim3, $anim-delay: 600ms);
+}
+@mixin toLeftAnim1 {
+	0%{ left: 10%;  opacity: 1; }
+	30%{ left: 15%;  opacity: 1; }
+	100%{ left: -50%; opacity: 0; }
+}
+@mixin toLeftAnim2 {
+	0%{ left: 10%;  opacity: 1; }
+	99%{ left: 10%; opacity: 0; }
+	100%{ left: -50%; opacity: 0; }
+}
+@mixin toLeftAnim3 {
+	0%{ left: 60%;  opacity: 1; }
+	40%{ left: 70%;  opacity: 1; }
+	90%{ left: 0%;  opacity: 0; }
+	100%{ left: -50%; opacity: 0; }
+}
+@-webkit-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+@-webkit-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+@-webkit-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+   @-moz-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+   @-moz-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+   @-moz-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+	 @-o-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+	 @-o-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+	 @-o-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+	@-ms-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+	@-ms-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+	@-ms-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+		@keyframes toLeftAnim1 { @include toLeftAnim1(); }
+		@keyframes toLeftAnim2 { @include toLeftAnim2(); }
+		@keyframes toLeftAnim3 { @include toLeftAnim3(); }

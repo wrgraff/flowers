@@ -1,0 +1,19 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $page = $variables['full:page'];
+/* @var umiHierarchyElement $page*/?>
+<div class="row">
+    <div class="small-12 columns">
+        <h1 umi:object-id="<?php echo SITE_CONFIG_ID;?>" umi:field-name="404_title"><?php echo $this->getConfigValue('404_title');?></h1>
+    </div>
+</div>
+<section>
+    <div class="row">
+        <div class="small-9 columns" umi:object-id="<?php echo SITE_CONFIG_ID;?>" umi:field-name="404_content">
+            <?php echo $this->getConfigValue('404_content');?>
+        </div>
+        <div class="small-3 columns">
+            <?php echo $this->render(null, 'blocks/benefits');?>
+        </div>
+    </div>
+</section>

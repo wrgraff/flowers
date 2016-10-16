@@ -1,0 +1,25 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$form = false;
+
+if(!IS_AUTH) {
+    $registrate = $this->macros('users', 'registrate');
+
+    if(is_array($registrate)) {
+        $form = $this->macros('data', 'getCreateForm', array($registrate['type_id']));
+    }
+}
+
+if(is_array($form)):
+    $fields = $this->getAllFormFields($form);?>
+<div class="hide" id="registrate">
+    <div class="row">
+        <div class="small-12 columns">
+            <span class="h2">Регистрация</span>
+        </div>
+    </div>
+    <?php echo $this->render(null, 'modules/users/blocks/registrate');?>
+</div>
+<?php
+endif;?>

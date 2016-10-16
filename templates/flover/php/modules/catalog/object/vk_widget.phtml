@@ -1,0 +1,19 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$script = trim($this->getConfigValue('catalog_object_vk_widget_script'));
+$comments = trim($this->getConfigValue('catalog_object_vk_widget_comments'));
+$group = trim($this->getConfigValue('catalog_object_vk_widget_group'));?>
+<?php if($script && ($comments || $group)):?>
+<?php echo $script;?>
+<section>
+    <div class="row">
+        <div class="small-9 columns">
+            <?php echo $comments;?>
+        </div>
+        <div class="small-3 columns">
+            <?php echo $group;?>
+        </div>
+    </div>
+</section>
+<?php endif;?>

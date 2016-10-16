@@ -1,0 +1,25 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$page = $variables['full:page'];
+
+/* @var umiHierarchyElement $page*/
+
+$descriptionTitle = $page->getValue('object_description_title');
+$descriptionContent = $page->getValue('object_description_content');
+?>
+
+<section class="after-text">
+    <div class="row">
+        <div class="small-9 columns">
+            <?php if($descriptionTitle):?>
+                <h2 umi:element-id="<?php echo PAGE_ID?>" umi:field-name="object_description_title"><?php echo $descriptionTitle;?></h2>
+            <?php endif;?>
+            <div umi:element-id="<?php echo PAGE_ID?>" umi:field-name="object_description_content">
+                <?php echo $descriptionContent;?>
+            </div>
+        </div>
+        <div class="small-3 columns">
+        </div>
+    </div>
+</section>

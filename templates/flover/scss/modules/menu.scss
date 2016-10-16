@@ -1,0 +1,373 @@
+$top-menu-margin: rem-calc(25);
+
+.top-menu {
+	padding-top: rem-calc(8);
+	background-color: $primary-color;
+	background-image: url('../img/bg/wave.svg');
+	background-repeat: repeat-x;
+	background-position: left bottom;
+
+	.inline-list {
+		margin-left: -$top-menu-margin;
+
+		li {
+			margin-left: $top-menu-margin;
+			font-weight: $font-weight-light;
+
+			a {
+				color: $white;
+			}
+		}
+	}
+}
+
+$main-menu-color: scale-color($info-color, $lightness: 75%);
+$main-menu-border: 1px solid $main-menu-color;
+$main-menu-height: 75px;
+$main-menu-margin: rem-calc(12);
+$main-menu-padding: rem-calc(8);
+.main-menu {
+	margin-bottom: rem-calc(5);
+	border-top: $main-menu-border;
+	border-bottom: $main-menu-border;
+	background-color: rgba(255,255,255,.95);
+	position: relative;
+	@include clearfix;
+
+	.elastic-menu {
+		display: table-row;
+		margin: 0;
+		padding: 0;
+
+		> li {
+			display: table-cell;
+			vertical-align: middle;
+			height: 100%;
+			padding: 0 $main-menu-margin;
+			&:first-child {
+				padding-left: 0;
+			}
+
+			> a {
+				position: relative;
+				display: table-cell;
+				height: $main-menu-height;
+				padding: 0 $main-menu-padding;
+				color: $black;
+				vertical-align: middle;
+				line-height: 1.2;
+				font-weight: $font-weight-light;
+
+				&:hover {
+					color: $primary-color;
+					background-color: $snow;
+				}
+			}
+			&.active {
+				> a {
+					font-weight: $font-weight-bold;
+					color: $info-color;
+				}
+			}
+			&.primary {
+				> a {
+					color: $primary-color;
+					font-weight: $font-weight-bold;
+				}
+			}
+		}
+	}
+	&.top {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		border-top: none;
+		z-index: 500;
+
+		.row {
+			max-width: $row-width;
+			margin: 0 auto;
+		}
+	}
+}
+
+$checkout-width: 400px;
+$checkout-bg-hover: rgba(255,255,255,.4);
+$checkout-button-transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1), padding 0.6s cubic-bezier(0.2, 1, 0.3, 1), background-color .3s ease-out;
+@mixin checkout-button-transition {
+	-webkit-transition: -webkit-transform $checkout-button-transition;
+	transition: transform $checkout-button-transition;
+}
+$checkout-hover-button-transform: translate3d(-250px, 0, 0);
+@mixin checkout-hover-button-transform {
+	-webkit-transform: $checkout-hover-button-transform;
+	transform: $checkout-hover-button-transform;
+}
+$checkout-hover-button-transform-small: translate3d(-325px, 0, 0);
+@mixin checkout-hover-button-transform-small {
+	-webkit-transform: $checkout-hover-button-transform-small;
+	transform: $checkout-hover-button-transform-small;
+}
+$checkout-order-transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+@mixin checkout-order-transition {
+	-webkit-transition: -webkit-transform $checkout-order-transition, background $checkout-order-transition;
+	transition: transform $checkout-order-transition, background $checkout-order-transition;
+}
+$checkout-order-transform: translate3d(100%, -100%, 0) translate3d(($main-menu-height * -2), $main-menu-height, 0);
+@mixin checkout-order-transform {
+	-webkit-transform: $checkout-order-transform;
+	transform: $checkout-order-transform;
+}
+$checkout-order-hover-transform: translate3d(0, 0, 0);
+@mixin checkout-order-hover-transform {
+	-webkit-transform: $checkout-order-hover-transform;
+	transform: $checkout-order-hover-transform;
+}
+$checkout-order-hover-transition-delay: 0s;
+@mixin checkout-order-hover-transition-delay {
+	-webkit-transform: $checkout-order-hover-transition-delay;
+	transform: $checkout-order-hover-transition-delay;
+}
+$checkout-option-transform: translate3d(50px, 0, 0);
+@mixin checkout-option-transform {
+	-webkit-transform: $checkout-option-transform;
+	transform: $checkout-option-transform;
+}
+$checkout-option-hover-transform: translate3d(0, 0, 0);
+@mixin checkout-option-hover-transform {
+	-webkit-transform: $checkout-option-hover-transform;
+	transform: $checkout-option-hover-transform;
+}
+$checkout-option-hover-transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.2, 1, 0.3, 1), background-color .3s ease-out;
+@mixin checkout-option-hover-transition {
+	-webkit-transition: -webkit-transform $checkout-option-hover-transition;
+	transition: transform $checkout-option-hover-transition;
+}
+$checkout-option-hover-transition-delay: 0.18s;
+@mixin checkout-option-hover-transition-delay {
+	-webkit-transition-delay: $checkout-option-hover-transition-delay;
+	transition-delay: $checkout-option-hover-transition-delay;
+}
+$checkout-option-hover-transition-delay-on: 0s;
+@mixin checkout-option-hover-transition-delay-on {
+	-webkit-transition-delay: $checkout-option-hover-transition-delay-on;
+	transition-delay: $checkout-option-hover-transition-delay-on;
+}
+$checkout-order-inner-hover-transition: opacity 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+@mixin checkout-order-inner-hover-transition {
+	-webkit-transition: $checkout-order-inner-hover-transition;
+	transition: $checkout-order-inner-hover-transition;
+}
+$checkout-summary-tr-transform: translate3d(250px, 0, 0);
+@mixin checkout-summary-tr-transform {
+	-webkit-transform: $checkout-summary-tr-transform;
+	transform: $checkout-summary-tr-transform;
+}
+$checkout-summary-tr-hover-transform: translate3d(0, 0, 0);
+@mixin checkout-summary-tr-hover-transform {
+	-webkit-transform: $checkout-summary-tr-hover-transform;
+	transform: $checkout-summary-tr-hover-transform;
+}
+$checkout-summary-tr-hover-transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+@mixin checkout-summary-tr-hover-transition {
+	-webkit-transition: -webkit-transform $checkout-summary-tr-hover-transition;
+	transition: transform $checkout-summary-tr-hover-transition;
+}
+$checkout-summary-tr-hover-transition-delay: 0.015s;
+body {
+	overflow-x: hidden;
+}
+.checkout {
+	position: relative;
+	z-index: 10;
+	display: block;
+	width: $main-menu-height;
+	height: $main-menu-height;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	@media #{$large-up} {
+		width: $main-menu-height * 2;
+	}
+
+	.checkout-button {
+		position: relative;
+		z-index: 10;
+		display: block;
+		overflow: hidden;
+		width: 100%;
+		height: $main-menu-height;
+		color: $black;
+		line-height: $main-menu-height;
+		@include checkout-button-transition;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+
+		.text {
+			display: none;
+			
+			@media #{$large-up} {
+				display: inline;
+			}
+		}
+		&:hover {
+			background-color: $checkout-bg-hover;
+
+			.text {
+				display: inline;
+			}
+		}
+	}
+	.checkout-order {
+		position: absolute;
+		top: 0;
+		right: 0;
+		overflow: hidden;
+		max-width: 100vw;
+		width: $checkout-width;
+		text-align: right;
+		pointer-events: none;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			@include checkout-order-transition;
+			@include checkout-order-transform;
+		}
+	}
+	.checkout-option {
+		margin-bottom: 0;
+		opacity: 0;
+		@include checkout-option-transform;
+	}
+	.checkout-order-inner {
+		position: relative;
+		padding: rem-calc(30);
+		opacity: 0;
+		overflow: hidden;
+	}
+	.checkout-summary {
+		margin: rem-calc(55 0 15);
+		width: 100%;
+		text-align: left;
+		background: none;
+		border: none;
+		thead, tfoot {
+			background: none;
+		}
+		thead, tfoot {
+			tr th {
+				color: $info-color;
+			}
+		}
+		tr {
+			@include checkout-summary-tr-transform;
+		}
+		tr:nth-child(even) {
+			background: $checkout-bg-hover;
+		}
+	}
+
+	&.full:hover {
+		.checkout-button {
+			width: $checkout-width;
+			padding: rem-calc(0 30);
+			@include checkout-hover-button-transform-small;
+
+			@media #{$large-up} {
+				@include checkout-hover-button-transform;
+			}
+		}
+		.checkout-order {
+			pointer-events: auto;
+
+			&:before {
+				background: scale-color($main-menu-color, $lightness: 40%);
+				@include checkout-order-hover-transform;
+				@include checkout-order-hover-transition-delay;
+			}
+		}
+		.checkout-option {
+			opacity: 1;
+			@include checkout-option-hover-transform;
+			@include checkout-option-hover-transition;
+			@include checkout-option-hover-transition-delay;
+
+			&:hover {
+				@include checkout-option-hover-transition-delay-on;
+			}
+		}
+		.checkout-order-inner {
+			opacity: 1;
+			@include checkout-order-inner-hover-transition;
+		}
+		.checkout-summary {
+			border-collapse: collapse;
+			border-spacing: 0;
+			tfoot tr {
+				-webkit-transition-delay: $checkout-summary-tr-hover-transition-delay * 7;
+				transition-delay: $checkout-summary-tr-hover-transition-delay * 7;
+			}
+			tr {
+				@include checkout-summary-tr-hover-transform;
+				@include checkout-summary-tr-hover-transition;
+
+				th, td {
+					padding-left: rem-calc(5);
+					padding-right: rem-calc(5);
+				}
+				td:first-child {
+					font-weight: $font-weight-bold;
+					span {
+						color: $info-color;
+						font-weight: $font-weight-light;
+					}
+				}
+
+				&:nth-child(1) {
+					-webkit-transition-delay: $checkout-summary-tr-hover-transition-delay;
+					transition-delay: $checkout-summary-tr-hover-transition-delay;
+				}
+				&:nth-child(2) {
+					-webkit-transition-delay: $checkout-summary-tr-hover-transition-delay * 2;
+					transition-delay: $checkout-summary-tr-hover-transition-delay * 2;
+				}
+				&:nth-child(3) {
+					-webkit-transition-delay: $checkout-summary-tr-hover-transition-delay * 3;
+					transition-delay: $checkout-summary-tr-hover-transition-delay * 3;
+				}
+				&:nth-child(4) {
+					-webkit-transition-delay: $checkout-summary-tr-hover-transition-delay * 4;
+					transition-delay: $checkout-summary-tr-hover-transition-delay * 4;
+				}
+				&:nth-child(5) {
+					-webkit-transition-delay: $checkout-summary-tr-hover-transition-delay * 5;
+					transition-delay: $checkout-summary-tr-hover-transition-delay * 5;
+				}
+				&:nth-child(6) {
+					-webkit-transition-delay: $checkout-summary-tr-hover-transition-delay * 6;
+					transition-delay: $checkout-summary-tr-hover-transition-delay * 6;
+				}
+			}
+			th:last-child, td:last-child {
+				text-align: right;
+			}
+		}
+	}
+}
+/* @media #{$medium-only} {
+	.checkout {
+		width: 50px;
+	}
+}*/
+
+.sub-nav {
+	padding-bottom: $sub-nav-list-padding-top;
+	background-color: $secondary-color;
+	border-radius: $global-radius;
+}

@@ -1,0 +1,483 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLOVER</title>
+
+    <link rel="stylesheet" href="/templates/flover/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Верхнее меню -->
+      <section class="top-menu">
+        <div class="row">
+          <div class="small-12 columns">
+            <ul class="inline-list">
+              <li><a href="/about/">О нас</a></li>
+              <li><a href="#">Как заказать</a></li>
+              <li><a href="#">Доставка и оплата</a></li>
+              <li><a href="#">Свадебный флорист</a></li>
+              <li><a href="/contacts/">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- /Верхнее меню -->
+
+      <!-- Инфоблок -->
+      <section class="top-info">
+        <div class="row">
+          <!-- Лого -->
+          <div class="small-3 columns">
+            <img src="/templates/flover/img/logo.png" />
+          </div>
+          <!-- /Лого -->
+
+          <!-- Мини УТП -->
+          <div class="small-2 columns">
+            <div class="info">
+              <strong>Цветы и&nbsp;букеты с&nbsp;доставкой</strong>
+            </div>
+          </div>
+          <!-- /Мини УТП -->
+
+          <!-- Контакты -->
+          <div class="small-4 columns">
+            <div class="info">
+              <a class="phone" href="tel:88123545145">(812) 354-51-45</a><small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
+              <small>Время работы с 9:00 до 21:00</small>
+            </div>
+          </div>
+          <!-- /Контакты -->
+
+          <!-- Авторизация и регистрация -->
+          <div class="small-3 columns text-right">
+            <a href="#" class="button secondary outline dropdown" data-dropdown="my">Мой кабинет</a>
+            <ul id="my" data-dropdown-content class="f-dropdown text-left">
+              <li><a href="#">Профиль</a></li>
+              <li><a href="#">Заказы <span class="label secondary round">1</span></a></li>
+              <li><a href="#">Избранное <span class="label secondary round">3</span></a></li>
+              <li><a href="#">Выйти</a></li>
+            </ul>
+          </div>
+          <!-- /Авторизация и регистрация -->
+        </div>
+      </section>
+      <!-- /Инфоблок -->
+
+      <!-- Основное меню -->
+      <div class="row">
+        <div class="small-12 columns sticked">
+          <nav class="main-menu">
+            <div class="row">
+              <div class="small-9 columns">
+                <ul class="elastic-menu">
+                  <li><a href="/catalog/">Букеты</a></li>
+                  <li><a href="/catalog/">Композиции</a></li>
+                  <li><a href="/catalog/">Свадебные букеты</a></li>
+                  <li><a href="/catalog/">Сувениры</a></li>
+                  <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+                </ul>
+              </div>
+              <div class="small-3 columns">
+                <div class="checkout right full">
+                  <a class="checkout-button" href="/cart/">
+                    <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round">3</span>
+                  </a>
+                  <div class="checkout-order">
+                    <div class="checkout-order-inner">
+                      <table class="checkout-summary">
+                        <tfoot>
+                          <tr>
+                            <th colspan="2">Итого <span class="checkout-total">3950 р.</span></th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <tr>
+                            <td><span>Букет</span> Ностальгия</td>
+                            <td>2500 р.</td>
+                          </tr>
+                          <tr>
+                            <td><span>Конфеты</span> Ferrero Rocher, 24 шт</td>
+                            <td>1300 р.</td>
+                          </tr>
+                          <tr>
+                            <td><span>Открытка</span></td>
+                            <td>150 р.</td>
+                          </tr>
+                        </tbody>
+                      </table><!-- /checkout-summary -->
+                      <a href="#" class="button radius info checkout-option">Оформить заказ</a>
+                    </div><!-- /checkout__order-inner -->
+                  </div><!-- /checkout__order -->
+                </div><!-- /checkout -->
+                <ul class="elastic-menu right">
+                  <li><a href="#"><i class="material-icons">star</i> <span class="label round">3</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- /Основное меню -->
+    </header>
+    
+    <!-- Заголовок -->
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Мой кабинет</h1>
+      </div>
+    </div>
+    <!-- /Заголовок -->
+
+    <!-- Контент -->
+    <section>
+      <div class="row">
+        <div class="small-12 columns">
+          <!-- Подменю -->
+          <dl class="sub-nav">
+            <dd><a href="/emarket/personal/">Заказы</a></dd>
+            <dd class="active"><a href="/emarket/profile/">Профиль</a></dd>
+          </dl>
+          <!-- /Подменю -->
+
+          <!-- Данные ЛК -->
+          <fieldset>
+            <legend>Данные аккаунта</legend>
+            <div class="row">
+              <div class="small-3 columns">
+                <label class="inline" for="login">Логин</label>
+              </div>
+              <div class="small-6 columns end">
+                <input id="login" type="text" value="login" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-3 columns">
+                <label class="inline" for="pass">Пароль</label>
+              </div>
+              <div class="small-6 columns end">
+                <input id="pass" type="password" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-3 columns">
+                <label class="inline" for="pass-ok">Подтверждение пароля</label>
+              </div>
+              <div class="small-6 columns end">
+                <input id="pass-ok" type="password" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-3 columns">
+                <label class="inline" for="email">Электронный адрес</label>
+              </div>
+              <div class="small-6 columns end">
+                <input id="email" type="email" value="info@sdvsagfb.ru" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Персональные данные</legend>
+            <div class="row">
+              <div class="small-3 columns">
+                <label class="inline" for="name">Имя</label>
+              </div>
+              <div class="small-6 columns end">
+                <input id="name" type="text" value="Даниил" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-3 columns">
+                <label class="inline" for="surname">Фамилия</label>
+              </div>
+              <div class="small-6 columns end">
+                <input id="surname" type="text" value="Квят" />
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="row">
+            <div class="small-12 columns text-right">
+              <input class="button radius large" type="submit" value="Сохранить" />
+            </div>
+          </div>
+          <!-- /Данные ЛК -->
+        </div>
+      </div>
+    </section>
+    <!-- /Контент -->
+
+    <footer>
+      <div class="row">
+        <!-- Основное меню -->
+        <div class="small-9 columns">
+          <ul class="inline-list">
+            <li><a href="#">Букеты</a></li>
+            <li><a href="#">Композиции</a></li>
+            <li><a href="#">Свадебные букеты</a></li>
+            <li><a href="#">Мероприятия</a></li>
+            <li><a href="#">Игрушки</a></li>
+            <li><a href="#">Сувениры</a></li>
+          </ul>
+        </div>
+        <!-- /Основное меню -->
+        <!-- Поиск -->
+        <div class="small-3 columns">
+          <form>
+            <input class="radius" type="search" placeholder="Искать" />
+          </form>
+        </div>
+        <!-- /Поиск -->
+        
+        <div class="small-12 columns">
+          <hr />
+        </div>
+
+        <!-- Второстепенное меню -->
+        <div class="small-9 columns">
+          <ul class="inline-list">
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Как заказать</a></li>
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Свадебный флорист</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        <!-- /Второстепенное меню -->
+
+        <!-- Контакты -->
+        <div class="small-3 columns text-right">
+          <div class="info">
+            <a class="phone" href="tel:88123545145">(812) 354-51-45</a><br /><small><a class="callback modal" href="#callback">Заказать звонок</a></small>
+          </div>
+        </div>
+        <!-- /Контакты -->
+      </div>
+
+      <div class="copy">
+        <div class="row">
+          <!-- Копирайт -->
+          <div class="small-9 columns">
+            © 2015 FLOVER — Доставка букетов в Санкт-Петербурге
+          </div>
+          <!-- /Копирайт -->
+
+          <!-- Авторство -->
+          <div class="small-3 columns text-right">
+            <a href="http://uniteddesign.ru/" rel="nofollow" target="_blank">Сделано в UD</a>
+          </div>
+          <!-- /Авторство -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- Модальные окна -->
+    <!-- Заказ звонка -->
+    <div class="hide" id="callback">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Заказ звонка</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Заказ звонка -->
+    <!-- Быстрый заказ -->
+    <div class="hide" id="fast_order">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Быстрый заказ</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Примечания</label>
+          </div>
+          <div class="small-9 columns">
+            <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
+          </div>
+        </div>
+
+        <input type="hidden" value="flower_id" /><!-- Реально ли в этот инпут записать id или имя товара, который быстро заказывают? Или же стоит это сделать при помощи js? -->
+
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить заказ">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Быстрый заказ -->
+    <!-- Регистрация -->
+    <div class="hide" id="registrate">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Регистрация</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="new_login" class="inline">Логин</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="new_login" placeholder="Login">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="email" class="inline">Электронная почта</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="email" id="email" placeholder="name@domain.ru">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Зарегистрироваться">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Регистрация -->
+    <!-- Сбор букета -->
+    <div class="hide" id="my_flavor">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Собрать свой уникальный букет</span>
+          <p>Мы предоставляем уникальную возможность заказать индивидуальный букет. Опишите, что именно вы хотите подарить, какие эмоции и чувства передать, а мы соберем для вас совершенно неповторимый, единственный в своем роде букет.</p>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="email" class="inline">Электронная почта</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="email" id="email" placeholder="name@domain.ru">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Описание букета</label>
+          </div>
+          <div class="small-9 columns">
+            <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Сбор букета -->
+    <!-- /Модальные окна -->
+
+    <script src="/templates/flover/js/vendor/modernizr.js"></script>
+   
+    <script src="/templates/flover/js/vendor/jquery.js"></script>
+    <script src="/templates/flover/js/foundation.min.js"></script>
+    <script src="/templates/flover/js/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="/templates/flover/js/vendor/jquery-ui.min.js"></script>
+    <script src="/templates/flover/js/scripts.js"></script>
+
+    <!-- Скрипт для фильтра. Придется подгружать здесь же, чтобы редактировать максимальные и минимальные значения -->
+    <script type="text/javascript">
+        $(function() {
+            var min_buy_price = Math.floor(560 / 100) * 100; // минимальное значение цены. В примере — 500. В фильтре выводится значение 5000
+            var max_buy_price = Math.ceil(4880 / 100) * 100; // максимальное значение цены. В примере — 4800. В фильтре выводится значение 40000
+            $('#buy_price').slider({
+                range: true,
+                min: min_buy_price,
+                max: max_buy_price,
+                step: 100, // шаг слайдера
+                values: [min_buy_price, max_buy_price],  // начальные значения - позиции ползунков на шкале
+
+                slide: function( event, ui ) {
+                    $( '#from' ).val( ui.values[ 0 ] ); // выводим  значение от
+                    $( '#to' ).val( ui.values[ 1 ] ); // выводим  значение до
+                }
+            });
+            $( '#from' ).val( $( '#buy_price' ).slider('values', 0) );
+            $( '#to' ).val( $( '#buy_price' ).slider('values', 1) );
+        });
+    </script>
+    <!-- /Скрипт для фильтра -->
+  </body>
+</html>

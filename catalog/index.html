@@ -1,0 +1,864 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FLOVER</title>
+
+    <link rel="stylesheet" href="/templates/flover/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Верхнее меню -->
+      <section class="top-menu">
+        <div class="row">
+          <div class="small-12 columns">
+            <ul class="inline-list">
+              <li><a href="/about/">О нас</a></li>
+              <li><a href="#">Как заказать</a></li>
+              <li><a href="#">Доставка и оплата</a></li>
+              <li><a href="#">Свадебный флорист</a></li>
+              <li><a href="/contacts/">Контакты</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- /Верхнее меню -->
+
+      <!-- Инфоблок -->
+      <section class="top-info">
+        <div class="row">
+          <!-- Лого -->
+          <div class="small-3 columns">
+            <img src="/templates/flover/img/logo.png" />
+          </div>
+          <!-- /Лого -->
+
+          <!-- Мини УТП -->
+          <div class="small-2 columns">
+            <div class="info">
+              <strong>Цветы и&nbsp;букеты с&nbsp;доставкой</strong>
+            </div>
+          </div>
+          <!-- /Мини УТП -->
+
+          <!-- Контакты -->
+          <div class="small-4 columns">
+            <div class="info">
+              <a class="phone" href="tel:88123545145">(812) 354-51-45</a><small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
+              <small>Время работы с 9:00 до 21:00</small>
+            </div>
+          </div>
+          <!-- /Контакты -->
+
+          <!-- Авторизация и регистрация -->
+          <div class="small-3 columns text-right">
+            <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
+            <a href="#" class="button secondary outline dropdown" data-dropdown="login">Войти</a>
+            <div id="login" data-dropdown-content class="f-dropdown content medium">
+              <form class="login">
+                <input type="text" placeholder="Логин" />
+                <input type="password" placeholder="Пароль" />
+                <div class="row collapse">
+                  <div class="small-8 columns">
+                    <input type="checkbox" id="remember" /><label for="remember">Запомнить меня</label>
+                  </div>
+                  <div class="small-4 columns">
+                    <button class="button radius small expand" type="submit">Войти</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /Авторизация и регистрация -->
+        </div>
+      </section>
+      <!-- /Инфоблок -->
+
+      <!-- Основное меню -->
+      <div class="row">
+        <div class="small-12 columns sticked">
+          <nav class="main-menu">
+            <div class="row">
+              <div class="small-9 columns">
+                <ul class="elastic-menu">
+                  <li class="active"><a href="/catalog/">Букеты</a></li>
+                  <li><a href="/catalog/">Композиции</a></li>
+                  <li><a href="/catalog/">Свадебные букеты</a></li>
+                  <li><a href="/catalog/">Сувениры</a></li>
+                  <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+                </ul>
+              </div>
+              <div class="small-3 columns">
+                <div class="checkout right full">
+                  <a class="checkout-button" href="/cart/">
+                    <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round">3</span>
+                  </a>
+                  <div class="checkout-order">
+                    <div class="checkout-order-inner">
+                      <table class="checkout-summary">
+                        <tfoot>
+                          <tr>
+                            <th colspan="2">Итого <span class="checkout-total">3950 р.</span></th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <tr>
+                            <td><span>Букет</span> Ностальгия</td>
+                            <td>2500 р.</td>
+                          </tr>
+                          <tr>
+                            <td><span>Конфеты</span> Ferrero Rocher, 24 шт</td>
+                            <td>1300 р.</td>
+                          </tr>
+                          <tr>
+                            <td><span>Открытка</span></td>
+                            <td>150 р.</td>
+                          </tr>
+                        </tbody>
+                      </table><!-- /checkout-summary -->
+                      <a href="#" class="button radius info checkout-option">Оформить заказ</a>
+                    </div><!-- /checkout__order-inner -->
+                  </div><!-- /checkout__order -->
+                </div><!-- /checkout -->
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <!-- /Основное меню -->
+
+      <!-- Хлебные крошки -->
+      <div class="row">
+        <div class="small-12 columns">
+          <ul class="breadcrumbs">
+            <li><a href="/"><i class="material-icons md-18">home</i></a></li>
+            <li class="current"><a href="/catalog/">Букеты</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /Хлебные крошки -->
+    </header>
+    
+    <!-- Заголовок -->
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Букеты</h1>
+      </div>
+    </div>
+    <!-- /Заголовок -->
+
+    <!-- Контент -->
+    <section>
+      <div class="row">
+        <!-- Левый блок -->
+        <div class="small-9 columns">
+          <!-- Товары -->
+          <ul class="small-block-grid-3 objects">
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="/templates/flover/img/catalog/fl_5.jpg" />
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">3200 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="/templates/flover/img/catalog/fl_6.jpg" />
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">1584 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="/templates/flover/img/catalog/fl_7.jpg" />
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">2565 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/e1c5a0/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">5895 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/ddad4d/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">1584 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/f0d0bc/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">2565 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/e1c5a0/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">5895 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/ddad4d/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">1584 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/f0d0bc/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">2565 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/e1c5a0/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">5895 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/ff71c4/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">3200 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="item">
+                <a href="/catalog/item/">
+                  <figure>
+                    <img src="http://placehold.it/280x280/ddad4d/ffffff?text=Flower">
+                    <figcaption>
+                      <strong>Ностальгия</strong>
+                      <span class="price">1584 р.</span>
+                    </figcaption>
+                  </figure>
+                </a>
+                <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                <div class="bottom">
+                  <ul class="buttons">
+                    <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                    <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <!-- /Товары -->
+
+          <!-- Мозговитая пагинация -->
+          <div class="row">
+            <div class="small-8 columns">
+              <ul class="pagination">
+                <li class="arrow unavailable"><a href=""><i class="material-icons">keyboard_arrow_left</i></a></li>
+                <li class="current"><a href="">1</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">4</a></li>
+                <li class="unavailable"><a href="">&hellip;</a></li>
+                <li><a href="">12</a></li>
+                <li><a href="">13</a></li>
+                <li class="arrow"><a href=""><i class="material-icons">keyboard_arrow_right</i></a></li>
+              </ul>
+            </div>
+            <div class="small-4 columns">
+              <a class="button secondary outline expand" href="#">Загрузить еще</a>
+            </div>
+          </div>
+          <!-- /Мозговитая пагинация -->
+        </div>
+        <!-- /Левый блок -->
+
+        <!-- Правый блок -->
+        <div class="small-3 columns">
+          <!-- Поиск -->
+          <form>
+            <input class="radius" type="search" placeholder="Искать" />
+          </form>
+          <!-- /Поиск -->
+
+          <!-- Сортировка -->
+          <form>
+            <div class="row">
+              <div class="small-4 columns">
+                <label for="sorting" class="right inline">Сортировка</label>
+              </div>
+              <div class="small-8 columns">
+                <select id="sorting">
+                  <option value="husker">Цене</option>
+                  <option value="starbuck">Новизне</option>
+                  <option value="hotdog" selected="">Популярности</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <!-- /Сортировка -->
+
+          <!-- Фильтр -->
+          <div class="filter">
+            <form>
+              <fieldset>
+                <legend>Стоимость</legend>
+                <div id="buy_price"></div>
+                <div class="row collapse">
+                    <div class="small-6 columns">
+                        <input type="text" class="slider-value" id="from" readonly>
+                    </div>
+                    <div class="small-6 columns">
+                        <input type="text" class="slider-value text-right" id="to" readonly>
+                    </div>
+                </div>
+              </fieldset>
+              <fieldset>
+                <legend>Случай</legend>
+                <input type="checkbox" id="wedding" /><label for="wedding">Свадьба</label>
+                <input type="checkbox" id="birthday" /><label for="birthday">День рождения</label>
+                <input type="checkbox" id="congrats" /><label for="congrats">Поздравление</label>
+                <input type="checkbox" id="sorry" /><label for="sorry">Извинение</label>
+                <input type="checkbox" id="business" /><label for="business">Бизнес-поздравление</label>
+                <input type="checkbox" id="thanks" /><label for="thanks">Благодарность</label>
+                <input type="checkbox" id="love" /><label for="love">Сказать люблю</label>
+              </fieldset>
+              <fieldset>
+                <legend>Кому</legend>
+                <input type="checkbox" id="woman" /><label for="woman">Женщине</label>
+                <input type="checkbox" id="man" /><label for="man">Мужчине</label>
+                <input type="checkbox" id="child" /><label for="child">Ребенку</label>
+                <input type="checkbox" id="partner" /><label for="partner">Деловому партнеру</label>
+                <input type="checkbox" id="family" /><label for="family">Семье</label>
+              </fieldset>
+              <fieldset class="colors">
+                <legend>Цветовая гамма</legend>
+                <input type="checkbox" id="6de3f5" /><label for="6de3f5" style="background-color: #6de3f5;"></label>
+                <input type="checkbox" id="f21700" /><label for="f21700" style="background-color: #f21700;"></label>
+                <input type="checkbox" id="e54db5" /><label for="e54db5" style="background-color: #e54db5;"></label>
+                <input type="checkbox" id="f7e200" /><label for="f7e200" style="background-color: #f7e200;"></label>
+                <input type="checkbox" id="fd3e62" /><label for="fd3e62" style="background-color: #fd3e62;"></label>
+                <input type="checkbox" id="c5d6d8" /><label for="c5d6d8" style="background-color: #c5d6d8;"></label>
+                <input type="checkbox" id="c857e9" /><label for="c857e9" style="background-color: #c857e9;"></label>
+                <input type="checkbox" id="ffffff" /><label for="ffffff" style="background-color: #ffffff;"></label>
+                <input type="checkbox" id="7cc563" /><label for="7cc563" style="background-color: #7cc563;"></label>
+                <input type="checkbox" id="ffb500" /><label for="ffb500" style="background-color: #ffb500;"></label>
+                <input type="checkbox" id="9fec6b" /><label for="9fec6b" style="background-color: #9fec6b;"></label>
+                <input type="checkbox" id="ef9cc5" /><label for="ef9cc5" style="background-color: #ef9cc5;"></label>
+                <input type="checkbox" id="ff5c00" /><label for="ff5c00" style="background-color: #ff5c00;"></label>
+                <input type="checkbox" id="6d6d6d" /><label for="6d6d6d" style="background-color: #6d6d6d;"></label>
+                <input type="checkbox" id="3e8994" /><label for="3e8994" style="background-color: #3e8994;"></label>
+              </fieldset>
+              <fieldset>
+                <legend>Состав букета</legend>
+                <input type="checkbox" id="rose" /><label for="rose">Розы</label>
+                <input type="checkbox" id="gerb" /><label for="gerb">Герберы</label>
+                <input type="checkbox" id="lilly" /><label for="lilly">Лилии</label>
+                <input type="checkbox" id="hriz" /><label for="hriz">Хризантемы</label>
+                <input type="checkbox" id="tulp" /><label for="tulp">Тюльпаны</label>
+                <input type="checkbox" id="" /><label for="">Розы</label>
+                <input type="checkbox" id="" /><label for="">Герберы</label>
+                <input type="checkbox" id="" /><label for="">Лилии</label>
+                <input type="checkbox" id="" /><label for="">Хризантемы</label>
+                <input type="checkbox" id="" /><label for="">Тюльпаны</label>
+                <input type="checkbox" id="" /><label for="">Розы</label>
+                <input type="checkbox" id="" /><label for="">Герберы</label>
+                <input type="checkbox" id="" /><label for="">Лилии</label>
+                <input type="checkbox" id="" /><label for="">Хризантемы</label>
+              </fieldset>
+              <hr />
+              <div class="row">
+                <div class="small-6 columns">
+                  <button class="radius secondary outline expand">Сбросить</button>
+                </div>
+                <div class="small-6 columns">
+                  <button class="radius expand">Применить</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- /Фильтр -->
+
+          <!-- Преимущества -->
+          <div class="panel radius callout">
+            <span class="h5 text-center">Преимущества</span>
+            <ul class="benefits horizontal">
+              <li>
+                <figure>
+                  <div class="img-cont">
+                    <img src="http://placehold.it/78x80/88d3be/ffffff?text=ICO" />
+                  </div>
+                  <figcaption>
+                    Бесплатная доставка
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <div class="img-cont">
+                    <img src="http://placehold.it/97x60/88d3be/ffffff?text=ICO" />
+                  </div>
+                  <figcaption>
+                    Фото доставки
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <div class="img-cont">
+                    <img src="http://placehold.it/82x75/88d3be/ffffff?text=ICO" />
+                  </div>
+                  <figcaption>
+                    Накопительные скидки
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <div class="img-cont">
+                    <img src="http://placehold.it/97x76/88d3be/ffffff?text=ICO" />
+                  </div>
+                  <figcaption>
+                    SMS уведомление о доставке
+                  </figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure>
+                  <div class="img-cont">
+                    <img src="http://placehold.it/98x90/88d3be/ffffff?text=ICO" />
+                  </div>
+                  <figcaption>
+                    Шоурум
+                  </figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+          <!-- /Преимущества -->
+
+        </div>
+        <!-- /Правый блок -->
+      </div>
+    </section>
+    <!-- /Контент -->
+
+    <footer>
+      <div class="row">
+        <!-- Основное меню -->
+        <div class="small-9 columns">
+          <ul class="inline-list">
+            <li><a href="#">Букеты</a></li>
+            <li><a href="#">Композиции</a></li>
+            <li><a href="#">Свадебные букеты</a></li>
+            <li><a href="#">Мероприятия</a></li>
+            <li><a href="#">Игрушки</a></li>
+            <li><a href="#">Сувениры</a></li>
+          </ul>
+        </div>
+        <!-- /Основное меню -->
+        <!-- Поиск -->
+        <div class="small-3 columns">
+          <form>
+            <input class="radius" type="search" placeholder="Искать" />
+          </form>
+        </div>
+        <!-- /Поиск -->
+        
+        <div class="small-12 columns">
+          <hr />
+        </div>
+
+        <!-- Второстепенное меню -->
+        <div class="small-9 columns">
+          <ul class="inline-list">
+            <li><a href="#">О нас</a></li>
+            <li><a href="#">Как заказать</a></li>
+            <li><a href="#">Доставка и оплата</a></li>
+            <li><a href="#">Свадебный флорист</a></li>
+            <li><a href="#">Контакты</a></li>
+          </ul>
+        </div>
+        <!-- /Второстепенное меню -->
+
+        <!-- Контакты -->
+        <div class="small-3 columns text-right">
+          <div class="info">
+            <a class="phone" href="tel:88123545145">(812) 354-51-45</a><br /><small><a class="callback modal" href="#callback">Заказать звонок</a></small>
+          </div>
+        </div>
+        <!-- /Контакты -->
+      </div>
+
+      <div class="copy">
+        <div class="row">
+          <!-- Копирайт -->
+          <div class="small-9 columns">
+            © 2015 FLOVER — Доставка букетов в Санкт-Петербурге
+          </div>
+          <!-- /Копирайт -->
+
+          <!-- Авторство -->
+          <div class="small-3 columns text-right">
+            <a href="http://uniteddesign.ru/" rel="nofollow" target="_blank">Сделано в UD</a>
+          </div>
+          <!-- /Авторство -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- Модальные окна -->
+    <!-- Заказ звонка -->
+    <div class="hide" id="callback">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Заказ звонка</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Заказ звонка -->
+    <!-- Быстрый заказ -->
+    <div class="hide" id="fast_order">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Быстрый заказ</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Примечания</label>
+          </div>
+          <div class="small-9 columns">
+            <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
+          </div>
+        </div>
+
+        <input type="hidden" value="flower_id" /><!-- Реально ли в этот инпут записать id или имя товара, который быстро заказывают? Или же стоит это сделать при помощи js? -->
+
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить заказ">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Быстрый заказ -->
+    <!-- Регистрация -->
+    <div class="hide" id="registrate">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Регистрация</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="new_login" class="inline">Логин</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="new_login" placeholder="Login">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="email" class="inline">Электронная почта</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="email" id="email" placeholder="name@domain.ru">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Зарегистрироваться">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Регистрация -->
+    <!-- Сбор букета -->
+    <div class="hide" id="my_flavor">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Собрать свой уникальный букет</span>
+          <p>Мы предоставляем уникальную возможность заказать индивидуальный букет. Опишите, что именно вы хотите подарить, какие эмоции и чувства передать, а мы соберем для вас совершенно неповторимый, единственный в своем роде букет.</p>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="email" class="inline">Электронная почта</label>
+          </div>
+          <div class="small-9 columns">
+            <input type="email" id="email" placeholder="name@domain.ru">
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-3 columns">
+            <label for="phone" class="inline">Описание букета</label>
+          </div>
+          <div class="small-9 columns">
+            <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Отправить">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Сбор букета -->
+    <!-- /Модальные окна -->
+
+    <script src="/templates/flover/js/vendor/modernizr.js"></script>
+   
+    <script src="/templates/flover/js/vendor/jquery.js"></script>
+    <script src="/templates/flover/js/foundation.min.js"></script>
+    <script src="/templates/flover/js/vendor/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="/templates/flover/js/vendor/jquery-ui.min.js"></script>
+    <script src="/templates/flover/js/scripts.js"></script>
+
+    <!-- Скрипт для фильтра. Придется подгружать здесь же, чтобы редактировать максимальные и минимальные значения -->
+    <script type="text/javascript">
+        $(function() {
+            var min_buy_price = Math.floor(560 / 100) * 100; // минимальное значение цены. В примере — 500. В фильтре выводится значение 5000
+            var max_buy_price = Math.ceil(4880 / 100) * 100; // максимальное значение цены. В примере — 4800. В фильтре выводится значение 40000
+            $('#buy_price').slider({
+                range: true,
+                min: min_buy_price,
+                max: max_buy_price,
+                step: 100, // шаг слайдера
+                values: [min_buy_price, max_buy_price],  // начальные значения - позиции ползунков на шкале
+
+                slide: function( event, ui ) {
+                    $( '#from' ).val( ui.values[ 0 ] ); // выводим  значение от
+                    $( '#to' ).val( ui.values[ 1 ] ); // выводим  значение до
+                }
+            });
+            $( '#from' ).val( $( '#buy_price' ).slider('values', 0) );
+            $( '#to' ).val( $( '#buy_price' ).slider('values', 1) );
+        });
+    </script>
+    <!-- /Скрипт для фильтра -->
+  </body>
+</html>

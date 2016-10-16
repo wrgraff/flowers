@@ -1,0 +1,40 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$auth = $this->macros('users', 'auth');
+if(is_array($auth) && isset($auth['user_id'])) {
+    $this->redirect('/');
+}
+$fromPage = getArrayKey($variables, 'from_page');?>
+<form action="/users/login_do/" method="POST" data-abide>
+    <?php if($fromPage):?>
+        <input type="hidden" name="from_page" value="<?php echo $fromPage;?>" />
+    <?php endif;?>
+    <?php
+    echo $this->render(
+        array(
+            'name' => 'login',
+            'id' => 'login_enter',
+            'title' => 'Логин',
+            'placeholder' => 'login',
+            'required' => true,
+            'type' => 'string'
+        ), 'blocks/form/field'
+    );
+    echo $this->render(
+        array(
+            'name' => 'password',
+            'id' => 'pass',
+            'title' => 'Пароль',
+            'placeholder' => 'Пароль',
+            'required' => true,
+            'type' => 'password'
+        ), 'blocks/form/field'
+    );
+    ?>
+    <div class="row">
+        <div class="small-9 small-offset-3 columns">
+            <input class="button radius" type="submit" value="Войти">
+        </div>
+    </div>
+</form>

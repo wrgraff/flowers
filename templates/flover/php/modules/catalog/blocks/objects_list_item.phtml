@@ -1,0 +1,55 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $item = getArrayKey($variables, 'item');
+if($item):
+    $id = $item['attribute:id'];
+    $link = $item['attribute:link'];
+    $name = getArrayKey($variables, 'name');
+    if(!$name) {
+        $name = $item['node:text'];
+    }
+    $price = $this->macros('emarket', 'price', array($id, 'notemplate', false));
+    $entity = $this->getPageById($id);
+    $image = $entity->getValue(CATALOG_OBJECT_FIELD_MAIN_IMAGE);
+    $labelHit = $entity->getValue('icon_hit');
+    $labelNew = $entity->getValue('icon_new');
+    ?>
+<li>
+    <div class="item">
+        <a href="<?php echo $link;?>">
+            <figure>
+                <?php if($image instanceof umiImageFile):?>
+                    <img src="<?php echo $this->makeThumbnailFull($image->getFilePath(), 280, 280);?>" umi:element-id="<?php echo $id;?>" umi:field-name="object_image" />
+                <?php endif;?>
+                <figcaption>
+                    <strong umi:element-id="<?php echo $id;?>" umi:field-name="name"><?php echo $name;?></strong>
+                    <?php if(is_array($price) && isset($price['price'])):?>
+                        <?php if(isset($price['price']['original'])):?>
+                            <span class="price sale"><span class="old" umi:element-id="<?php echo $id;?>" umi:field-name="price"><?php echo $price['price']['original']?> р.</span> <?php echo $price['price']['actual'];?> р.</span>
+                        <?php else:?>
+                            <span class="price" umi:element-id="<?php echo $id;?>" umi:field-name="price"><?php echo $price['price']['actual'];?> р.</span>
+                        <?php endif;?>
+                    <?php endif;?>
+                </figcaption>
+            </figure>
+        </a>
+        <?/*<a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>*/?>
+        <?php if($labelHit || $labelNew):?>
+            <div class="labels">
+                <?php if($labelHit):?>
+                    <span class="label alert">Хит недели</span>
+                <?php endif;?>
+                <?php if($labelNew):?>
+                    <span class="label success">Новинка</span>
+                <?php endif;?>
+            </div>
+        <?php endif;?>
+        <div class="bottom">
+            <ul class="buttons">
+                <li><a href="#fast_order" class="button info radius expand modal" data-purchase-one-click="link" data-element-id="<?php echo $id;?>">Заказать сразу</a></li>
+                <li><a href="/emarket/basket/put/element/<?php echo $id;?>/" class="button radius expand" data-cart="add" data-id="<?php echo $id;?>"><i class="material-icons">add_shopping_cart</i></a></li>
+            </ul>
+        </div>
+    </div>
+</li>
+<?php endif;?>

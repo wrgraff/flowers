@@ -1,0 +1,16 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$page = $variables['full:page'];
+
+/* @var umiHierarchyElement $page*/
+
+$template = 'default';
+
+if(IS_DEFAULT) {
+    $template = 'index';
+} elseif($page->getObjectTypeId() == CONTACTS_TYPE_ID) {
+    $template = 'contacts';
+}
+
+echo $this->render($variables, 'modules/content/content/' . $template);

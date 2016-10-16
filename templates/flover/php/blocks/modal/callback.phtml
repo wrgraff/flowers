@@ -1,0 +1,30 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$form = $this->macros('webforms', 'add', array(124));
+if(is_array($form)):
+    $fields = $this->getFormGroupFields($form['groups']['nodes:group'], 'callback_fields');
+?>
+    <div class="hide" id="callback">
+        <div class="row">
+            <div class="small-12 columns">
+                <span class="h2">Заказ звонка</span>
+            </div>
+        </div>
+        <form method="POST" action="/webforms/send/">
+            <?php echo $this->render($form, 'modules/webforms/blocks/form_system_fields');
+            if($fieldName = getArrayKey($fields, 'callback_name')) {
+                echo $this->render(array('field' => $fieldName, 'placeholder' => 'Иван Васильевич'), 'blocks/form/field');
+            }
+            if($fieldPhone = getArrayKey($fields, 'callback_phone')) {
+                echo $this->render(array('field' => $fieldPhone, 'placeholder' => '8 921 123-23-23', 'type' => 'tel'), 'blocks/form/field');
+            }
+            ?>
+            <div class="row">
+                <div class="small-9 small-offset-3 columns">
+                    <input class="button radius" type="submit" value="Отправить">
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif;?>

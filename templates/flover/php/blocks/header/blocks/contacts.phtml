@@ -1,0 +1,15 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$phone = $this->getConfigValue('header_phone');
+$workingTime = $this->getConfigValue('header_working_time');
+?>
+<div class="info">
+    <?php if($phone):?>
+        <a class="phone" href="tel:<?php echo $this->preparePhoneLink($phone);?>" umi:object-id="<?php echo SITE_CONFIG_ID;?>" umi:field-name="header_phone"><?php echo $phone;?></a>
+    <?php endif;?>
+    <small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
+    <?php if($workingTime):?>
+        <small umi:object-id="<?php echo SITE_CONFIG_ID;?>" umi:field-name="header_working_time"><?php echo $workingTime;?></small>
+    <?php endif;?>
+</div>

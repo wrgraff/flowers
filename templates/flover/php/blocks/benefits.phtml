@@ -1,0 +1,20 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $items = $this->macros('flover_site_config', 'getBenefitsItems');
+if(is_array($items)):?>
+<div class="panel radius callout">
+    <span class="h5 text-center">Преимущества</span>
+    <ul class="benefits horizontal">
+        <?php foreach($items['items']['nodes:item'] as $item):?>
+            <li>
+                <figure>
+                    <div class="img-cont" umi:object-id="<?php echo SITE_CONFIG_ID?>" umi:field-name="<?php echo $item['image']['attribute:name'];?>">
+                        <img src="<?php echo $item['image']['value']->getFilePath(true);?>" />
+                    </div>
+                    <figcaption umi:object-id="<?php echo SITE_CONFIG_ID?>" umi:field-name="<?php echo $item['text']['attribute:name'];?>"><?php echo $item['text']['value'];?></figcaption>
+                </figure>
+            </li>
+        <?php endforeach;?>
+    </ul>
+</div>
+<?php endif;?>

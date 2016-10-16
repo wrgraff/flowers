@@ -1,0 +1,47 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */
+$field = $variables['field'];
+$id = isset($variables['id']) ? $variables['id'] : $field['attribute:name'];
+$title = isset($variables['title']) ? $variables['title'] : $field['attribute:title'];
+$name = isset($variables['name']) ? $variables['name'] : $field['attribute:input_name'];
+$attributes = isset($variables['attributes']) ? ' ' . $this->prepareHtmlAttributes($variables['attributes']) : '';
+$required = isset($variables['required']) ? true : isset($field['attribute:required']);
+$type = isset($variables['type']) ? $variables['type'] : $field['attribute:type'];
+$placeholder = getArrayKey($variables, 'placeholder');
+$tip = getArrayKey($variables, 'tip');
+$value = getArrayKey($field, 'value');
+?>
+<div class="row">
+    <div class="small-3 columns">
+        <label class="inline" for="<?php echo $id;?>"><?php echo $title;?></label>
+    </div>
+    <div class="small-6 columns<?php if(!$tip):?> end<?php endif;?>">
+        <?php if($required):?>
+            <label class="required">
+                <?php if($type == 'text'):?>
+                    <textarea id="<?php echo $id;?>" name="<?php echo $name;?>" rows="5" placeholder="<?php echo $placeholder;?>" required <?php echo $attributes;?>><?php echo $value;?></textarea>
+                <?php else:
+                    if($type == 'string') {
+                        $type = 'text';
+                    }?>
+                    <input id="<?php echo $id;?>" name="<?php echo $name;?>" type="<?php echo $type;?>" value="<?php echo $value;?>" placeholder="<?php echo $placeholder;?>" required <?php echo $attributes;?> />
+                <?php endif;?>
+                <small>Обязательное поле</small>
+            </label>
+        <?php else:?>
+            <?php if($type == 'text'):?>
+                <textarea id="<?php echo $id;?>" name="<?php echo $name;?>" rows="5" placeholder="<?php echo $placeholder;?>"<?php echo $attributes;?>><?php echo $value;?></textarea>
+            <?php else:
+                if($type == 'string') {
+                    $type = 'text';
+                }?>
+                <input id="<?php echo $id;?>" name="<?php echo $name;?>" type="<?php echo $type;?>" value="<?php echo $value;?>" placeholder="<?php echo $placeholder;?>"<?php echo $attributes;?> />
+            <?php endif;?>
+        <?php endif;?>
+    </div>
+    <?php if($tip):?>
+        <div class="small-3 columns">
+            <label class="inline" for="<?php echo $id;?>"><?php echo $tip;?></label>
+        </div>
+    <?php endif;?>
+</div>

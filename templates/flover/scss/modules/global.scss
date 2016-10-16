@@ -1,0 +1,238 @@
+// Font sizes blyad'
+$large-font-size: rem-calc(20);
+$huge-font-size: rem-calc(25);
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+body {
+	height: auto;
+}
+
+a {
+	@include single-transition;
+	
+	&:hover {
+		color: $info-color;
+	}
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  display: block;
+  color: $header-font-color;
+  font-family: $header-font-family;
+  font-style: $header-font-style;
+  font-weight: $header-font-weight;
+  line-height: $header-line-height;
+  margin-bottom: $header-bottom-margin;
+  margin-top: $header-top-margin;
+  text-rendering: $header-text-rendering;
+
+  small, .subheader {
+    color: $small-font-color;
+    font-size: $small-font-size;
+    line-height: 0;
+  }
+}
+.h1 { font-size: $h1-font-size }
+.h2 { font-size: $h2-font-size }
+.h3 { font-size: $h3-font-size }
+.h4 { font-size: $h4-font-size }
+.h5 { font-size: $h5-font-size }
+.h6 { font-size: $h6-font-size }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	small {
+		display: block;
+		line-height: 1.2;
+		font-family: $font-family-sans-serif;
+		font-weight: $font-weight-normal;
+	}
+}
+
+.top-info {
+	margin: rem-calc(10 0);
+
+	.info {
+		margin-top: rem-calc(15);
+		strong {
+			font-family: $font-family-serif;
+		}
+		.phone {
+			margin-right: rem-calc(10);
+			color: $black;
+			font-weight: $font-weight-bold;
+		}
+		.callback {
+			font-weight: $font-weight-light;
+		}
+		&.pay {
+			margin-top: rem-calc(7);
+		}
+	}
+	.button {
+		margin-top: rem-calc(16);
+		margin-bottom: 0;
+	}
+	.login {
+		text-align: left;
+
+		.button, button {
+			margin: 0;
+		}
+		label {
+			margin-top: rem-calc(10);
+		}
+	}
+	.login-open {
+		margin-top: rem-calc(20);
+	}
+}
+
+.promo {
+	margin: rem-calc(20 0);
+	padding: rem-calc(40 0 20);
+	background: url('../img/bg/promo.jpg');
+}
+
+.hide {
+	form {
+		min-width: 600px;
+	}
+}
+
+$benefits-height: 100px;
+.benefits {
+	figure {
+		margin: rem-calc(0 0 40);
+
+		.img-cont {
+			height: $benefits-height;
+			line-height: $benefits-height;
+		}
+		figcaption {
+			margin-top: rem-calc(15);
+			line-height: rem-calc(18);
+		}
+	}
+	&.horizontal {
+		margin: 0;
+		padding: 0;
+	  	list-style: none;
+
+	  	li {
+			margin: rem-calc(0 0 20);
+	  		@include clearfix;
+	  		&:last-child {
+	  			margin: 0;
+	  		}
+
+	    	figure {
+				display: table-row;
+
+	      		.img-cont {
+					display: table-cell;
+	      			width: 40%;
+	      			height: auto;
+	      			line-height: normal;
+	      			padding-right: $column-gutter;
+	      		}
+	      		figcaption {
+					margin: 0;
+					display: table-cell;
+					vertical-align: middle;
+	      		}
+	    	}
+	  	}
+	}
+}
+
+footer {
+	margin-top: rem-calc(50);
+	padding-bottom: rem-calc(25);
+	background: $info-color;
+
+	&:before {
+		content: '';
+		display: block;
+		height: 8px;
+		margin-bottom: rem-calc(38);
+		background: $white url('../img/bg/wave_b.svg') repeat-x;
+	}
+
+	a {
+		color: $white;
+
+		&:hover {
+			color: $gainsboro;
+		}
+	}
+	p {
+		color: $white;
+	}
+	input:not([type]), #{text-inputs(all, 'input')} {
+		border: none;
+	}
+	hr {
+		margin: 0;
+	}
+	.inline-list {
+		margin-top: rem-calc(10);
+		li {
+			a {
+				font-weight: $font-weight-light;
+			}
+		}
+	}
+	.info {
+		margin-top: rem-calc(10);
+
+		.phone {
+			font-weight: $font-weight-bold;
+		}
+		.callback {
+			display: block;
+			font-weight: $font-weight-light;
+		}
+	}
+	.copy {
+		padding-top: rem-calc(30);
+		color: $white;
+		font-weight: $font-weight-bold;
+	}
+}
+
+$f-dropdown-transition: 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+@mixin f-dropdown-transition {
+	-webkit-transition: opacity $f-dropdown-transition, margin $f-dropdown-transition;
+	transition: opacity $f-dropdown-transition, margin $f-dropdown-transition;
+}
+.f-dropdown {
+	opacity: 0;
+	margin-top: rem-calc(12);
+	@include f-dropdown-transition;
+
+	&.f-open-dropdown {
+		opacity: 1;
+		margin-top: rem-calc(2);
+	}
+}
+
+.th {
+	overflow: hidden;
+
+	&:hover {
+		opacity: .8;
+	}
+	&.the_big_one {
+		margin-bottom: $column-gutter / 2;
+	}
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;  
+}

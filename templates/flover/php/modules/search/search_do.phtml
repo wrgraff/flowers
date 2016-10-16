@@ -1,0 +1,28 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$items = $this->macros('search', 'search_do', array('notemplate', '', 56));?>
+<section>
+    <div class="row">
+        <div class="small-9 columns">
+            <?php if(is_array($items) && isset($items['items']) && count($items['items']['nodes:item'])):?>
+                <ul class="small-block-grid-3 objects">
+                    <?php foreach($items['items']['nodes:item'] as $item):?>
+                        <?php echo $this->render(array(
+                            'item' => $item,
+                            'name' => $item['attribute:name'],
+                        ), 'modules/catalog/blocks/objects_list_item');?>
+                    <?php endforeach;?>
+                </ul>
+            <?php else:?>
+                <p>Товары не найдены</p>
+            <?php endif;?>
+            <?php if(is_array($items)):?>
+                <?php echo $this->render($this->macros('system', 'numpages', array(getArrayKey($items, 'total'), getArrayKey($items, 'per_page'))), 'blocks/numpages');?>
+            <?php endif;?>
+        </div>
+        <div class="small-3 columns">
+            <?php echo $this->render(null, 'blocks/benefits');?>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,17 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<div class="row">
+    <div class="small-12 columns">
+        <h1><?php echo $variables['@header'];?></h1>
+    </div>
+</div>
+<section>
+    <div class="row">
+        <div class="small-9 columns">
+            <?php echo $this->render(null, 'modules/users/blocks/auth');?>
+        </div>
+        <div class="small-3 columns">
+            <?php echo $this->render(null, 'blocks/benefits');?>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+
+<form action="<?php echo $variables['purchasing']['formAction'] ?>" method="post" id="payment_form">
+    <input type="hidden" name="shopId" value="<?php echo $variables['purchasing']['shopId'] ?>"/>
+    <input type="hidden" name="Sum" value="<?php echo $variables['purchasing']['Sum'] ?>"/>
+    <input type="hidden" name="BankId" value="<?php echo (isset($variables['purchasing']['BankId']) ? $variables['purchasing']['BankId'] : '') ?>"/>
+    <input type="hidden" name="scid" value="<?php echo $variables['purchasing']['scid'] ?>"/>
+    <input type="hidden" name="CustomerNumber" value="<?php echo $variables['purchasing']['CustomerNumber'] ?>"/>
+    <input type="hidden" name="order-id" value="<?php echo $variables['purchasing']['orderId'] ?>"/>
+
+    <div>Для оплаты вы будете перенаправлены на сайт платежной системы Яндекс. Если ничего не происходит, нажмите на кнопку "Оплатить".</div>
+
+    <div>
+        <input type="submit" value="Оплатить" class="button big"/>
+    </div>
+</form>
+
+<?php
+$code = <<<CODE
+$(document).ready(function() {\$('#payment_form').submit()});
+CODE;
+$this->addJavascript($code);?>

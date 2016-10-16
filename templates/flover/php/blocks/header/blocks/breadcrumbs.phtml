@@ -1,0 +1,29 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $variables = $this->getCommonVar('variables');
+$parents = getArrayKey($variables, 'parents');
+$page = getArrayKey($variables, 'full:page');
+if($page instanceof umiHierarchyElement) {
+    $current = $page->getName();
+    $currentLink = $this->getPageLink($page->getId());
+} else {
+    $current = getArrayKey($variables, '@header');
+    $currentLink = getArrayKey($variables, '@request-uri');
+}
+?>
+<div class="row">
+    <div class="small-12 columns">
+        <ul class="breadcrumbs">
+            <li><a href="/"><i class="material-icons md-18">home</i></a></li>
+            <?php if($parents):?>
+                <?php foreach($parents['+page'] as $parent):
+                    if($parent->getIsDefault()) {
+                        continue;
+                    }?>
+                    <li><a href="<?php echo $this->getPageLink($parent->getId());?>" umi:element-id="<?php echo $parent->getId();?>" umi:field-name="name"><?php echo $parent->getName();?></a></li>
+                <?php endforeach;?>
+            <?php endif;?>
+            <li class="current"><a href="<?php echo $currentLink;?>"><?php echo $current;?></a></li>
+        </ul>
+    </div>
+</div>

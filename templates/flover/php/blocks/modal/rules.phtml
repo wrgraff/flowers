@@ -1,0 +1,13 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php if(MODULE == 'emarket' && METHOD == 'cart'):?>
+    <div class="hide" id="rules">
+        <div class="row">
+            <div class="small-12 columns">
+                <span class="h2">Условия работы</span>
+
+                <?php echo $this->getConfigValue('rules_content');?>
+            </div>
+        </div>
+    </div>
+<?php endif;?>

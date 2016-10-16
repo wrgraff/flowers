@@ -1,0 +1,74 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$related = $this->macros('catalog', 'getCatalogObjectRelated', array(PAGE_ID));
+?>
+
+<section>
+    <div class="row">
+        <?php if(is_array($related)):?>
+            <div class="small-12 columns">
+                <h3>Получателю может понравиться</h3>
+            </div>
+            <div class="small-9 columns">
+                <ul class="small-block-grid-3 objects">
+                    <?php for($i = 0; $i < 3; $i++):
+                        $item = getArrayKey($related['items']['nodes:item'], $i);
+
+                        if(!$item) {
+                            continue;
+                        }
+
+                        $id = $item['attribute:id'];
+                        $price = $this->macros('emarket', 'price', array($id, 'notemplate', false));
+                        ?>
+
+                        <li>
+                            <div class="item">
+                                <a href="<?php echo $item['attribute:link'];?>">
+                                    <figure>
+                                        <img src="<?php echo $this->makeThumbnailFull($item['image']->getFilePath(), 280, 280);?>" />
+                                        <figcaption>
+                                            <?php if($item['category']):?>
+                                                <small><?php echo $item['category'];?></small>
+                                            <?php endif;?>
+                                            <strong><?php echo $item['node:text'];?></strong>
+                                            <?php if(is_array($price)):?>
+                                                <?php if(isset($price['price']['original'])):?>
+                                                    <span class="price sale"><span class="old" umi:element-id="<?php echo $id;?>" umi:field-name="price"><?php echo $price['price']['original']?> р.</span> <?php echo $price['price']['actual'];?> р.</span>
+                                                <?php else:?>
+                                                    <span class="price" umi:element-id="<?php echo $id;?>" umi:field-name="price"><?php echo $price['price']['actual'];?> р.</span>
+                                                <?php endif;?>
+                                            <?php endif;?>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                                <div class="bottom">
+                                    <ul class="buttons">
+                                        <li><a href="/emarket/basket/put/element/<?php echo $id;?>/" class="button radius expand" data-cart="add" data-id="<?php echo $id;?>"><i class="material-icons">add_shopping_cart</i> Добавить к заказу</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endfor;?>
+                </ul>
+                <?php /*
+                <div class="row">
+                    <div class="small-3 small-offset-2 columns">
+                        <a class="button outline secondary expand" href="#">Показать еще</a>
+                    </div>
+                    <div class="small-5 columns end">
+                        <a class="button outline expand" href="#">Посмотреть все сопутствующие товары</a>
+                    </div>
+                </div>*/?>
+            </div>
+            <div class="small-3 columns">
+                <?php echo $this->render(null, 'blocks/benefits');?>
+            </div>
+        <?php else:?>
+            <div class="small-9 columns">
+                <?php echo $this->render(null, 'blocks/benefits_horizontal');?>
+            </div>
+        <?php endif;?>
+    </div>
+</section>

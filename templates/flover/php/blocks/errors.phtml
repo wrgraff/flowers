@@ -1,0 +1,29 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */?>
+<?php
+$errors = array();
+
+if($error = getArrayKey($variables, 'error')) {
+    if(is_array($error)) {
+        $errors = $error;
+    } else {
+        $errors[] = $error;
+    }
+}
+
+$items = $this->macros('system', 'listErrorMessages');
+
+if(is_array($items)) {
+    foreach($items['items']['nodes:item'] as $arItem) {
+        $errors[] = $arItem['node:message'];
+    }
+}
+
+if(count($errors)):
+    foreach($errors as $error):?>
+        <div data-alert class="alert-box warning radius">
+            <i class="material-icons">warning</i> <?php echo $error;?>
+            <a href="#" class="close">&times;</a>
+        </div>
+<?php endforeach;
+endif;?>

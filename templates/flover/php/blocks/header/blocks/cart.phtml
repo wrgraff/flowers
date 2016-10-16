@@ -1,0 +1,54 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $cart = $this->getCommonVar('cart');
+if(is_array($cart) && isset($cart['items']) && count($cart['items']['nodes:item'])):?>
+    <div class="checkout right full">
+        <a class="checkout-button" href="/emarket/cart/">
+            <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round"><?php echo $cart['summary']['amount'];?></span>
+        </a>
+        <div class="checkout-order">
+            <div class="checkout-order-inner">
+                <table class="checkout-summary">
+                    <tfoot>
+                    <tr>
+                        <th colspan="2">Итого <span class="checkout-total"><?php echo $cart['summary']['price']['actual'];?> р.</span></th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    <?php foreach($cart['items']['nodes:item'] as $item):
+                        $itemId = $item['attribute:id'];
+                        $page = $item['page'];
+
+                        $isBouquet = (getArrayKey($item, 'is_bouquet') == '1');
+
+                        $category = '';
+                        if($isBouquet) {
+                            $category = 'Букет';
+                        } else {
+                            $category = $page->getValue('object_related_category');
+                        }
+                        ?>
+                        <tr data-cart="header-item" data-id="<?php echo $itemId;?>">
+                            <td><?php if($category):?><span><?php echo $category;?></span> <?php endif;?><?php echo $page->getName();?></td>
+                            <td data-cart="header-item-price" data-id="<?php echo $itemId;?>"><?php echo $item['total-price']['actual'];?> р.</td>
+                        </tr>
+                        <?php if($isBouquet && getArrayKey($item['card'], 'attribute:status') == 'active'):?>
+                            <tr data-cart="header-item-card" data-id="<?php echo $itemId;?>">
+                                <td><span>Открытка</span></td>
+                                <td><?php echo $item['card']['price'];?> р.</td>
+                            </tr>
+                        <?php endif;?>
+                    <?php endforeach;?>
+                    </tbody>
+                </table>
+                <a href="/emarket/cart/" class="button radius info checkout-option">Оформить заказ</a>
+            </div>
+        </div>
+    </div>
+<?php else:?>
+    <div class="checkout right">
+        <a class="checkout-button" href="/emarket/cart/">
+            <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round">0</span>
+        </a>
+    </div><!-- /checkout -->
+<?php endif;?>

@@ -1,0 +1,8 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */
+$selected = $this->getArrayItem($variables['items']['nodes:item'], array('attribute:selected' => 'selected'));?>
+<input type="hidden" name="system_form_id" value="<?php echo $variables['attribute:form_id'];?>" />
+<input type="hidden" name="ref_onsuccess" value="/webforms/posted/<?php echo $variables['attribute:form_id'];?>/" />
+<?php if(is_array($selected)):?>
+<input type="hidden" name="system_email_to" value="<?php echo $selected['attribute:id'];?>" />
+<?php endif;?>

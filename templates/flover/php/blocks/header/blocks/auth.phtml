@@ -1,0 +1,28 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php if(IS_AUTH):?>
+    <a href="/emarket/cart/" class="button secondary outline dropdown" data-dropdown="my">Мой кабинет</a>
+    <ul id="my" data-dropdown-content class="f-dropdown text-left">
+        <?/*<li><a href="#">Профиль</a></li>*/?>
+        <?/*<li><a href="#">Заказы <span class="label secondary round">1</span></a></li>*/?>
+        <?/*<li><a href="#">Избранное <span class="label secondary round">3</span></a></li>*/?>
+        <li><a href="/users/logout/">Выйти</a></li>
+    </ul>
+<?php else:?>
+    <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
+    <a href="/users/login/" class="button secondary outline dropdown" data-dropdown="login">Войти</a>
+    <div id="login" data-dropdown-content class="f-dropdown content medium">
+        <form class="login" action="/users/login_do/" method="POST">
+            <input type="text" name="login" value="" placeholder="Логин" />
+            <input type="password" name="password" value="" placeholder="Пароль" />
+            <div class="row collapse">
+                <div class="small-8 columns">
+                    <input type="checkbox" id="remember" /><label for="remember">Запомнить меня</label>
+                </div>
+                <div class="small-4 columns">
+                    <button class="button radius small expand" type="submit">Войти</button>
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif;?>

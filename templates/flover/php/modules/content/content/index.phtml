@@ -1,0 +1,491 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<div class="row">
+    <div class="small-12 columns" umi:element-id="<?php echo PAGE_ID?>" umi:field-name="content">
+        <?php echo $page->getValue('content');?>
+    </div>
+</div>
+<section class="promo">
+    <div class="row">
+        <div class="small-12 columns">
+            <ul class="small-block-grid-4 objects">
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="/templates/flover/img/catalog/fl_1_1.jpg" /><!-- Thumbnail 280x280 in all types of objects -->
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">3200 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <div class="labels">
+                            <span class="label alert">Хит недели</span>
+                        </div>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="/templates/flover/img/catalog/fl_2_1.jpg" />
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">1584 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <div class="labels">
+                            <span class="label success">Новинка</span>
+                        </div>
+                        <a class="favorites tip-right radius added" href="#" data-tooltip aria-haspopup="true" title="Удалить из избранного"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="/templates/flover/img/catalog/fl_3_2.jpg" />
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price sale"><span class="old">2565 р.</span> 2052 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <div class="labels">
+                            <span class="label warning">&minus;20%</span>
+                        </div>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="/templates/flover/img/catalog/fl_4.jpg" />
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">5895 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- /Промо-блок -->
+
+<!-- Контент -->
+<section>
+    <div class="row">
+        <!-- Левый блок -->
+        <div class="small-9 columns">
+            <?php echo $this->render(null, 'blocks/benefits_horizontal');?>
+
+            <!-- Товары -->
+            <ul class="small-block-grid-3 objects">
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="/templates/flover/img/catalog/fl_5.jpg" />
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">3200 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="/templates/flover/img/catalog/fl_6.jpg" />
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">1584 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="/templates/flover/img/catalog/fl_7.jpg" />
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">2565 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/e1c5a0/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">5895 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/ddad4d/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">1584 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/f0d0bc/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">2565 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/e1c5a0/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">5895 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/ddad4d/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">1584 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/f0d0bc/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">2565 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/e1c5a0/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">5895 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/ff71c4/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">3200 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="item">
+                        <a href="/catalog/item/">
+                            <figure>
+                                <img src="http://placehold.it/280x280/ddad4d/ffffff?text=Flower">
+                                <figcaption>
+                                    <strong>Ностальгия</strong>
+                                    <span class="price">1584 р.</span>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <a class="favorites tip-right radius" href="#" data-tooltip aria-haspopup="true" title="Добавить в избранное"></a>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="#fast_order" class="button info radius expand modal">Заказать сразу</a></li>
+                                <li><a href="#" class="button radius expand"><i class="material-icons">add_shopping_cart</i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- /Товары -->
+
+            <!-- Мозговитая пагинация -->
+            <div class="row">
+                <div class="small-8 columns">
+                    <ul class="pagination">
+                        <li class="arrow unavailable"><a href=""><i class="material-icons">keyboard_arrow_left</i></a></li>
+                        <li class="current"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li class="unavailable"><a href="">&hellip;</a></li>
+                        <li><a href="">12</a></li>
+                        <li><a href="">13</a></li>
+                        <li class="arrow"><a href=""><i class="material-icons">keyboard_arrow_right</i></a></li>
+                    </ul>
+                </div>
+                <div class="small-4 columns">
+                    <a class="button secondary outline expand" href="#">Загрузить еще</a>
+                </div>
+            </div>
+            <!-- /Мозговитая пагинация -->
+        </div>
+        <!-- /Левый блок -->
+
+        <!-- Правый блок -->
+        <div class="small-3 columns">
+            <!-- Поиск -->
+            <form>
+                <input class="radius" type="search" placeholder="Искать" />
+            </form>
+            <!-- /Поиск -->
+
+            <!-- Сортировка -->
+            <form>
+                <div class="row">
+                    <div class="small-4 columns">
+                        <label for="sorting" class="right inline">Сортировка</label>
+                    </div>
+                    <div class="small-8 columns">
+                        <select id="sorting">
+                            <option value="husker">Цене</option>
+                            <option value="starbuck">Новизне</option>
+                            <option value="hotdog" selected="">Популярности</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <!-- /Сортировка -->
+
+            <!-- Фильтр -->
+            <div class="filter">
+                <form>
+                    <fieldset>
+                        <legend>Стоимость</legend>
+                        <div id="buy_price"></div>
+                        <div class="row collapse">
+                            <div class="small-6 columns">
+                                <input type="text" class="slider-value" id="from" readonly>
+                            </div>
+                            <div class="small-6 columns">
+                                <input type="text" class="slider-value text-right" id="to" readonly>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Случай</legend>
+                        <input type="checkbox" id="wedding" /><label for="wedding">Свадьба</label>
+                        <input type="checkbox" id="birthday" /><label for="birthday">День рождения</label>
+                        <input type="checkbox" id="congrats" /><label for="congrats">Поздравление</label>
+                        <input type="checkbox" id="sorry" /><label for="sorry">Извинение</label>
+                        <input type="checkbox" id="business" /><label for="business">Бизнес-поздравление</label>
+                        <input type="checkbox" id="thanks" /><label for="thanks">Благодарность</label>
+                        <input type="checkbox" id="love" /><label for="love">Сказать люблю</label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Кому</legend>
+                        <input type="checkbox" id="woman" /><label for="woman">Женщине</label>
+                        <input type="checkbox" id="man" /><label for="man">Мужчине</label>
+                        <input type="checkbox" id="child" /><label for="child">Ребенку</label>
+                        <input type="checkbox" id="partner" /><label for="partner">Деловому партнеру</label>
+                        <input type="checkbox" id="family" /><label for="family">Семье</label>
+                    </fieldset>
+                    <fieldset class="colors">
+                        <legend>Цветовая гамма</legend>
+                        <input type="checkbox" id="6de3f5" /><label for="6de3f5" style="background-color: #6de3f5;"></label>
+                        <input type="checkbox" id="f21700" /><label for="f21700" style="background-color: #f21700;"></label>
+                        <input type="checkbox" id="e54db5" /><label for="e54db5" style="background-color: #e54db5;"></label>
+                        <input type="checkbox" id="f7e200" /><label for="f7e200" style="background-color: #f7e200;"></label>
+                        <input type="checkbox" id="fd3e62" /><label for="fd3e62" style="background-color: #fd3e62;"></label>
+                        <input type="checkbox" id="c5d6d8" /><label for="c5d6d8" style="background-color: #c5d6d8;"></label>
+                        <input type="checkbox" id="c857e9" /><label for="c857e9" style="background-color: #c857e9;"></label>
+                        <input type="checkbox" id="ffffff" /><label for="ffffff" style="background-color: #ffffff;"></label>
+                        <input type="checkbox" id="7cc563" /><label for="7cc563" style="background-color: #7cc563;"></label>
+                        <input type="checkbox" id="ffb500" /><label for="ffb500" style="background-color: #ffb500;"></label>
+                        <input type="checkbox" id="9fec6b" /><label for="9fec6b" style="background-color: #9fec6b;"></label>
+                        <input type="checkbox" id="ef9cc5" /><label for="ef9cc5" style="background-color: #ef9cc5;"></label>
+                        <input type="checkbox" id="ff5c00" /><label for="ff5c00" style="background-color: #ff5c00;"></label>
+                        <input type="checkbox" id="6d6d6d" /><label for="6d6d6d" style="background-color: #6d6d6d;"></label>
+                        <input type="checkbox" id="3e8994" /><label for="3e8994" style="background-color: #3e8994;"></label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Состав букета</legend>
+                        <input type="checkbox" id="rose" /><label for="rose">Розы</label>
+                        <input type="checkbox" id="gerb" /><label for="gerb">Герберы</label>
+                        <input type="checkbox" id="lilly" /><label for="lilly">Лилии</label>
+                        <input type="checkbox" id="hriz" /><label for="hriz">Хризантемы</label>
+                        <input type="checkbox" id="tulp" /><label for="tulp">Тюльпаны</label>
+                        <input type="checkbox" id="" /><label for="">Розы</label>
+                        <input type="checkbox" id="" /><label for="">Герберы</label>
+                        <input type="checkbox" id="" /><label for="">Лилии</label>
+                        <input type="checkbox" id="" /><label for="">Хризантемы</label>
+                        <input type="checkbox" id="" /><label for="">Тюльпаны</label>
+                        <input type="checkbox" id="" /><label for="">Розы</label>
+                        <input type="checkbox" id="" /><label for="">Герберы</label>
+                        <input type="checkbox" id="" /><label for="">Лилии</label>
+                        <input type="checkbox" id="" /><label for="">Хризантемы</label>
+                    </fieldset>
+                    <hr />
+                    <div class="row">
+                        <div class="small-6 columns">
+                            <button class="radius secondary outline expand">Сбросить</button>
+                        </div>
+                        <div class="small-6 columns">
+                            <button class="radius expand">Применить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /Фильтр -->
+        </div>
+        <!-- /Правый блок -->
+    </div>
+</section>
+<!-- /Контент -->

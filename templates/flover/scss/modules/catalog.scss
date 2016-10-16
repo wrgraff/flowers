@@ -1,0 +1,312 @@
+$catalog-item-border: 1px solid $gainsboro;
+$catalog-item-gutter: 7px;
+$catalog-item-border-radius: $global-radius $global-radius 0 0;
+$catalog-item-border-color-hover: $info-color;
+$catalog-item-favorites-size: 48px;
+$after-text-font-size-factor: .8;
+
+$catalog-item-transform: translateY(-8px);
+@mixin catalog-item-transform {
+  -webkit-transform: $catalog-item-transform;
+  transform: $catalog-item-transform;
+}
+
+$border-shadow: $gainsboro 0 0 0 1px;
+@mixin border-shadow {
+  -webkit-box-shadow: $border-shadow;
+     -moz-box-shadow: $border-shadow;
+          box-shadow: $border-shadow;
+}
+$border-shadow-hover: $info-color 0 0 0 1px;
+@mixin border-shadow-hover {
+  -webkit-box-shadow: $border-shadow-hover;
+     -moz-box-shadow: $border-shadow-hover;
+          box-shadow: $border-shadow-hover;
+}
+
+$css-triangle-label-size: 5px;
+$css-triangle-function-factor: -40%;
+$css-triangle-label-color: scale-color($primary-color, $lightness: $css-triangle-function-factor);
+$css-triangle-label-color-secondary: scale-color($secondary-color, $lightness: $css-triangle-function-factor);
+$css-triangle-label-color-alert: scale-color($alert-color, $lightness: $css-triangle-function-factor);
+$css-triangle-label-color-success: scale-color($success-color, $lightness: $css-triangle-function-factor);
+$css-triangle-label-color-warning: scale-color($warning-color, $lightness: $css-triangle-function-factor);
+$css-triangle-label-color-info: scale-color($info-color, $lightness: $css-triangle-function-factor);
+@mixin css-triangle-label {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: $css-triangle-label-size * -2;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: ($css-triangle-label-size * 2) $css-triangle-label-size 0 0;
+    border-color: $css-triangle-label-color transparent transparent transparent;
+  }
+  &.secondary:after { border-color: $css-triangle-label-color-secondary transparent transparent transparent;}
+  &.alert:after {   border-color: $css-triangle-label-color-alert transparent transparent transparent;}
+  &.success:after { border-color: $css-triangle-label-color-success transparent transparent;}
+  &.warning:after { border-color: $css-triangle-label-color-warning transparent transparent transparent;}
+  &.info:after {    border-color: $css-triangle-label-color-info transparent transparent transparent;}
+}
+@mixin product-labels {
+  .labels {
+    position: absolute;
+    right: -$css-triangle-label-size;
+    top: 35px;
+    text-align: center;
+    z-index: 1;
+
+    .label {
+      display: table-cell;
+      width: 90px;
+      height: 38px;
+      padding: rem-calc(5 10 3);
+      vertical-align: middle;
+      font-size: rem-calc(16);
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+      @include css-triangle-label();
+    }
+  }
+}
+
+@mixin price {
+  padding: 0 $catalog-item-gutter;
+  color: $info-color;
+  text-align: center;
+  line-height: rem-calc(35);
+  font-size: $huge-font-size;
+}
+
+.objects {
+  .item {
+    position: relative;
+    border-radius: $catalog-item-border-radius;
+    background-color: $white;
+    @include product-labels();
+    @include border-shadow;
+    @include single-transition();
+
+    > a, .top {
+      display: block;
+      overflow: hidden;
+
+      figure {
+        margin: 0;
+        border-radius: $catalog-item-border-radius;
+        overflow: hidden;
+
+        figcaption {
+          @include single-transition(border-color);
+
+          strong, .price, small {
+            display: block;
+            padding: ($catalog-item-gutter / 4) $catalog-item-gutter;
+            color: $oil;
+            font-weight: $font-weight-normal;
+            text-align: center;
+            font-size: $large-font-size;
+            @include single-transition(color);
+          }
+          strong {
+            line-height: 1.3;
+          }
+          .price {
+            @include price;
+          }
+          small {
+            padding: ($catalog-item-gutter / 2) $catalog-item-gutter 0;
+            font-size: $small-font-size;
+            color: $aluminum;
+          }
+          .sale {
+            color: $primary-color;
+            font-weight: $font-weight-bold;
+
+            .old {
+              color: $charcoal;
+              font-size: $large-font-size;
+              font-weight: $font-weight-light;
+              text-decoration: line-through;
+            }
+          }
+        }
+      }
+      &:not(.top):hover {
+        figure {
+          figcaption {
+            strong {
+              color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+    .favorites {
+      position: absolute;
+      left: $column-gutter / 2;
+      top: $column-gutter / 2;
+      display: block;
+      width: $catalog-item-favorites-size;
+      height: $catalog-item-favorites-size;
+      opacity: 0;
+
+      &:before, &:after {
+        position: absolute;
+        @include material-icons-font;
+        content: 'star_border';
+        font-size: 48px;
+        @include single-transition(color);
+      }
+      &:after {
+        content: 'star';
+        opacity: 0;
+      }
+      &.added {
+        &:before {
+          opacity: 0;
+        }
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+    .bottom {
+      @include single-transition(border-color);
+
+      .buttons {
+        display: table;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border-spacing: $catalog-item-gutter;
+
+        li {
+          display: table-cell;
+
+          .button {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &:hover {
+      @include border-shadow-hover;
+      @include catalog-item-transform;
+
+      .favorites {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.filter {
+  fieldset {
+    position: relative;
+    margin: 0;
+    padding-top: rem-calc(50);
+    border-radius: $global-radius;
+    background-color: #fbfbfb;
+    border: 1px solid #f6f6f6;
+    
+    &:nth-child(even) {
+      background-color: #f2f2f2;
+      border-color: #e2e2e2;
+    }
+
+    legend {
+      position: absolute;
+      top: 10px;
+      margin: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+}
+
+.object-info {
+  margin-bottom: $column-gutter;
+  padding: $column-gutter 0;
+  background-color: $white-smoke;
+
+  .panel {
+    background-color: $white;
+
+    .price {
+      @include price;
+      margin-bottom: $column-gutter / 2;
+      
+      &.sale {
+        color: $primary-color;
+        font-weight: $font-weight-bold;
+
+        .old {
+          color: $charcoal;
+          font-size: $large-font-size;
+          font-weight: $font-weight-light;
+          text-decoration: line-through;
+        }
+      }
+    }
+  }
+  .favorites {
+    text-align: center;
+
+    .material-icons {
+      font-size: 36px;
+    }
+  }
+  .inline-list > li > .label {
+    display: inline-block;
+  }
+  table {
+    min-width: 50%;
+    background-color: transparent;
+    border: none;
+    border-spacing: 0;
+
+    tr:nth-child(even) {
+      background-color: $white;
+    }
+  }
+  .variables {
+    margin: $column-gutter 0;
+  }
+  .img_cont {
+    position: relative;
+    @include product-labels();
+  }
+}
+
+.after-text {
+  p {
+    font-size: $paragraph-font-size * $after-text-font-size-factor;
+    color: $charcoal;
+  }
+  h1, .h1 {
+    font-size: $h1-font-size * $after-text-font-size-factor;
+    color: $charcoal;
+  }
+  h2, .h2 {
+    font-size: $h2-font-size * $after-text-font-size-factor;
+    color: $charcoal;
+  }
+  h3, .h3 {
+    font-size: $h3-font-size * $after-text-font-size-factor;
+    color: $charcoal;
+  }
+  h4, .h4 {
+    font-size: $h4-font-size * $after-text-font-size-factor;
+    color: $charcoal;
+  }
+  h5, .h5 {
+    font-size: $h5-font-size * $after-text-font-size-factor;
+    color: $charcoal;
+  }
+}

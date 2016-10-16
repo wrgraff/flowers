@@ -1,0 +1,20 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+try {
+    $menu = $this->macros('menu', 'draw', array('footer_bottom'));
+} catch(Exception $e) {
+    $menu = array();
+}
+if(is_array($menu) && isset($menu['nodes:item'])):?>
+    <ul class="inline-list">
+        <?php foreach($menu['nodes:item'] as $item):
+            if(!$this->isMenuItemActive($item)) {
+                continue;
+            }
+            $itemId = getArrayKey($item, 'attribute:rel') == 'page' ? getArrayKey($item, 'attribute:id') : false;
+            ?>
+            <li><a href="<?php echo $item['attribute:link'];?>"<?php if($itemId):?> umi:element-id="<?php echo $itemId;?>" umi:field-name="name"<?php endif;?>><?php echo $item['attribute:name'];?></a></li>
+        <?php endforeach;?>
+    </ul>
+<?php endif;?>

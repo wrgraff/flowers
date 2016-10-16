@@ -1,0 +1,40 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $fields = $this->getAllFormFields($variables);?>
+<?php if($fieldPrice = getArrayKey($fields, 'price')):
+    $min = $fieldPrice['minimum']['node:value'];
+    $from = getArrayKey($fieldPrice['minimum'], 'attribute:selected');
+    if(!$from) {
+        $from = $min;
+    }
+    $max = $fieldPrice['maximum']['node:value'];
+    $to = getArrayKey($fieldPrice['maximum'], 'attribute;selected');
+    if(!$to) {
+        $to = $max;
+    }
+    ?>
+    <fieldset>
+        <legend><?php echo $fieldPrice['attribute:title'];?></legend>
+        <div id="buy_price"></div>
+        <div class="row collapse">
+            <div class="small-6 columns">
+                <input type="text" name="filter[price][from]" data-min="<?php echo $min;?>" value="<?php echo $from;?>" class="slider-value" id="from" readonly>
+            </div>
+            <div class="small-6 columns">
+                <input type="text" name="filter[price][to]" data-max="<?php echo $max;?>" value="<?php echo $to;?>" class="slider-value text-right" id="to" readonly>
+            </div>
+        </div>
+    </fieldset>
+<?php endif;?>
+<?php if($fieldEvent = getArrayKey($fields, 'event')):?>
+    <?php echo $this->render(array('field' => $fieldEvent), 'modules/catalog/blocks/filter_relation');?>
+<?php endif;?>
+<?php if($fieldTo = getArrayKey($fields, 'to')):?>
+    <?php echo $this->render(array('field' => $fieldTo), 'modules/catalog/blocks/filter_relation');?>
+<?php endif;?>
+<?php if($fieldColor = getArrayKey($fields, 'color')):?>
+    <?php echo $this->render(array('field' => $fieldColor), 'modules/catalog/blocks/filter_relation_color');?>
+<?php endif;?>
+<?php if($fieldFlowers = getArrayKey($fields, 'flowers')):?>
+    <?php echo $this->render(array('field' => $fieldFlowers), 'modules/catalog/blocks/filter_relation');?>
+<?php endif;?>

@@ -1,0 +1,27 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+try {
+    $menu = $this->macros('menu', 'draw', array('main'));
+} catch(Exception $e) {
+    $menu = array();
+}
+if(is_array($menu) && isset($menu['nodes:item'])):?>
+<ul class="elastic-menu">
+    <?php foreach($menu['nodes:item'] as $item):
+        if(!$this->isMenuItemActive($item)) {
+            continue;
+        }
+        $isSelected = $this->isMenuItemSelected($item);
+        $itemId = getArrayKey($item, 'attribute:rel') == 'page' ? getArrayKey($item, 'attribute:id') : false;
+        $itemLink = getArrayKey($item, 'attribute:link');
+        $itemName = getArrayKey($item, 'attribute:name');
+        ?>
+        <?php if(strpos($itemLink, '#my_flavor') !== false):?>
+            <li class="primary"><a class="modal" href="#my_flavor"><?php echo $itemName;?></a></li>
+        <?php else:?>
+            <li<?php if($isSelected):?> class="active"<?php endif;?>><a href="<?php echo $itemLink;?>"<?php if($itemId):?> umi:element-id="<?php echo $itemId;?>" umi:field-name="name"<?php endif;?>><?php echo $itemName;?></a></li>
+        <?php endif;?>
+    <?php endforeach;?>
+</ul>
+<?php endif;?>

@@ -1,0 +1,27 @@
+.progress {
+	&.order-status {
+		.meter {
+			width: 20%;
+			line-height: $progress-bar-height - rem-calc(4);
+			padding: rem-calc(0 5);
+			color: $white;
+			font-size: $small-font-size;
+		}
+	}
+}
+.order-list {
+	ul {
+		margin: 0 0 $column-gutter / 2;
+		padding: 0;
+		list-style: none;
+
+		li {
+			padding: ($column-gutter / 4) ($column-gutter / 2);
+			@include clearfix;
+
+			&:nth-child(even) {
+				background-color: $white;
+			}
+		}
+	}
+}

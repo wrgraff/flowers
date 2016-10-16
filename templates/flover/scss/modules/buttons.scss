@@ -1,0 +1,50 @@
+.button, button {
+	text-transform: uppercase;
+
+	&.outline {
+		color: $primary-color;
+		background: none;
+		border: 1px solid $primary-color;
+		@include single-transition;
+
+	    &.secondary { border-color: $secondary-color; color: $charcoal; }
+	    &.success   { border-color: $success-color; color: $success-color; }
+	    &.alert     { border-color: $alert-color; color: $alert-color; }
+	    &.warning   { border-color: $warning-color; color: $warning-color; }
+	    &.info      { border-color: $info-color; color: $info-color; }
+	}
+	&:hover, &:focus {
+		&.outline {
+			background: $white-smoke;
+			border-color: $button-bg-hover;
+
+		    &.secondary { border-color: $secondary-button-bg-hover; }
+		    &.success   { border-color: $success-button-bg-hover; }
+		    &.alert     { border-color: $alert-button-bg-hover; }
+		    &.warning   { border-color: $warning-button-bg-hover; }
+		    &.info      { border-color: $info-button-bg-hover; }
+		}
+	}
+	&.radius {
+		border-radius: $global-radius / 2;
+	}
+	&.dropdown {
+		&:after {
+			border-color: $primary-color transparent transparent;
+		}
+	    &.secondary:after { border-color: $secondary-color transparent transparent; }
+	    &.success:after   { border-color: $success-color transparent transparent; }
+	    &.alert:after     { border-color: $alert-color transparent transparent; }
+	    &.warning:after   { border-color: $warning-color transparent transparent; }
+	    &.info:after      { border-color: $info-color transparent transparent; }
+	}
+}
+.button, button {
+	&.dropdown {
+		padding-right: 2rem;
+		&:after {
+			right: 1rem;
+			border-width: .275rem;
+		}
+	}
+}

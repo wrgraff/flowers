@@ -1,0 +1,21 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */?>
+<?php
+$purchase = $this->macros('emarket', 'purchase');
+
+$stage = $purchase['purchasing']['attribute:stage'];
+$step = $purchase['purchasing']['attribute:step'];
+
+if($stage == 'result') {
+   if($step == 'successful') {
+       $template = 'success';
+   } else {
+       $template = 'fail';
+   }
+} elseif($stage == 'payment') {
+    $template = 'payment_' . $step;
+} else {
+    $this->redirect('/emarket/cart/');
+}
+
+echo $this->render($purchase, "modules/emarket/purchase/{$template}");

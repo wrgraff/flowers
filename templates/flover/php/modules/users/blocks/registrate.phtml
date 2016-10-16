@@ -1,0 +1,81 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$form = false;
+
+if(!IS_AUTH) {
+    $registrate = $this->macros('users', 'registrate');
+
+    if(is_array($registrate)) {
+        $form = $this->macros('data', 'getCreateForm', array($registrate['type_id']));
+    }
+}
+
+if(is_array($form)):
+    $fields = $this->getAllFormFields($form);?>
+    <form action="/users/registrate_do/" method="POST" data-abide>
+        <?php echo $this->render(
+            array(
+                'name' => 'login',
+                'id' => 'login',
+                'title' => 'Логин',
+                'placeholder' => 'login',
+                'required' => true,
+                'type' => 'string'
+            ), 'blocks/form/field'
+        );
+        echo $this->render(
+            array(
+                'name' => 'password',
+                'id' => 'password',
+                'title' => 'Пароль',
+                'placeholder' => 'Пароль',
+                'required' => true,
+                'type' => 'password'
+            ), 'blocks/form/field'
+        );
+        echo $this->render(
+            array(
+                'name' => 'password_confirm',
+                'id' => 'password_confirm',
+                'title' => 'Подтвердите пароль',
+                'placeholder' => 'Подтвердите ароль',
+                'required' => true,
+                'type' => 'password'
+            ), 'blocks/form/field'
+        );
+        echo $this->render(
+            array(
+                'name' => 'email',
+                'id' => 'email',
+                'title' => 'Электронная почта',
+                'placeholder' => 'name@domain.ru',
+                'required' => true,
+                'type' => 'email'
+            ), 'blocks/form/field'
+        );
+        if($fieldName = getArrayKey($fields, 'fname')) {
+            echo $this->render(
+                array(
+                    'field' => $fieldName,
+                ), 'blocks/form/field'
+            );
+        }
+        if($fieldPhone = getArrayKey($fields, 'phone')) {
+            echo $this->render(
+                array(
+                    'field' => $fieldPhone,
+                    'placeholder' => '8 921 123-23-23',
+                    'type' => 'tel'
+                ), 'blocks/form/field'
+            );
+        }
+        ?>
+        <div class="row">
+            <div class="small-9 small-offset-3 columns">
+                <input class="button radius" type="submit" value="Зарегистрироваться">
+            </div>
+        </div>
+    </form>
+<?php
+endif;?>

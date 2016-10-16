@@ -1,0 +1,58 @@
+$del-height: 37px;
+$decrease-size: 54px;
+
+.basket {
+  .item {
+    position: relative;
+    padding: rem-calc(10 10 4);
+    margin-bottom: $column-gutter;
+    border-radius: $global-radius;
+    @include border-shadow;
+
+    .del {
+      position: absolute;
+      right: ($column-gutter * 1.2) / 2;
+      top: $column-gutter / 2;
+      opacity: 0;
+      @include single-transition;
+    }
+    .h4 {
+      margin: ($column-gutter / 2) 0;
+    }
+
+    &:hover {
+      .del {
+        opacity: 1;
+      }
+    }
+  }
+  .summary {
+    padding-top: $column-gutter;
+    border-top: 3px solid $info-color;
+
+    .sum {
+      margin-bottom: 0;
+      line-height: 3.9;
+    }
+    .price {
+      display: block;
+      color: $info-color;
+      font-size: $huge-font-size;
+      font-weight: $font-weight-bold;
+      line-height: 2.3;
+    }
+  }
+}
+
+.card-text {
+  display: none;
+
+  &.showed {
+    display: block;
+  }
+
+  textarea {
+    margin-bottom: $column-gutter / 2;
+    border-radius: $global-radius / 2;
+  }
+}

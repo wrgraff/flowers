@@ -1,0 +1,15 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */
+$field = $variables['field'];
+$id = isset($variables['id']) ? $variables['id'] : $field['attribute:name'];
+$title = isset($variables['title']) ? $variables['title'] : $field['attribute:title'];
+$name = isset($variables['name']) ? $variables['name'] : $field['attribute:input_name'];
+$attributes = isset($variables['attributes']) ? ' ' . $this->prepareHtmlAttributes($variables['attributes']) : '';
+$required = isset($variables['required']) ? true : isset($field['attribute:required']);
+$placeholder = getArrayKey($variables, 'placeholder');
+$tip = getArrayKey($variables, 'tip');
+$value = getArrayKey($field, 'value');
+$checked = (getArrayKey($field, 'attribute:checked') == 'checked');
+$labelTitle = getArrayKey($variables, 'label_title');
+?>
+<input id="<?php echo $id;?>" type="checkbox" name="<?php echo $name;?>" value="<?php echo $value;?>"<?php if($checked):?> checked="checked"<?php endif;?> /><label class="inline<?php if($labelTitle):?> radius<?php endif;?>" for="<?php echo $id;?>"<?php if($labelTitle):?> data-tooltip aria-haspopup="true" title="<?php echo $labelTitle;?>"<?php endif;?>><?php echo $title;?></label>

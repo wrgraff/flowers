@@ -1,0 +1,25 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<header>
+    <section class="top-info">
+        <div class="row">
+            <div class="small-3 columns">
+                <img src="<?php echo TEMPLATE_RESOURCES?>/img/logo.svg" />
+            </div>
+            <div class="small-2 columns">
+                <?php echo $this->render(null, 'blocks/header/blocks/mini_utp');?>
+            </div>
+            <div class="small-4 columns">
+                <?php echo $this->render(null, 'blocks/header/blocks/contacts');?>
+            </div>
+            <div class="small-3 columns text-right">
+                <div class="pay info">
+                    <small>Безопасные платежи PCI DSS</small>
+                    <img src="<?php echo TEMPLATE_RESOURCES?>/img/pay.jpg" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <?php echo $this->render(null, 'blocks/header/blocks/breadcrumbs');?>
+</header>

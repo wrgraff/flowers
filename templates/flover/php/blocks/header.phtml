@@ -1,0 +1,11 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$template = 'default';
+
+if(MODULE == 'emarket' && METHOD == 'cart') {
+    $template = 'cart';
+}
+
+echo $this->render($variables, 'blocks/header/' . $template);
+?>

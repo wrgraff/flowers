@@ -1,0 +1,16 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php if(is_array($variables) && isset($variables['items'])):?>
+    <div class="row">
+        <div class="small-4 columns">
+            <label for="sorting" class="right inline">Сортировка</label>
+        </div>
+        <div class="small-8 columns">
+            <select id="sorting" name="sort">
+                <?php foreach($variables['items']['nodes:item'] as $item):?>
+                    <option value="<?php echo $item['attribute:name'];?>"<?php if(getArrayKey($item, 'attribute:status') == 'active'):?> selected="selected"<?php endif;?>><?php echo $item['node:text'];?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
+    </div>
+<?php endif;?>

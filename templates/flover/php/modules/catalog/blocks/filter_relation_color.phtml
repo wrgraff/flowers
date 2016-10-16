@@ -1,0 +1,12 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $field = $variables['field'];
+$fieldName = $field['attribute:name'];?>
+<fieldset class="colors">
+    <legend><?php echo $field['attribute:title'];?></legend>
+    <?php foreach($field['nodes:item'] as $i => $item):
+        $itemNode = $item['node:value'];
+        $itemId = sprintf('%s_%s', $fieldName, $i);?>
+        <input type="checkbox" name="filter[<?php echo $fieldName;?>][]" value="<?php echo $itemNode;?>" id="<?php echo $itemId;?>"<?php if(getArrayKey($item, 'attribute:is-selected') == 1):?> checked<?php endif;?> /><label for="<?php echo $itemId;?>" style="background-color: <?php echo getArrayKey($item, 'attribute:html_code');?>"></label>
+    <?php endforeach;?>
+</fieldset>

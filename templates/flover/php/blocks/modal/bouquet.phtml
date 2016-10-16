@@ -1,0 +1,37 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$form = $this->macros('webforms', 'add', array(129));
+if(is_array($form)):
+    $fields = $this->getFormGroupFields($form['groups']['nodes:group'], 'bouquet_fields');
+?>
+    <div class="hide" id="my_flavor">
+        <div class="row">
+            <div class="small-12 columns">
+                <span class="h2">Собрать свой уникальный букет</span>
+                <?php echo $this->getConfigValue('create_bouquet_content');?>
+            </div>
+        </div>
+        <form method="POST" action="/webforms/send/">
+            <?php echo $this->render($form, 'modules/webforms/blocks/form_system_fields');
+            if($fieldName = getArrayKey($fields, 'bouquet_name')) {
+                echo $this->render(array('field' => $fieldName, 'placeholder' => 'Иван Васильевич'), 'blocks/form/field');
+            }
+            if($fieldPhone = getArrayKey($fields, 'bouquet_phone')) {
+                echo $this->render(array('field' => $fieldPhone, 'placeholder' => '8 921 123-23-23', 'type' => 'tel'), 'blocks/form/field');
+            }
+            if($fieldEmail = getArrayKey($fields, 'bouquet_email')) {
+                echo $this->render(array('field' => $fieldEmail, 'placeholder' => 'name@domain.ru', 'type' => 'email'), 'blocks/form/field');
+            }
+            if($fieldDescription = getArrayKey($fields, 'bouquet_description')) {
+                echo $this->render(array('field' => $fieldDescription, 'placeholder' => 'Детали, которые нам важно знать'), 'blocks/form/field');
+            }
+            ?>
+            <div class="row">
+                <div class="small-9 small-offset-3 columns">
+                    <input class="button radius" type="submit" value="Отправить">
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif;?>

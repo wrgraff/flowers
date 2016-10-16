@@ -1,0 +1,355 @@
+$slider-padding: 0 8.33333%;
+
+// Slider
+$da-slider-width: 100%;
+$da-slider-height: 550px;
+$da-slider-min-width: 520px;
+$da-slider-bg: $white;
+
+// Slide
+$da-slide-text-align: left;
+$da-slide-width: 83.33333%;
+$da-slide-max-width: rem-calc(1083);
+$da-slide-height: 100%;
+
+// Elements
+$da-elements-width: 50%;
+$da-elements-position-left: -5%;
+$da-elements-opacity: 0;
+$da-current-elements-position-left: 0;
+$da-current-elements-opacity: 1;
+// work 2
+$da-work-second-position-left: 50%;
+$da-work-second-position-top: -20px;
+// work 2
+$da-work-third-position-top: $work-height + 20px;
+
+// Arrows
+$da-arrows-width: rem-calc(38);
+$da-arrows-max-width: rem-calc(1300);
+$da-arrows-opacity: 0;
+$da-arrows-hover-opacity: 1;
+$da-arrows-bg: $smoke;
+$da-arrows-position-top: 36%;
+$da-arrows-radius: 0;
+$da-arrows-user-select: none;
+$da-arrows-shadow-size: 1px 1px 1px;
+// Arrow
+$da-arrow-width: 100%;
+$da-arrow-radius: 50%;
+$da-arrow-shadow-size: 1px 1px 2px;
+$da-arrow-hover-shadow-size: 1px 1px 4px;
+$da-arrow-active-shadow-size: 1px 1px 1px;
+$da-arrow-position: $column-gutter;
+
+
+// Mixins
+$da-slider-transition-property: background-position 1.4s ease-in-out 0.3s;
+@mixin da-slider-transition {
+	-webkit-transition: $da-slider-transition-property;
+	-moz-transition: $da-slider-transition-property;
+	-o-transition: $da-slider-transition-property;
+	-ms-transition: $da-slider-transition-property;
+	transition: $da-slider-transition-property;
+}
+@mixin da-slide-position {
+	position: absolute;
+	top: 0px;
+	left: 50%;
+}
+@mixin da-dot-shadow {
+	box-shadow: $da-dot-shadow-size rgba(0,0,0,0.1) inset, $da-dot-shadow-size rgba(255,255,255,0.1);
+}
+@mixin da-dot-in-gradient {
+	background: -moz-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $da-dot-in-gradient-1-color), color-stop($da-dot-in-percent-2-color, $da-dot-in-gradient-2-color), color-stop(100%, $da-dot-in-gradient-3-color));
+	background: -webkit-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: -o-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: -ms-linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	background: linear-gradient(top, $da-dot-in-gradient-1-color 0%, $da-dot-in-gradient-2-color $da-dot-in-percent-2-color, $da-dot-in-gradient-3-color 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$da-dot-in-gradient-1-color', endColorstr='$da-dot-in-gradient-3-color',GradientType=0 );
+}
+
+$da-arrows-transition-property: opacity 0.4s ease-in-out 0.2s;
+@mixin da-arrows-transition {
+	-webkit-transition: $da-arrows-transition-property;
+	-moz-transition: $da-arrows-transition-property;
+	-o-transition: $da-arrows-transition-property;
+	-ms-transition: $da-arrows-transition-property;
+	transition: $da-arrows-transition-property;
+}
+@mixin da-arrow-active-shadow {
+	box-shadow: $da-arrow-active-shadow-size rgba(255,255,255,0.1);
+}
+
+.slider {
+    margin: 0 auto $column-gutter;
+}
+.da-slider {
+	width: $da-slider-width;
+	min-width: $da-slider-min-width;
+	height: $da-slider-height;
+	margin-bottom: $column-gutter / 2;
+	position: relative;
+	overflow: hidden;
+	background: $da-slider-bg;
+	@include da-slider-transition();
+
+	.da-slide {
+		@include da-slide-position();
+		width: $da-slide-width;
+    	max-width: $da-slide-max-width;
+		height: $da-slide-height;
+		text-align: $da-slide-text-align;
+
+		.work {
+			position: absolute;
+			left: $da-elements-position-left;
+			width: $da-elements-width;
+			padding: 0 ($column-gutter / 2);
+			opacity: $da-elements-opacity;
+		}
+		.work:nth-child(2) {
+			left: $da-work-second-position-left;
+			top: $da-work-second-position-top;
+			z-index: 10;
+		}
+		.work:nth-child(3) {
+			left: $da-work-second-position-left;
+			top: $da-work-third-position-top;
+		}
+	}
+	.da-slide-current {
+		z-index: 1000;
+
+		.work {
+			left: $da-current-elements-position-left;
+			opacity: $da-current-elements-opacity;
+		}
+		.work:nth-child(2) {
+			top: 0;
+		}
+		.work:nth-child(3) {
+			top: $work-height;
+		}
+	}
+
+	.da-dots {
+		display: none;
+	}
+
+	.da-arrows {
+		width: 100%;
+    	max-width: $da-arrows-max-width;
+		height: 20px;
+		position: absolute;
+		left: 50%;
+		top: 0;
+		-moz-user-select: $da-arrows-user-select;
+		-webkit-user-select: $da-arrows-user-select;
+
+		span {
+			position: absolute;
+			top: $da-arrows-position-top;
+			left: $da-arrows-width + ($column-gutter / 2);
+			height: $da-slider-height;
+			width: $da-arrows-width;
+			cursor: pointer;
+			z-index: 2000;
+			opacity: $da-arrows-opacity;
+			@include da-arrows-transition();
+
+			svg {
+				position: absolute;
+				top: $da-arrows-position-top;
+
+				polyline {
+					stroke: $primary-color;
+					@include single-transition();
+				}
+			}
+			&:hover svg polyline {
+				stroke: $alert-color;
+			}
+
+			&.da-arrows-next {
+				left: auto;
+				right: $da-arrows-width + ($column-gutter / 2);
+			}
+		}
+	}
+	&:hover {
+		.da-arrows span {
+			opacity: $da-arrows-hover-opacity;
+		}
+	}
+}
+
+/* Animation classes and animations */
+$anim-timing: ease-in;
+$anim-mode: both;
+
+@mixin slide-animate($anim-name: fromRightAnim1, $anim-duration: 400ms, $anim-delay: 500ms ) {
+	-webkit-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	-moz-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	-o-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	-ms-animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+	animation: $anim-name $anim-duration $anim-timing $anim-delay $anim-mode;
+}
+
+/* Slide in from the right*/
+.da-slide-fromright .work:nth-child(1) {
+	@include slide-animate($anim-name: fromRightAnim1);
+}
+.da-slide-fromright .work:nth-child(2) {
+	@include slide-animate($anim-name: fromRightAnim2, $anim-duration: 300ms, $anim-delay: 700ms);
+}
+.da-slide-fromright .work:nth-child(3) {
+	@include slide-animate($anim-name: fromRightAnim3, $anim-duration: 300ms, $anim-delay: 800ms);
+}
+@mixin fromRightAnim1 {
+	0%{ left: -30%; opacity: 0; }
+	50%{ left: -15%; opacity: .3; }
+	100%{ left: 0; opacity: 1; }
+}
+@mixin fromRightAnim2 {
+	0%{ top: 100px; opacity: 0; }
+	100%{ top: 0; opacity: 1; }
+}
+@mixin fromRightAnim3 {
+	0%{ top: 375px; opacity: 0; }
+	100%{ top: 275px; opacity: 1; }
+}
+@-webkit-keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+@-webkit-keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+@-webkit-keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+   @-moz-keyframes fromRightAnim1 { @include fromRightAnim1(); }
+   @-moz-keyframes fromRightAnim2 { @include fromRightAnim2(); }
+   @-moz-keyframes fromRightAnim3 { @include fromRightAnim3(); }
+	 @-o-keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+	 @-o-keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+	 @-o-keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+	@-ms-keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+	@-ms-keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+	@-ms-keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+		@keyframes fromRightAnim1 {	@include fromRightAnim1(); }
+		@keyframes fromRightAnim2 {	@include fromRightAnim2(); }
+		@keyframes fromRightAnim3 {	@include fromRightAnim3(); }
+
+/* Slide in from the left*/
+.da-slide-fromleft .work:nth-child(1) {
+	@include slide-animate($anim-name: fromLeftAnim1);
+}
+.da-slide-fromleft .work:nth-child(2) {
+	@include slide-animate($anim-name: fromLeftAnim2, $anim-delay: 700ms);
+}
+.da-slide-fromleft .work:nth-child(3) {
+	@include slide-animate($anim-name: fromLeftAnim3, $anim-delay: 800ms);
+}
+@mixin fromLeftAnim1 {
+	0%{ left: -30%; opacity: 0; }
+	50%{ left: -15%; opacity: .3; }
+	100%{ left: 0; opacity: 1; }
+}
+@mixin fromLeftAnim2 {
+	0%{ top: 100px; opacity: 0; }
+	100%{ top: 0; opacity: 1; }
+}
+@mixin fromLeftAnim3 {
+	0%{ top: 375px; opacity: 0; }
+	100%{ top: 275px; opacity: 1; }
+}
+@-webkit-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+@-webkit-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+@-webkit-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+   @-moz-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+   @-moz-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+   @-moz-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+	 @-o-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+	 @-o-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+	 @-o-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+	@-ms-keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+	@-ms-keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+	@-ms-keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+		@keyframes fromLeftAnim1 { @include fromLeftAnim1(); }
+		@keyframes fromLeftAnim2 { @include fromLeftAnim2(); }
+		@keyframes fromLeftAnim3 { @include fromLeftAnim3(); }
+
+/* Slide out to the right */
+.da-slide-toright .work:nth-child(1) {
+	@include slide-animate($anim-name: toRightAnim1, $anim-delay: 0ms);
+}
+.da-slide-toright .work:nth-child(2) {
+	@include slide-animate($anim-name: toRightAnim2, $anim-delay: 100ms);
+}
+.da-slide-toright .work:nth-child(3) {
+	@include slide-animate($anim-name: toRightAnim3, $anim-delay: 200ms);
+}
+@mixin toRightAnim1 {
+	0%{ left: 0;  opacity: 1; }
+	30%{ left: -5%;  opacity: .4; }
+	100%{ left: -30%; opacity: 0; }
+}
+@mixin toRightAnim2 {
+	0%{ top: 0; opacity: 1; }
+	100%{ top: -100px; opacity: 0; }
+}
+@mixin toRightAnim3 {
+	0%{ top: 275px; opacity: 1; }
+	100%{ top: 175px; opacity: 0; }
+}
+@-webkit-keyframes toRightAnim1 { @include toRightAnim1(); }
+@-webkit-keyframes toRightAnim2 { @include toRightAnim2(); }
+@-webkit-keyframes toRightAnim3 { @include toRightAnim3(); }
+   @-moz-keyframes toRightAnim1 { @include toRightAnim1(); }
+   @-moz-keyframes toRightAnim2 { @include toRightAnim2(); }
+   @-moz-keyframes toRightAnim3 { @include toRightAnim3(); }
+	 @-o-keyframes toRightAnim1 { @include toRightAnim1(); }
+	 @-o-keyframes toRightAnim2 { @include toRightAnim2(); }
+	 @-o-keyframes toRightAnim3 { @include toRightAnim3(); }
+	@-ms-keyframes toRightAnim1 { @include toRightAnim1(); }
+	@-ms-keyframes toRightAnim2 { @include toRightAnim2(); }
+	@-ms-keyframes toRightAnim3 { @include toRightAnim3(); }
+		@keyframes toRightAnim1 { @include toRightAnim1(); }
+		@keyframes toRightAnim2 { @include toRightAnim2(); }
+		@keyframes toRightAnim3 { @include toRightAnim3(); }
+
+/* Slide out to the left*/
+.da-slide-toleft .work:nth-child(1) {
+	@include slide-animate($anim-name: toLeftAnim1, $anim-delay: 0ms);
+}
+.da-slide-toleft .work:nth-child(2) {
+	@include slide-animate($anim-name: toLeftAnim2, $anim-delay: 100ms);
+}
+.da-slide-toleft .work:nth-child(3) {
+	@include slide-animate($anim-name: toLeftAnim3, $anim-delay: 200ms);
+}
+@mixin toLeftAnim1 {
+	0%{ left: 0;  opacity: 1; }
+	30%{ left: -5%;  opacity: .4; }
+	100%{ left: -30%; opacity: 0; }
+}
+@mixin toLeftAnim2 {
+	0%{ top: 0; opacity: 1; }
+	100%{ top: -100px; opacity: 0; }
+}
+@mixin toLeftAnim3 {
+	0%{ top: 275px; opacity: 1; }
+	100%{ top: 175px; opacity: 0; }
+}
+@-webkit-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+@-webkit-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+@-webkit-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+   @-moz-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+   @-moz-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+   @-moz-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+	 @-o-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+	 @-o-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+	 @-o-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+	@-ms-keyframes toLeftAnim1 { @include toLeftAnim1(); }
+	@-ms-keyframes toLeftAnim2 { @include toLeftAnim2(); }
+	@-ms-keyframes toLeftAnim3 { @include toLeftAnim3(); }
+		@keyframes toLeftAnim1 { @include toLeftAnim1(); }
+		@keyframes toLeftAnim2 { @include toLeftAnim2(); }
+		@keyframes toLeftAnim3 { @include toLeftAnim3(); }
+

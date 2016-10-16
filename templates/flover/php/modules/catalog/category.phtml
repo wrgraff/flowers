@@ -1,0 +1,10 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$template = 'default';
+
+if(IS_DEFAULT) {
+    $template = 'index';
+}
+
+echo $this->render($variables, 'modules/catalog/category/' . $template);

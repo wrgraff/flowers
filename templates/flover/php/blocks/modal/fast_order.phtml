@@ -1,0 +1,35 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$form = $this->macros('emarket', 'purchaseOneClickForm');
+if(is_array($form)):
+?>
+    <div class="hide" id="fast_order">
+        <div class="row">
+            <div class="small-12 columns">
+                <span class="h2">Быстрый заказ</span>
+            </div>
+        </div>
+        <form action="/emarket/purchase_one_click/" method="POST">
+            <input type="hidden" name="<?php echo getArrayKey($form, 'attribute:param_action');?>" value="<?php echo getArrayKey($form, 'attribute:param_action_purchase');?>" />
+            <input type="hidden" name="<?php echo getArrayKey($form, 'attribute:param_element_id');?>" value="<?php echo getArrayKey($form, 'attribute:param_element_id_value');?>" data-purchase-one-click="element_id" />
+
+            <?php
+            if($fieldName = getArrayKey($form, 'name')) {
+                echo $this->render(array('field' => $fieldName, 'title' => 'Имя', 'placeholder' => 'Иван Васильевич', 'type' => 'string',), 'blocks/form/field');
+            }
+            if($fieldPhone = getArrayKey($form, 'phone')) {
+                echo $this->render(array('field' => $fieldPhone, 'title' => 'Номер телефона', 'placeholder' => '8 921 123-23-23', 'type' => 'tel'), 'blocks/form/field');
+            }
+            if($fieldComment = getArrayKey($form, 'comment')) {
+                echo $this->render(array('field' => $fieldComment, 'title' => 'Примечания', 'placeholder' => 'Детали, которые нам важно знать', 'type' => 'text'), 'blocks/form/field');
+            }
+            ?>
+            <div class="row">
+                <div class="small-9 small-offset-3 columns">
+                    <input class="button radius" type="submit" value="Отправить заказ">
+                </div>
+            </div>
+        </form>
+    </div>
+<?php endif;?>

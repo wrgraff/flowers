@@ -1,0 +1,57 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $page = $variables['full:page'];
+/* @var umiHierarchyElement $page*/
+$sort = $this->macros('catalog', 'getCatalogSort', array('', 'price', 'asc'));
+$sortItemActive = array();
+if(is_array($sort) && isset($sort['items'])) {
+    $sortItemActive = $this->getArrayItem($sort['items']['nodes:item'], array('attribute:status' => 'active'));
+}
+$filter = $this->macros('catalog', 'getSmartFiltersCustom', array('notemplate', PAGE_ID, false, 1));
+$items = $this->macros('catalog', 'getSmartCatalogCustom', array('notemplate', PAGE_ID, false, false, 1, getArrayKey($sortItemActive, 'attribute:field'), getArrayKey($sortItemActive, 'attribute:order-int') == 1));
+?>
+<div class="row">
+    <div class="small-12 columns">
+        <h1 umi:element-id="<?php echo PAGE_ID?>" umi:field-name="h1"><?php echo $page->getValue('h1');?></h1>
+    </div>
+</div>
+<section>
+    <div class="row">
+        <div class="small-9 columns">
+            <?php if(is_array($items) && isset($items['lines'])):?>
+                <ul class="small-block-grid-3 objects">
+                    <?php foreach($items['lines']['nodes:item'] as $item):?>
+                        <?php echo $this->render(array('item' => $item), 'modules/catalog/blocks/objects_list_item');?>
+                    <?php endforeach;?>
+                </ul>
+            <?php else:?>
+                <p>Товары не найдены</p>
+            <?php endif;?>
+            <?php if(is_array($items)):?>
+                <?php echo $this->render($this->macros('system', 'numpages', array(getArrayKey($items, 'total'), getArrayKey($items, 'per_page'))), 'blocks/numpages');?>
+            <?php endif;?>
+        </div>
+        <div class="small-3 columns">
+            <?php echo $this->render(null, 'modules/catalog/blocks/search');?>
+
+            <form action="<?php echo $this->getPageLink(PAGE_ID);?>" method="GET" enctype="multipart/form-data">
+                <?php echo $this->render($sort, 'modules/catalog/blocks/sort');?>
+
+                <div class="filter">
+                    <?php echo $this->render($filter, 'modules/catalog/blocks/filter');?>
+                    <hr />
+                    <div class="row">
+                        <div class="small-6 columns">
+                            <button class="radius secondary outline expand" type="reset" onclick="window.location.href='<?php echo $this->getPageLink(PAGE_ID);?>';">Сбросить</button>
+                        </div>
+                        <div class="small-6 columns">
+                            <button class="radius expand" type="submit">Применить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <?php echo $this->render(null, 'blocks/benefits');?>
+        </div>
+        <!-- /Правый блок -->
+    </div>
+</section>

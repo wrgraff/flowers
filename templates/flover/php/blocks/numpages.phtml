@@ -1,0 +1,53 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */?>
+<?php if(is_array($variables) && isset($variables['items'])):
+    $prev = getArrayKey($variables, 'toprev_link');
+    $next = getArrayKey($variables, 'tonext_link');
+
+    $current = (int) getArrayKey($variables, 'current-page');
+    $count = floor(count($variables['items']['nodes:item']) / 2) + 1;
+
+    $showBeginLink = false;
+
+    if(isset($variables['tobegin_link'])) {
+        $showBeginLink = $current >= $count;
+    }
+
+    $showEndLink = false;
+
+    if(isset($variables['toend_link'])) {
+        $showEndLink = (intval($variables['toend_link']['attribute:page-num']) - $current) >= $count;
+    }
+
+    $end = isset($variables['toend_link']) ? (int) $variables['toend_link']['attribute:page-num'] : false;
+    ?>
+    <div class="row">
+        <div class="small-8 columns">
+            <ul class="pagination">
+                <li class="arrow<?php if(!$prev):?> unavailable<?php endif;?>"><a href="<?php echo $prev ? $prev['node:value'] : '';?>"><i class="material-icons">keyboard_arrow_left</i></a></li>
+                <?php if($showBeginLink):?>
+                    <li><a href="<?php echo $variables['tobegin_link']['node:value'];?>">1</a</li>
+                    <?php if($current > $count):?>
+                        <li class="unavailable"><a href="<?php echo $prev['node:value'];?>">&hellip;</a></li>
+                    <?php endif;?>
+                <?php endif;?>
+                <?php foreach($variables['items']['nodes:item'] as $item):
+                    $isActive = getArrayKey($item, 'attribute:is-active') == '1';?>
+                    <li<?php if($isActive):?> class="current"<?php endif;?>><a href="<?php echo $item['attribute:link'];?>"><?php echo $item['node:num'];?></a></li>
+                <?php endforeach;?>
+
+                <?php if($showEndLink):?>
+                    <?php if(intval($variables['toend_link']['attribute:page-num']) - $current - 1 > $count):?>
+                        <li class="unavailable"><a href="<?php echo $next['node:value'];?>">&hellip;</a></li>
+                    <?php endif;?>
+                    <li><a href="<?php echo $variables['toend_link']['node:value'];?>"><?php echo $variables['toend_link']['attribute:page-num'];?></a></li>
+                <?php endif;?>
+
+                <li class="arrow<?php if(!$next):?> unavailable<?php endif;?>"><a href="<?php echo $next ? $next['node:value'] : ''?>"><i class="material-icons">keyboard_arrow_right</i></a></li>
+            </ul>
+        </div>
+        <div class="small-4 columns">
+            <?/* ToDO: <a class="button secondary outline expand" href="#">Загрузить еще</a>*/?>
+        </div>
+    </div>
+<?php endif;?>

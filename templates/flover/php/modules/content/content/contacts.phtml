@@ -1,0 +1,53 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $page = $variables['full:page'];
+/* @var umiHierarchyElement $page*/
+$map = $page->getValue('content_contacts_map');
+$form = $this->macros('webforms', 'add', array(123));
+?>
+<div class="row">
+    <div class="small-12 columns">
+        <h1 umi:element-id="<?php echo $page->getId();?>" umi:field-name="h1"><?php echo $page->getValue('h1');?></h1>
+    </div>
+</div>
+<section>
+    <div class="row">
+        <div class="small-9 columns">
+            <?php if($map):?>
+                <?php echo $page->getValue('content_contacts_map');?><br />
+            <?php endif;?>
+            <div umi:element-id="<?php echo $page->getId();?>" umi:field-name="content">
+                <?php echo $page->getValue('content');?>
+            </div>
+            <?php if(is_array($form)):
+                $fields = $this->getFormGroupFields($form['groups']['nodes:group'], 'contacts_fields');?>
+                <h2>Написать нам</h2>
+                <form method="POST" action="/webforms/send/">
+                    <?php echo $this->render($form, 'modules/webforms/blocks/form_system_fields');?>
+                    <?php
+                    if($fieldName = getArrayKey($fields, 'contacts_name')) {
+                        echo $this->render(array('field' => $fieldName, 'placeholder' => 'Иван Петров'), 'blocks/form/field');
+                    }
+                    if($fieldPhone = getArrayKey($fields, 'contacts_phone')) {
+                        echo $this->render(array('field' => $fieldPhone, 'placeholder' => '8 921 123-45-67', 'type' => 'tel'), 'blocks/form/field');
+                    }
+                    if($fieldEmail = getArrayKey($fields, 'contacts_email')) {
+                        echo $this->render(array('field' => $fieldEmail, 'placeholder' => 'name@domain.ru', 'type' => 'email'), 'blocks/form/field');
+                    }
+                    if($fieldMessage = getArrayKey($fields, 'contacts_message')) {
+                        echo $this->render(array('field' => $fieldMessage, 'placeholder' => 'Введите текст'), 'blocks/form/field');
+                    }
+                    ?>
+                    <div class="row">
+                        <div class="small-9 small-offset-3 columns">
+                            <input class="button radius" type="submit" value="Отправить сообщение" />
+                        </div>
+                    </div>
+                </form>
+            <?php endif;?>
+        </div>
+        <div class="small-3 columns">
+            <?php echo $this->render(null, 'blocks/benefits');?>
+        </div>
+    </div>
+</section>

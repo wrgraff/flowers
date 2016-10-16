@@ -1,0 +1,36 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$domain = 'https://floverart.ru';
+
+$title = $variables['@title'];
+$keywords = $variables['meta']['keywords'];
+$description = $variables['meta']['description'];
+$ogImage = TEMPLATE_RESOURCES . '/img/og.jpg';
+$ogImageType = 'image/jpg';
+
+if(METHOD === 'object') {
+    $image = $variables['full:page']->getValue('object_image');
+
+    if($image instanceof umiImageFile) {
+        $ogImage = $image->getFilePath(true);
+        $ogImageType = 'image/' . $image->getExt();
+    }
+}
+?>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title><?php echo $title; ?></title>
+<meta name="keywords" content="<?php echo $keywords; ?>" />
+<meta name="description" content="<?php echo $description; ?>" />
+
+<meta property="og:site_name" content="FLOVER. Цветы и букеты с доставкой" />
+<meta property="og:title" content="<?php echo $variables['@header'];?>" />
+<meta property="og:image" content="<?php echo $domain . $ogImage;?>" />
+<meta property="og:image:type" content="<?php echo $ogImageType;?>" />
+<meta property="og:description" content="<?php echo $description;?>" />
+<meta property="og:url" content="<?php echo $domain . $variables['@request-uri'];?>" />
+
+<link rel="stylesheet" href="<?php echo TEMPLATE_RESOURCES?>/css/style.css<?php echo TEMPLATE_VERSION?>" />

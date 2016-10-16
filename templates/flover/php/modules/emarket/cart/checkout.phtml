@@ -1,0 +1,191 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$cart = $this->getCommonVar('cart');
+$form = $this->macros('emarket', 'checkoutForm');
+$customer = $form['customer'];
+$recipient = $form['recipient'];
+$additional = $form['additional'];
+$delivery = $form['delivery'];
+?>
+<h2>Данные заказа</h2>
+<fieldset>
+    <legend>Контактная информация</legend>
+
+    <?php
+    if($fieldName = getArrayKey($customer, 'name')) {
+        echo $this->render(array(
+            'field' => $fieldName,
+            'title' => 'Имя',
+            'placeholder' => 'Иван Васильевич',
+            'type' => 'string'
+        ), 'blocks/form/field_checkout');
+    }
+    if($fieldPhone = getArrayKey($customer, 'phone')) {
+        echo $this->render(array(
+            'field' => $fieldPhone,
+            'title' => 'Номер телефона',
+            'placeholder' => '8 921 123-23-23',
+            'type' => 'tel'
+        ), 'blocks/form/field_checkout');
+    }
+    if($fieldEmail = getArrayKey($customer, 'email')) {
+        echo $this->render(array(
+            'field' => $fieldEmail,
+            'title' => 'Электронная почта',
+            'placeholder' => 'name@domain.ru',
+            'type' => 'email',
+            'tip' => 'E-mail не обязателен, но необходим для получения статуса заказа'
+        ), 'blocks/form/field_checkout');
+    }
+    ?>
+</fieldset>
+<fieldset>
+    <legend>Получатель букета</legend>
+    <?php
+    if($fieldName = getArrayKey($recipient, 'name')) {
+        $tip = '';
+
+        if($fieldAdditionalSelf = getArrayKey($additional, 'self')) {
+            $tip = $this->render(array(
+                'field' => $fieldAdditionalSelf,
+                'title' => 'Я сам получу цветы'
+            ), 'blocks/form/field_checkout_tip');
+        }
+
+        echo $this->render(array(
+            'field' => $fieldName,
+            'title' => 'Имя',
+            'placeholder' => 'Иван Васильевич',
+            'type' => 'string',
+            'tip' => $tip
+        ), 'blocks/form/field_checkout');
+    }
+    if($fieldPhone = getArrayKey($recipient, 'phone')) {
+        $tip = '';
+
+        if($fieldAdditionalSecret = getArrayKey($additional, 'secret')) {
+            $tip = $this->render(array(
+                'field' => $fieldAdditionalSecret,
+                'title' => 'Не сообщать, что это цветы',
+                'label_title' => 'Мы постараемся, но возможно, нам придется, чтобы нас впустили',
+            ), 'blocks/form/field_checkout_tip');
+        }
+
+        echo $this->render(array(
+            'field' => $fieldPhone,
+            'title' => 'Номер телефона',
+            'placeholder' => '8 921 123-45-67',
+            'type' => 'tel',
+            'tip' => $tip
+        ), 'blocks/form/field_checkout');
+    }
+    if($fieldEmail = getArrayKey($recipient, 'email')) {
+        echo $this->render(array(
+            'field' => $fieldEmail,
+            'title' => 'Электронная почта',
+            'placeholder' => 'name@domain.ru',
+            'type' => 'email',
+        ), 'blocks/form/field_checkout');
+    }
+    ?>
+</fieldset>
+
+<fieldset>
+    <legend>Адрес доставки</legend>
+    <!-- Доставка -->
+    <div class="row">
+        <div class="small-9 columns">
+            <div class="row">
+                <?php if(is_array($delivery)):
+                    $arDelivery = array();
+
+                    foreach($delivery['items']['nodes:item'] as $deliveryItem) {
+                        $arDelivery[$deliveryItem['attribute:id']] = $deliveryItem;
+                    }
+                    ?>
+
+                    <?php if($deliverySpb = getArrayKey($arDelivery, 444)):?>
+                        <div class="small-5 columns">
+                            <input id="delivery_spb" name="delivery[id]" type="radio" checked="" value="<?php echo $deliverySpb['attribute:id'];?>" /><label class="inline" for="delivery_spb"><?php echo $deliverySpb['attribute:name'];?> — <?php echo $deliverySpb['attribute:price'];?> р.</label>
+                        </div>
+                    <?php endif;?>
+                    <?php if($deliveryOut = getArrayKey($arDelivery, 445)):?>
+                        <div class="small-5 columns">
+                            <input id="delivery_out" name="delivery[id]" type="radio" value="<?php echo $deliveryOut['attribute:id'];?>" /><label class="inline" for="delivery_out"><?php echo $deliveryOut['attribute:name'];?> — <?php echo $deliveryOut['attribute:price'];?> р.</label>
+                        </div>
+                    <?php endif;?>
+                    <?php if($deliverySelf = getArrayKey($arDelivery, 446)):?>
+                        <div class="small-2 columns">
+                            <input id="take_myself" name="delivery[id]" type="radio" value="<?php echo $deliverySelf['attribute:id'];?>" /><label class="inline" for="take_myself"><?php echo $deliverySelf['attribute:name'];?></label>
+                        </div>
+                    <?php endif;?>
+                <?php endif;?>
+            </div>
+            <div class="row">
+                <div class="small-4 columns">
+                    <label class="inline" for="address">Адрес</label>
+                </div>
+                <div class="small-8 columns">
+                    <input id="address" type="text" name="delivery[address]" placeholder="ул. Советская, д. 5, кв. 147, г. Санкт-Петербург, 154575" />
+                    <?php if(isset($delivery['self'])):?>
+                        <select class="hide" id="take" name="delivery[self]">
+                            <?php foreach($delivery['self']['nodes:item'] as $selfItem):?>
+                                <option value="<?php echo $selfItem['attribute:id'];?>"><?php echo $selfItem['node:text'];?></option>
+                            <?php endforeach;?>
+                        </select>
+                    <?php endif;?>
+                </div>
+            </div>
+        </div>
+        <div class="small-3 columns">
+            <label id="delivery_comment" class="inline" for="address">Пожалуйста, укажите адрес настолько полно, насколько знаете. Это поможет избежать трудностей при доставке</label>
+        </div>
+    </div>
+    <!-- /Доставка -->
+
+    <!-- Дата -->
+    <div class="row">
+        <div class="small-3 columns">
+            <label class="inline" for="date">Дата и время</label>
+        </div>
+        <div class="small-3 columns">
+            <label class="required">
+                <input id="date" type="date" name="delivery[date]" value="<?php echo date('Y-m-d', time());?>" min="<?php echo date('Y-m-d', time());?>" required="" /><!-- Можно ли ставить по умолчанию текущее число? -->
+                <small>Обязательное поле</small>
+            </label>
+        </div>
+        <div class="small-3 columns">
+            <div class="row collapse">
+                <div class="small-5 columns">
+                    <input id="time_to" type="time" name="delivery[time_from]" min="06:00" max="22:00" />
+                </div>
+                <div class="small-2 columns text-center">
+                    <label class="inline">—</label>
+                </div>
+                <div class="small-5 columns">
+                    <input id="time_from" type="time" name="delivery[time_to]" min="07:00" max="23:00" />
+                </div>
+            </div>
+        </div>
+        <div class="small-3 columns">
+            <input id="delivery_call" type="checkbox" name="delivery[call]" value="1" /><label class="inline radius" for="delivery_call">Позвонить получателю для уточнения времени и адреса</label>
+        </div>
+    </div>
+    <!-- /Дата -->
+</fieldset>
+
+<div class="summary">
+    <div class="row">
+        <div class="small-5 columns">
+            <input id="subscribe" name="additional[subscribe]" type="checkbox" value="1" /><label for="subscribe">Хочу получать информацию о скидках и ценах</label>
+            <input id="agree" name="agree" type="checkbox" value="1" checked="" /><label for="agree">Я согласен с <a class="modal" href="#rules">условиями работы</a></label>
+        </div>
+        <div class="small-3 columns text-right">
+            Итого <span class="price" data-checkout="total-price" data-suffix=" р."><?php echo $cart['summary']['price']['actual'];?> р.</span>
+        </div>
+        <div class="small-4 columns text-right">
+            <input class="button radius large" type="submit" value="Перейти к оплате" />
+        </div>
+    </div>
+</div>
