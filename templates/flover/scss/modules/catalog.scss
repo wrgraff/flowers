@@ -191,6 +191,13 @@ $css-triangle-label-color-info: scale-color($info-color, $lightness: $css-triang
 
           .button {
             margin-bottom: 0;
+
+            @media #{$small-only} {
+              &.info {
+                padding-left: rem-calc(2);
+                padding-right: rem-calc(2);
+              }
+            }
           }
         }
       }
@@ -207,6 +214,9 @@ $css-triangle-label-color-info: scale-color($info-color, $lightness: $css-triang
 }
 
 .filter {
+  .small-header {
+    display: none;
+  }
   fieldset {
     position: relative;
     margin: 0;
@@ -226,6 +236,78 @@ $css-triangle-label-color-info: scale-color($info-color, $lightness: $css-triang
       margin: 0;
       padding: 0;
       background-color: transparent;
+    }
+  }
+}
+@media #{$medium-only} {
+  .filter {
+    margin-bottom: $column-gutter * 2;
+    padding: $column-gutter / 2;
+    border-radius: $global-radius;
+    background-color: #fbfbfb;
+    border: 1px solid #f6f6f6;
+
+    fieldset {
+      margin-bottom: $column-gutter;
+      background-color: transparent;
+      border: none;
+    }
+    button {
+      margin: 0;
+      margin-top: $column-gutter / 2;
+    }
+  }
+}
+
+$filter-close-size: rem-calc(60);
+@media #{$small-only} {
+  .filter {
+    display: none;
+    overflow-y: scroll;
+    background-color: $white;
+
+    &.showed {
+      display: block !important;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+
+      .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    button {
+      margin-top: $column-gutter / 2;
+    }
+    .small-header {
+      display: block;
+      padding: $column-gutter;
+
+      .close {
+        position: absolute;
+        right: rem-calc(6);
+        top: rem-calc(14);
+        cursor: pointer;
+        display: block;
+        width: $filter-close-size;
+        height: $filter-close-size;
+        line-height: $filter-close-size;
+        text-align: center;
+
+        &:active {
+          background-color: $snow;
+        }
+
+        i {
+          width: $filter-close-size;
+          height: $filter-close-size;
+          line-height: $filter-close-size;
+        }
+      }
     }
   }
 }
@@ -308,5 +390,16 @@ $css-triangle-label-color-info: scale-color($info-color, $lightness: $css-triang
   h5, .h5 {
     font-size: $h5-font-size * $after-text-font-size-factor;
     color: $charcoal;
+  }
+}
+
+@media #{$small-only} {
+  .pagination-centered-on-small {
+    text-align: center;
+
+    ul.pagination li {
+      display: inline-block;
+      float: none;
+    }
   }
 }

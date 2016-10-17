@@ -36,6 +36,23 @@ $(document).ready(function() {
   });
 });
 
+
+$(document).ready(function() {
+  $('#catalog-call').click(function() {
+    $('.catalog-menu').addClass('showed');
+  });
+  $('.catalog-menu .close').click(function() {
+    $('.catalog-menu').removeClass('showed');
+  });
+  $('#filter-call').click(function() {
+    $('.filter').addClass('showed');
+  });
+  $('.filter .close').click(function() {
+    $('.filter').removeClass('showed');
+  });
+});
+
+
 // Sticked all, what we want!
 $(function() {
   $('.sticked .main-menu').clone().prependTo('.sticked').addClass('hide');

@@ -42,7 +42,7 @@
         <div class="row">
           <!-- Лого -->
           <div class="small-6 small-offset-3 medium-offset-0 medium-3 columns">
-            <img src="/templates/flover/img/logo.png" />
+            <img src="/templates/flover/img/logo.svg" />
           </div>
           <!-- /Лого -->
 
@@ -70,9 +70,9 @@
             </div>
             <div class="show-for-large-up">
               <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
-              <a href="#" class="button secondary outline dropdown" data-dropdown="login">Войти</a>
+              <a href="#" class="button secondary outline dropdown" data-dropdown="login_panel">Войти</a>
             </div>
-            <div id="login" data-dropdown-content class="f-dropdown content medium">
+            <div id="login_panel" data-dropdown-content class="f-dropdown content medium">
               <form id="login_form" class="login">
                 <span class="h2 hide-for-large-up">Авторизация</span>
                 <input type="text" placeholder="Логин" />
@@ -85,7 +85,7 @@
                     <button class="button radius small expand" type="submit">Войти</button>
                   </div>
                 </div>
-                <a href="#registrate" class="button secondary outline modal hide-for-large-up">Зарегистрироваться</a>
+                <!--a href="#registrate" class="button secondary outline modal hide-for-large-up">Зарегистрироваться</a-->
               </form>
             </div>
           </div>
@@ -99,20 +99,26 @@
         <div class="small-12 columns sticked">
           <nav class="main-menu">
             <div class="row">
-              <div class="small-6 medium-9 columns">
+              <div class="small-7 medium-9 columns">
                 <ul class="elastic-menu show-for-small-only">
-                  <li><a href="#"><i class="material-icons">menu</i> Каталог</a></li>
-                  <li><a href="#"><i class="material-icons">filter_list</i> Фильтр</a></li>
+                  <li><span id="catalog-call"><i class="material-icons">menu</i> Каталог</span></li>
+                  <li><span id="filter-call"><i class="material-icons">filter_list</i> Фильтр</span></li>
                 </ul>
-                <ul class="elastic-menu hide-for-small">
-                  <li><a href="/catalog/">Букеты</a></li>
-                  <li><a href="/catalog/">Композиции</a></li>
-                  <li><a href="/catalog/">Свадебные букеты</a></li>
-                  <li><a href="/catalog/">Сувениры</a></li>
-                  <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
-                </ul>
+                <div class="catalog-menu">
+                  <header class="small-header">
+                    <span class="h3">Каталог</span>
+                    <span class="close"><i class="material-icons">clear</i></span>
+                  </header>
+                  <ul class="elastic-menu">
+                    <li><a href="/catalog/">Букеты</a></li>
+                    <li><a href="/catalog/">Композиции</a></li>
+                    <li><a href="/catalog/">Свадебные букеты</a></li>
+                    <li><a href="/catalog/">Сувениры</a></li>
+                    <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+                  </ul>
+                </div>
               </div>
-              <div class="small-6 medium-3 columns">
+              <div class="small-5 medium-3 columns">
                 <div class="checkout right full">
                   <a class="checkout-button" href="/cart/">
                     <i class="material-icons">local_grocery_store</i><span class="text"> Корзина </span><span class="label info round">3</span>
@@ -167,8 +173,8 @@
     <!-- Промо-блок -->
     <section class="promo">
       <div class="row">
-        <div class="small-8 medium-8 large-12 small-centered columns">
-          <ul class="medium-block-grid-2 large-block-grid-4 objects">
+        <div class="small-12 medium-8 large-12 small-centered columns">
+          <ul class="small-block-grid-2 large-block-grid-4 objects">
             <li>
               <div class="item">
                 <a href="/catalog/item/">
@@ -267,6 +273,140 @@
     <!-- Контент -->
     <section>
       <div class="row">
+        <!-- Правый блок -->
+        <div class="large-3 columns right">
+          <div class="row">
+            <!-- Поиск -->
+            <div class="medium-6 large-12 columns hide-for-small">
+              <form>
+                <input class="radius" type="search" placeholder="Искать" />
+              </form>
+            </div>
+            <!-- /Поиск -->
+
+            <!-- Сортировка -->
+            <div class="medium-6 large-12 columns hide-for-small">
+              <form>
+                <div class="row">
+                  <div class="small-4 columns">
+                    <label for="sorting" class="right inline">Сортировка</label>
+                  </div>
+                  <div class="small-8 columns">
+                    <select id="sorting">
+                      <option value="husker">Цене</option>
+                      <option value="starbuck">Новизне</option>
+                      <option value="hotdog" selected="">Популярности</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!-- /Сортировка -->
+          </div>
+
+          <!-- Фильтр -->
+          <div class="filter">
+            <header class="small-header">
+              <span class="h3">Фильтр</span>
+              <span class="close"><i class="material-icons">clear</i></span>
+            </header>
+            <form>
+              <div class="row" data-equalizer data-equalizer-mq="medium-only">
+                <div class="medium-4 large-12 columns">
+                  <fieldset data-equalizer-watch>
+                    <legend>Стоимость</legend>
+                    <div id="buy_price"></div>
+                    <div class="row collapse">
+                        <div class="small-6 columns">
+                            <input type="text" class="slider-value" id="from" readonly>
+                        </div>
+                        <div class="small-6 columns">
+                            <input type="text" class="slider-value text-right" id="to" readonly>
+                        </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <div class="medium-4 large-12 columns">
+                  <fieldset data-equalizer-watch>
+                    <legend>Случай</legend>
+                    <input type="checkbox" id="wedding" /><label for="wedding">Свадьба</label>
+                    <input type="checkbox" id="birthday" /><label for="birthday">День рождения</label>
+                    <input type="checkbox" id="congrats" /><label for="congrats">Поздравление</label>
+                    <input type="checkbox" id="sorry" /><label for="sorry">Извинение</label>
+                    <input type="checkbox" id="business" /><label for="business">Бизнес-поздравление</label>
+                    <input type="checkbox" id="thanks" /><label for="thanks">Благодарность</label>
+                    <input type="checkbox" id="love" /><label for="love">Сказать люблю</label>
+                  </fieldset>
+                </div>
+                <div class="medium-4 large-12 columns">
+                  <fieldset data-equalizer-watch>
+                    <legend>Кому</legend>
+                    <input type="checkbox" id="woman" /><label for="woman">Женщине</label>
+                    <input type="checkbox" id="man" /><label for="man">Мужчине</label>
+                    <input type="checkbox" id="child" /><label for="child">Ребенку</label>
+                    <input type="checkbox" id="partner" /><label for="partner">Деловому партнеру</label>
+                    <input type="checkbox" id="family" /><label for="family">Семье</label>
+                  </fieldset>
+                </div>
+              </div>
+              <div class="row" data-equalizer>
+                <div class="medium-4 large-12 columns">
+                  <fieldset class="colors" data-equalizer-watch>
+                    <legend>Цветовая гамма</legend>
+                    <input type="checkbox" id="6de3f5" /><label for="6de3f5" style="background-color: #6de3f5;"></label>
+                    <input type="checkbox" id="f21700" /><label for="f21700" style="background-color: #f21700;"></label>
+                    <input type="checkbox" id="e54db5" /><label for="e54db5" style="background-color: #e54db5;"></label>
+                    <input type="checkbox" id="f7e200" /><label for="f7e200" style="background-color: #f7e200;"></label>
+                    <input type="checkbox" id="fd3e62" /><label for="fd3e62" style="background-color: #fd3e62;"></label>
+                    <input type="checkbox" id="c5d6d8" /><label for="c5d6d8" style="background-color: #c5d6d8;"></label>
+                    <input type="checkbox" id="c857e9" /><label for="c857e9" style="background-color: #c857e9;"></label>
+                    <input type="checkbox" id="ffffff" /><label for="ffffff" style="background-color: #ffffff;"></label>
+                    <input type="checkbox" id="7cc563" /><label for="7cc563" style="background-color: #7cc563;"></label>
+                    <input type="checkbox" id="ffb500" /><label for="ffb500" style="background-color: #ffb500;"></label>
+                    <input type="checkbox" id="9fec6b" /><label for="9fec6b" style="background-color: #9fec6b;"></label>
+                    <input type="checkbox" id="ef9cc5" /><label for="ef9cc5" style="background-color: #ef9cc5;"></label>
+                    <input type="checkbox" id="ff5c00" /><label for="ff5c00" style="background-color: #ff5c00;"></label>
+                    <input type="checkbox" id="6d6d6d" /><label for="6d6d6d" style="background-color: #6d6d6d;"></label>
+                    <input type="checkbox" id="3e8994" /><label for="3e8994" style="background-color: #3e8994;"></label>
+                  </fieldset>
+                </div>
+                <div class="medium-4 large-12 columns end">
+                  <fieldset data-equalizer-watch>
+                    <legend>Состав букета</legend>
+                    <input type="checkbox" id="rose" /><label for="rose">Розы</label>
+                    <input type="checkbox" id="gerb" /><label for="gerb">Герберы</label>
+                    <input type="checkbox" id="lilly" /><label for="lilly">Лилии</label>
+                    <input type="checkbox" id="hriz" /><label for="hriz">Хризантемы</label>
+                    <input type="checkbox" id="tulp" /><label for="tulp">Тюльпаны</label>
+                    <input type="checkbox" id="" /><label for="">Розы</label>
+                    <input type="checkbox" id="" /><label for="">Герберы</label>
+                    <input type="checkbox" id="" /><label for="">Лилии</label>
+                    <input type="checkbox" id="" /><label for="">Хризантемы</label>
+                    <input type="checkbox" id="" /><label for="">Тюльпаны</label>
+                    <input type="checkbox" id="" /><label for="">Розы</label>
+                    <input type="checkbox" id="" /><label for="">Герберы</label>
+                    <input type="checkbox" id="" /><label for="">Лилии</label>
+                    <input type="checkbox" id="" /><label for="">Хризантемы</label>
+                  </fieldset>
+                </div>
+              </div>
+
+              <hr class="show-for-large-up" />
+
+              <div class="row">
+                <div class="small-6 columns">
+                  <button class="radius secondary outline expand">Сбросить</button>
+                </div>
+                <div class="small-6 columns">
+                  <button class="radius expand">Применить</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- /Фильтр -->
+        </div>
+        <!-- /Правый блок -->
+
         <!-- Левый блок -->
         <div class="large-9 columns">
           <!-- Преимущества -->
@@ -326,8 +466,8 @@
 
           <!-- Товары -->
           <div class="row">
-            <div class="small-8 medium-12 small-centered columns">
-              <ul class="medium-block-grid-3 objects">
+            <div class="small-12 small-centered columns">
+              <ul class="small-block-grid-2 medium-block-grid-3 objects">
                 <li>
                   <div class="item">
                     <a href="/catalog/item/">
@@ -576,17 +716,19 @@
           <!-- Мозговитая пагинация -->
           <div class="row">
             <div class="medium-8 columns">
-              <ul class="pagination">
-                <li class="arrow unavailable"><a href=""><i class="material-icons">keyboard_arrow_left</i></a></li>
-                <li class="current"><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li class="unavailable"><a href="">&hellip;</a></li>
-                <li><a href="">12</a></li>
-                <li><a href="">13</a></li>
-                <li class="arrow"><a href=""><i class="material-icons">keyboard_arrow_right</i></a></li>
-              </ul>
+              <div class="pagination-centered-on-small">
+                <ul class="pagination">
+                  <li class="arrow unavailable"><a href=""><i class="material-icons">keyboard_arrow_left</i></a></li>
+                  <li class="current"><a href="">1</a></li>
+                  <li><a href="">2</a></li>
+                  <li><a href="">3</a></li>
+                  <li><a href="">4</a></li>
+                  <li class="unavailable"><a href="">&hellip;</a></li>
+                  <li><a href="">12</a></li>
+                  <li><a href="">13</a></li>
+                  <li class="arrow"><a href=""><i class="material-icons">keyboard_arrow_right</i></a></li>
+                </ul>
+              </div>
             </div>
             <div class="small-4 columns hide-for-small">
               <a class="button secondary outline expand" href="#">Загрузить еще</a>
@@ -595,114 +737,6 @@
           <!-- /Мозговитая пагинация -->
         </div>
         <!-- /Левый блок -->
-
-        <!-- Правый блок -->
-        <div class="small-3 columns hide-for-small">
-          <!-- Поиск -->
-          <form>
-            <input class="radius" type="search" placeholder="Искать" />
-          </form>
-          <!-- /Поиск -->
-
-          <!-- Сортировка -->
-          <form>
-            <div class="row">
-              <div class="small-4 columns">
-                <label for="sorting" class="right inline">Сортировка</label>
-              </div>
-              <div class="small-8 columns">
-                <select id="sorting">
-                  <option value="husker">Цене</option>
-                  <option value="starbuck">Новизне</option>
-                  <option value="hotdog" selected="">Популярности</option>
-                </select>
-              </div>
-            </div>
-          </form>
-          <!-- /Сортировка -->
-
-          <!-- Фильтр -->
-          <div class="filter">
-            <form>
-              <fieldset>
-                <legend>Стоимость</legend>
-                <div id="buy_price"></div>
-                <div class="row collapse">
-                    <div class="small-6 columns">
-                        <input type="text" class="slider-value" id="from" readonly>
-                    </div>
-                    <div class="small-6 columns">
-                        <input type="text" class="slider-value text-right" id="to" readonly>
-                    </div>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend>Случай</legend>
-                <input type="checkbox" id="wedding" /><label for="wedding">Свадьба</label>
-                <input type="checkbox" id="birthday" /><label for="birthday">День рождения</label>
-                <input type="checkbox" id="congrats" /><label for="congrats">Поздравление</label>
-                <input type="checkbox" id="sorry" /><label for="sorry">Извинение</label>
-                <input type="checkbox" id="business" /><label for="business">Бизнес-поздравление</label>
-                <input type="checkbox" id="thanks" /><label for="thanks">Благодарность</label>
-                <input type="checkbox" id="love" /><label for="love">Сказать люблю</label>
-              </fieldset>
-              <fieldset>
-                <legend>Кому</legend>
-                <input type="checkbox" id="woman" /><label for="woman">Женщине</label>
-                <input type="checkbox" id="man" /><label for="man">Мужчине</label>
-                <input type="checkbox" id="child" /><label for="child">Ребенку</label>
-                <input type="checkbox" id="partner" /><label for="partner">Деловому партнеру</label>
-                <input type="checkbox" id="family" /><label for="family">Семье</label>
-              </fieldset>
-              <fieldset class="colors">
-                <legend>Цветовая гамма</legend>
-                <input type="checkbox" id="6de3f5" /><label for="6de3f5" style="background-color: #6de3f5;"></label>
-                <input type="checkbox" id="f21700" /><label for="f21700" style="background-color: #f21700;"></label>
-                <input type="checkbox" id="e54db5" /><label for="e54db5" style="background-color: #e54db5;"></label>
-                <input type="checkbox" id="f7e200" /><label for="f7e200" style="background-color: #f7e200;"></label>
-                <input type="checkbox" id="fd3e62" /><label for="fd3e62" style="background-color: #fd3e62;"></label>
-                <input type="checkbox" id="c5d6d8" /><label for="c5d6d8" style="background-color: #c5d6d8;"></label>
-                <input type="checkbox" id="c857e9" /><label for="c857e9" style="background-color: #c857e9;"></label>
-                <input type="checkbox" id="ffffff" /><label for="ffffff" style="background-color: #ffffff;"></label>
-                <input type="checkbox" id="7cc563" /><label for="7cc563" style="background-color: #7cc563;"></label>
-                <input type="checkbox" id="ffb500" /><label for="ffb500" style="background-color: #ffb500;"></label>
-                <input type="checkbox" id="9fec6b" /><label for="9fec6b" style="background-color: #9fec6b;"></label>
-                <input type="checkbox" id="ef9cc5" /><label for="ef9cc5" style="background-color: #ef9cc5;"></label>
-                <input type="checkbox" id="ff5c00" /><label for="ff5c00" style="background-color: #ff5c00;"></label>
-                <input type="checkbox" id="6d6d6d" /><label for="6d6d6d" style="background-color: #6d6d6d;"></label>
-                <input type="checkbox" id="3e8994" /><label for="3e8994" style="background-color: #3e8994;"></label>
-              </fieldset>
-              <fieldset>
-                <legend>Состав букета</legend>
-                <input type="checkbox" id="rose" /><label for="rose">Розы</label>
-                <input type="checkbox" id="gerb" /><label for="gerb">Герберы</label>
-                <input type="checkbox" id="lilly" /><label for="lilly">Лилии</label>
-                <input type="checkbox" id="hriz" /><label for="hriz">Хризантемы</label>
-                <input type="checkbox" id="tulp" /><label for="tulp">Тюльпаны</label>
-                <input type="checkbox" id="" /><label for="">Розы</label>
-                <input type="checkbox" id="" /><label for="">Герберы</label>
-                <input type="checkbox" id="" /><label for="">Лилии</label>
-                <input type="checkbox" id="" /><label for="">Хризантемы</label>
-                <input type="checkbox" id="" /><label for="">Тюльпаны</label>
-                <input type="checkbox" id="" /><label for="">Розы</label>
-                <input type="checkbox" id="" /><label for="">Герберы</label>
-                <input type="checkbox" id="" /><label for="">Лилии</label>
-                <input type="checkbox" id="" /><label for="">Хризантемы</label>
-              </fieldset>
-              <hr />
-              <div class="row">
-                <div class="small-6 columns">
-                  <button class="radius secondary outline expand">Сбросить</button>
-                </div>
-                <div class="small-6 columns">
-                  <button class="radius expand">Применить</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <!-- /Фильтр -->
-        </div>
-        <!-- /Правый блок -->
       </div>
     </section>
     <!-- /Контент -->
@@ -710,7 +744,7 @@
     <footer>
       <div class="row">
         <!-- Основное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">Букеты</a></li>
             <li><a href="#">Композиции</a></li>
@@ -722,7 +756,7 @@
         </div>
         <!-- /Основное меню -->
         <!-- Поиск -->
-        <div class="small-3 columns">
+        <div class="medium-3 columns">
           <form>
             <input class="radius" type="search" placeholder="Искать" />
           </form>
@@ -734,7 +768,7 @@
         </div>
 
         <!-- Второстепенное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">О нас</a></li>
             <li><a href="#">Как заказать</a></li>
@@ -746,7 +780,7 @@
         <!-- /Второстепенное меню -->
 
         <!-- Контакты -->
-        <div class="small-3 columns text-right">
+        <div class="medium-3 columns text-right small-only-text-center">
           <div class="info">
             <a class="phone" href="tel:88123545145">(812) 354-51-45</a><br /><small><a class="callback modal" href="#callback">Заказать звонок</a></small>
           </div>
@@ -757,13 +791,13 @@
       <div class="copy">
         <div class="row">
           <!-- Копирайт -->
-          <div class="small-9 columns">
+          <div class="medium-9 columns small-only-text-center">
             © 2015 FLOVER — Доставка букетов в Санкт-Петербурге
           </div>
           <!-- /Копирайт -->
 
           <!-- Авторство -->
-          <div class="small-3 columns text-right">
+          <div class="medium-3 columns text-right small-only-text-center">
             <a href="http://uniteddesign.ru/" rel="nofollow" target="_blank">Сделано в UD</a>
           </div>
           <!-- /Авторство -->
@@ -781,23 +815,23 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить">
           </div>
         </div>
@@ -813,26 +847,26 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Примечания</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
           </div>
         </div>
@@ -840,7 +874,7 @@
         <input type="hidden" value="flower_id" /><!-- Реально ли в этот инпут записать id или имя товара, который быстро заказывают? Или же стоит это сделать при помощи js? -->
 
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить заказ">
           </div>
         </div>
@@ -856,39 +890,39 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="new_login" class="inline">Логин</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="new_login" placeholder="Login">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="email" class="inline">Электронная почта</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="email" id="email" placeholder="name@domain.ru">
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Зарегистрироваться">
           </div>
         </div>
@@ -905,39 +939,39 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="email" class="inline">Электронная почта</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="email" id="email" placeholder="name@domain.ru">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Описание букета</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить">
           </div>
         </div>

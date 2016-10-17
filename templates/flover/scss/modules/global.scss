@@ -50,6 +50,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		font-weight: $font-weight-normal;
 	}
 }
+@media #{$small-only} {
+	h1 {
+		line-height: 1.2;
+
+		small {
+			margin-top: rem-calc(10);
+		}
+	}
+}
 
 .top-info {
 	margin: rem-calc(10 0);
@@ -96,9 +105,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	background: url('../img/bg/promo.jpg');
 }
 
-.hide {
-	form {
-		min-width: 600px;
+@media #{$medium-up} { 
+	.hide {
+		form {
+			min-width: 600px;
+		}
 	}
 }
 
@@ -116,35 +127,59 @@ $benefits-height: 100px;
 			line-height: rem-calc(18);
 		}
 	}
-	&.horizontal {
-		margin: 0;
-		padding: 0;
-	  	list-style: none;
+	@media #{$large-up} {
+		&.horizontal {
+			margin: 0;
+			padding: 0;
+		  	list-style: none;
 
-	  	li {
-			margin: rem-calc(0 0 20);
-	  		@include clearfix;
-	  		&:last-child {
-	  			margin: 0;
-	  		}
+		  	li {
+				margin: rem-calc(0);
+		  		@include clearfix;
+		  		&:last-child {
+		  			margin: 0;
+		  		}
 
-	    	figure {
-				display: table-row;
+		    	figure {
+					display: table-row;
 
-	      		.img-cont {
-					display: table-cell;
-	      			width: 40%;
-	      			height: auto;
-	      			line-height: normal;
-	      			padding-right: $column-gutter;
-	      		}
-	      		figcaption {
-					margin: 0;
-					display: table-cell;
-					vertical-align: middle;
-	      		}
-	    	}
-	  	}
+		      		.img-cont {
+						display: table-cell;
+		      			width: 40%;
+		      			height: auto;
+		      			line-height: normal;
+		      			padding-right: $column-gutter;
+		      		}
+		      		figcaption {
+						margin: 0;
+						display: table-cell;
+						vertical-align: middle;
+		      		}
+		    	}
+		  	}
+		}
+	}
+	@media #{$medium-only} {
+		figure {
+			margin: rem-calc(0 0 10);
+		}
+		&, &.horizontal {
+			display: block;
+			margin: 0 ($column-gutter * -1);
+			list-style: none;
+
+			li {
+				float: left;
+				width: 20%;
+				padding: 0 $column-gutter;
+				text-align: center;
+			}
+			&:before, &:after {
+				content: '';
+			    display: table;
+			    clear: both;
+			}
+		}
 	}
 }
 

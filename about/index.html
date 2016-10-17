@@ -3,7 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FLOVER</title>
+    <title>О нас — FLOVER</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="FLOVER. Цветы и букеты с доставкой"><!-- Значение "Название сайта" из настроек. Если его не подставить, то использовать указанный текст -->
+    <meta property="og:title" content="H1"><!-- Значение из заголовка -->
+    <meta property="og:image" content="https://floverart.ru/templates/flover/img/og.jpg"><!-- Картинка стандартная для всех страниц, кроме объектов каталога. В объектах каталога нужно подставлять основное изображение объекта -->
+    <meta property="og:image:type" content="image/jpg"><!-- Маловероятно, что картинка объекта будет не jpg, поэтому можно так и оставить (подозреваю, тип картинки вычислить сложно) -->
+    <meta property="og:description" content="description"><!-- Значение из поля мета-тега description -->
+    <meta property="og:url" content="https://floverart.ru/"><!-- Значение адреса текущей страницы -->
+    <!-- /Open Graph -->
+    <meta name="theme-color" content="#926bb4">
 
     <link rel="stylesheet" href="/templates/flover/css/style.css" />
   </head>
@@ -29,21 +41,23 @@
       <section class="top-info">
         <div class="row">
           <!-- Лого -->
-          <div class="small-3 columns">
-            <img src="/templates/flover/img/logo.png" />
+          <div class="small-6 small-offset-3 medium-offset-0 medium-3 columns">
+            <a href="/">
+              <img src="/templates/flover/img/logo.svg" />
+            </a>
           </div>
           <!-- /Лого -->
 
           <!-- Мини УТП -->
-          <div class="small-2 columns">
-            <div class="info">
+          <div class="small-12 medium-3 large-2 columns">
+            <div class="info text-center medium-text-left">
               <strong>Цветы и&nbsp;букеты с&nbsp;доставкой</strong>
             </div>
           </div>
           <!-- /Мини УТП -->
 
           <!-- Контакты -->
-          <div class="small-4 columns">
+          <div class="small-10 medium-5 large-3 columns">
             <div class="info">
               <a class="phone" href="tel:88123545145">(812) 354-51-45</a><small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
               <small>Время работы с 9:00 до 21:00</small>
@@ -52,21 +66,28 @@
           <!-- /Контакты -->
 
           <!-- Авторизация и регистрация -->
-          <div class="small-3 columns text-right">
-            <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
-            <a href="#" class="button secondary outline dropdown" data-dropdown="login">Войти</a>
-            <div id="login" data-dropdown-content class="f-dropdown content medium">
-              <form class="login">
+          <div class="small-2 medium-1 large-4 columns text-right">
+            <div class="login-open hide-for-large-up">
+              <a class="modal" href="#login_form"><i class="material-icons md-36">perm_identity</i></a>
+            </div>
+            <div class="show-for-large-up">
+              <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
+              <a href="#" class="button secondary outline dropdown" data-dropdown="login_panel">Войти</a>
+            </div>
+            <div id="login_panel" data-dropdown-content class="f-dropdown content medium">
+              <form id="login_form" class="login">
+                <span class="h2 hide-for-large-up">Авторизация</span>
                 <input type="text" placeholder="Логин" />
                 <input type="password" placeholder="Пароль" />
                 <div class="row collapse">
-                  <div class="small-8 columns">
+                  <div class="large-8 columns">
                     <input type="checkbox" id="remember" /><label for="remember">Запомнить меня</label>
                   </div>
-                  <div class="small-4 columns">
+                  <div class="large-4 columns">
                     <button class="button radius small expand" type="submit">Войти</button>
                   </div>
                 </div>
+                <!--a href="#registrate" class="button secondary outline modal hide-for-large-up">Зарегистрироваться</a-->
               </form>
             </div>
           </div>
@@ -80,19 +101,29 @@
         <div class="small-12 columns sticked">
           <nav class="main-menu">
             <div class="row">
-              <div class="small-9 columns">
-                <ul class="elastic-menu">
-                  <li><a href="/catalog/">Букеты</a></li>
-                  <li><a href="/catalog/">Композиции</a></li>
-                  <li><a href="/catalog/">Свадебные букеты</a></li>
-                  <li><a href="/catalog/">Сувениры</a></li>
-                  <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+              <div class="small-7 medium-9 columns">
+                <ul class="elastic-menu show-for-small-only">
+                  <li><span id="catalog-call"><i class="material-icons">menu</i> Каталог</span></li>
+                  <li><span id="filter-call"><i class="material-icons">filter_list</i> Фильтр</span></li>
                 </ul>
+                <div class="catalog-menu">
+                  <header class="small-header">
+                    <span class="h3">Каталог</span>
+                    <span class="close"><i class="material-icons">clear</i></span>
+                  </header>
+                  <ul class="elastic-menu">
+                    <li><a href="/catalog/">Букеты</a></li>
+                    <li><a href="/catalog/">Композиции</a></li>
+                    <li><a href="/catalog/">Свадебные букеты</a></li>
+                    <li><a href="/catalog/">Сувениры</a></li>
+                    <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+                  </ul>
+                </div>
               </div>
-              <div class="small-3 columns">
+              <div class="small-5 medium-3 columns">
                 <div class="checkout right full">
                   <a class="checkout-button" href="/cart/">
-                    <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round">3</span>
+                    <i class="material-icons">local_grocery_store</i><span class="text"> Корзина </span><span class="label info round">3</span>
                   </a>
                   <div class="checkout-order">
                     <div class="checkout-order-inner">
@@ -144,7 +175,7 @@
     <section>
       <div class="row">
         <!-- Левый блок -->
-        <div class="small-9 columns">
+        <div class="large-9 columns">
           <p>Букеты, цветочные композиции, свадебная флористика и&nbsp;самый разнообразный декор. Все сделано с&nbsp;большой любовью к&nbsp;цветам и&nbsp;искусству. Необычная подача и&nbsp;большое внимание к&nbsp;фактурам. Также в&nbsp;мастерской представлены авторские товары hand-made и&nbsp;всякие приятные мелочи.</p>
           <p>У&nbsp;нас работает услуга доставки по&nbsp;городу от&nbsp;350&nbsp;р.<br />
            Пригород от&nbsp;600&nbsp;р.</p>
@@ -152,7 +183,7 @@
         <!-- /Левый блок -->
 
         <!-- Правый блок -->
-        <div class="small-3 columns">
+        <div class="large-3 columns">
           <!-- Преимущества -->
           <div class="panel radius callout">
             <span class="h5 text-center">Преимущества</span>

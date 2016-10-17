@@ -42,7 +42,7 @@
 .material-icons {
   @include material-icons-font;
 }
-.button, .checkout-button, .pagination li, .breadcrumbs li, .favorites, .elastic-menu li a, .del, .alert-box {
+.button, .checkout-button, .pagination li, .breadcrumbs li, .favorites, .elastic-menu li a, .elastic-menu li span, .del, .alert-box {
 	.material-icons {
 		height: auto;
 		line-height: .4;
