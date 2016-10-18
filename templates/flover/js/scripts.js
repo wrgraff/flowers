@@ -41,14 +41,12 @@ $(document).ready(function() {
   $('#catalog-call').click(function() {
     $('.catalog-menu').addClass('showed');
   });
-  $('.catalog-menu .close').click(function() {
-    $('.catalog-menu').removeClass('showed');
-  });
   $('#filter-call').click(function() {
     $('.filter').addClass('showed');
   });
-  $('.filter .close').click(function() {
+  $('body').on('click', '.showed .close', function() {
     $('.filter').removeClass('showed');
+    $('.catalog-menu').removeClass('showed');
   });
 });
 

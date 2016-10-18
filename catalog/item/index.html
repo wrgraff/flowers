@@ -3,7 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Букет — FLOVER</title>
+    <title>О нас — FLOVER</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="FLOVER. Цветы и букеты с доставкой"><!-- Значение "Название сайта" из настроек. Если его не подставить, то использовать указанный текст -->
+    <meta property="og:title" content="H1"><!-- Значение из заголовка -->
+    <meta property="og:image" content="https://floverart.ru/templates/flover/img/og.jpg"><!-- Картинка стандартная для всех страниц, кроме объектов каталога. В объектах каталога нужно подставлять основное изображение объекта -->
+    <meta property="og:image:type" content="image/jpg"><!-- Маловероятно, что картинка объекта будет не jpg, поэтому можно так и оставить (подозреваю, тип картинки вычислить сложно) -->
+    <meta property="og:description" content="description"><!-- Значение из поля мета-тега description -->
+    <meta property="og:url" content="https://floverart.ru/"><!-- Значение адреса текущей страницы -->
+    <!-- /Open Graph -->
+    <meta name="theme-color" content="#926bb4">
 
     <link rel="stylesheet" href="/templates/flover/css/style.css" />
   </head>
@@ -29,23 +41,23 @@
       <section class="top-info">
         <div class="row">
           <!-- Лого -->
-          <div class="small-3 columns">
+          <div class="small-6 small-offset-3 medium-offset-0 medium-3 columns">
             <a href="/">
-              <img src="/templates/flover/img/logo.png" />
+              <img src="/templates/flover/img/logo.svg" />
             </a>
           </div>
           <!-- /Лого -->
 
           <!-- Мини УТП -->
-          <div class="small-2 columns">
-            <div class="info">
+          <div class="small-12 medium-3 large-2 columns">
+            <div class="info text-center medium-text-left">
               <strong>Цветы и&nbsp;букеты с&nbsp;доставкой</strong>
             </div>
           </div>
           <!-- /Мини УТП -->
 
           <!-- Контакты -->
-          <div class="small-4 columns">
+          <div class="small-10 medium-5 large-3 columns">
             <div class="info">
               <a class="phone" href="tel:88123545145">(812) 354-51-45</a><small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
               <small>Время работы с 9:00 до 21:00</small>
@@ -54,14 +66,30 @@
           <!-- /Контакты -->
 
           <!-- Авторизация и регистрация -->
-          <div class="small-3 columns text-right">
-            <a href="#" class="button secondary outline dropdown" data-dropdown="my">Мой кабинет</a>
-            <ul id="my" data-dropdown-content class="f-dropdown text-left">
-              <li><a href="#">Профиль</a></li>
-              <li><a href="#">Заказы <span class="label secondary round">1</span></a></li>
-              <li><a href="#">Избранное <span class="label secondary round">3</span></a></li>
-              <li><a href="#">Выйти</a></li>
-            </ul>
+          <div class="small-2 medium-1 large-4 columns text-right">
+            <div class="login-open hide-for-large-up">
+              <a class="modal" href="#login_form"><i class="material-icons md-36">perm_identity</i></a>
+            </div>
+            <div class="show-for-large-up">
+              <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
+              <a href="#" class="button secondary outline dropdown" data-dropdown="login_panel">Войти</a>
+            </div>
+            <div id="login_panel" data-dropdown-content class="f-dropdown content medium">
+              <form id="login_form" class="login">
+                <span class="h2 hide-for-large-up">Авторизация</span>
+                <input type="text" placeholder="Логин" />
+                <input type="password" placeholder="Пароль" />
+                <div class="row collapse">
+                  <div class="large-8 columns">
+                    <input type="checkbox" id="remember" /><label for="remember">Запомнить меня</label>
+                  </div>
+                  <div class="large-4 columns">
+                    <button class="button radius small expand" type="submit">Войти</button>
+                  </div>
+                </div>
+                <!--a href="#registrate" class="button secondary outline modal hide-for-large-up">Зарегистрироваться</a-->
+              </form>
+            </div>
           </div>
           <!-- /Авторизация и регистрация -->
         </div>
@@ -73,45 +101,71 @@
         <div class="small-12 columns sticked">
           <nav class="main-menu">
             <div class="row">
-              <div class="small-9 columns">
-                <ul class="elastic-menu">
-                  <li class="active"><a href="/catalog/">Букеты</a></li>
-                  <li><a href="/catalog/">Композиции</a></li>
-                  <li><a href="/catalog/">Свадебные букеты</a></li>
-                  <li><a href="/catalog/">Сувениры</a></li>
-                  <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+              <div class="small-7 medium-9 columns">
+                <ul class="elastic-menu show-for-small-only">
+                  <li><span id="catalog-call"><i class="material-icons">menu</i> Каталог</span></li>
                 </ul>
+                <div class="catalog-menu">
+                  <header class="small-header">
+                    <span class="h3">Каталог</span>
+                    <span class="close"><i class="material-icons">clear</i></span>
+                  </header>
+                  <ul class="elastic-menu">
+                    <li class="active"><a href="/catalog/">Букеты</a></li>
+                    <li><a href="/catalog/">Композиции</a></li>
+                    <li><a href="/catalog/">Свадебные букеты</a></li>
+                    <li><a href="/catalog/">Сувениры</a></li>
+                    <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+                  </ul>
+                </div>
               </div>
-              <div class="small-3 columns">
-                <div class="checkout right">
+              <div class="small-5 medium-3 columns">
+                <div class="checkout right full">
                   <a class="checkout-button" href="/cart/">
-                    <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round">0</span>
+                    <i class="material-icons">local_grocery_store</i><span class="text"> Корзина </span><span class="label info round">3</span>
                   </a>
+                  <div class="checkout-order">
+                    <div class="checkout-order-inner">
+                      <table class="checkout-summary">
+                        <tfoot>
+                          <tr>
+                            <th colspan="2">Итого <span class="checkout-total">3950 р.</span></th>
+                          </tr>
+                        </tfoot>
+                        <tbody>
+                          <tr>
+                            <td><span>Букет</span> Ностальгия</td>
+                            <td>2500 р.</td>
+                          </tr>
+                          <tr>
+                            <td><span>Конфеты</span> Ferrero Rocher, 24 шт</td>
+                            <td>1300 р.</td>
+                          </tr>
+                          <tr>
+                            <td><span>Открытка</span></td>
+                            <td>150 р.</td>
+                          </tr>
+                        </tbody>
+                      </table><!-- /checkout-summary -->
+                      <a href="#" class="button radius info checkout-option">Оформить заказ</a>
+                    </div><!-- /checkout__order-inner -->
+                  </div><!-- /checkout__order -->
                 </div><!-- /checkout -->
+                <ul class="elastic-menu right">
+                  <li><a href="#"><i class="material-icons">star</i> <span class="label round">3</span></a></li>
+                </ul>
               </div>
             </div>
           </nav>
         </div>
       </div>
       <!-- /Основное меню -->
-
-      <!-- Хлебные крошки -->
-      <div class="row">
-        <div class="small-12 columns">
-          <ul class="breadcrumbs">
-            <li><a href="/"><i class="material-icons md-18">home</i></a></li>
-            <li><a href="/catalog/">Букеты</a></li>
-            <li class="current"><a href="/catalog/item/">Облако в штанах</a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- /Хлебные крошки -->
     </header>
     
     <!-- Инфо о товаре -->
     <section class="object-info">
       <div class="row">
-        <div class="small-4 columns">
+        <div class="medium-4 columns">
           <!-- Большая картинка -->
           <div class="img_cont">
             <div class="labels">
@@ -144,7 +198,7 @@
         </div>
         
         <!-- Параметры и описание -->
-        <div class="small-5 columns">
+        <div class="medium-5 columns">
           <h1>Облако в штанах</h1>
           <p>Пленительное сочетание милейших ромашковых хризантем и дерзкой красной герберы, окуженные ажурным лизиантуом и изысканной фисташкой. Чудесный подарок для любого повода.</p>
           <table>
@@ -180,22 +234,11 @@
         <!-- /Параметры и описание -->
 
         <!-- Блок заказа -->
-        <div class="small-3 columns">
+        <div class="medium-3 columns">
           <div class="panel radius">
             <div class="price">2120 р.</div>
             <a class="button info outline expand modal" href="#fast_order">Заказать сразу</a>
             <div class="variables">
-              <div class="row">
-                <div class="small-6 columns">
-                  <label class="inline">Цвет бумаги</label>
-                </div>
-                <div class="small-6 columns">
-                  <div class="colors">
-                    <input type="radio" name="color" id="bdc3c7" /><label class="radius" for="bdc3c7" style="background-color: #bdc3c7;" data-tooltip aria-haspopup="true" title="Серый"></label>
-                    <input type="radio" name="color" id="FFF3E0" /><label class="radius" for="FFF3E0" style="background-color: #FFF3E0;" data-tooltip aria-haspopup="true" title="Бежевый"></label>
-                  </div>
-                </div>
-              </div>
               <div class="row">
                 <div class="small-6 columns">
                   <label class="inline" for="num">Количество</label>
@@ -233,8 +276,8 @@
         <div class="small-12 columns">
           <h3>Получателю может понравиться</h3>
         </div>
-        <div class="small-9 columns">
-          <ul class="small-block-grid-3 objects">
+        <div class="large-9 columns">
+          <ul class="small-block-grid-2 medium-block-grid-3 objects">
             <li>
               <div class="item">
                 <a href="/catalog/item/">
@@ -294,15 +337,15 @@
             </li>
           </ul>
           <div class="row">
-            <div class="small-3 small-offset-2 columns">
+            <div class="medium-3 medium-offset-2 columns">
               <a class="button outline secondary expand" href="#">Показать еще</a>
             </div>
-            <div class="small-5 columns end">
+            <div class="medium-5 columns end">
               <a class="button outline expand" href="#">Посмотреть все сопутствующие товары</a>
             </div>
           </div>
         </div>
-        <div class="small-3 columns">
+        <div class="large-3 columns">
           <!-- Преимущества -->
           <div class="panel radius callout">
             <span class="h5 text-center">Преимущества</span>
@@ -376,7 +419,7 @@
     <section>
       <div class="row">
         <!-- Комментарии -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <div id="vk_comments"></div>
           <script type="text/javascript">
           VK.Widgets.Comments("vk_comments", {limit: 10, width: "auto", attach: "*"});
@@ -384,7 +427,7 @@
         </div>
         <!-- /Комментарии -->
         <!-- Группа -->
-        <div class="small-3 columns">
+        <div class="medium-3 columns">
           <div id="vk_groups"></div>
           <script type="text/javascript">
           VK.Widgets.Group("vk_groups", {mode: 0, width: "auto", height: "400", color1: 'FFFFFF', color2: '8e2d42', color3: '458993'}, 48493944);
@@ -399,7 +442,7 @@
     <section class="after-text">
       <div class="row">
         <!-- Левый блок -->
-        <div class="small-9 columns">
+        <div class="large-9 columns">
           <h2>Букет с тюльпанами</h2>
           <p>В&nbsp;нашем интернет магазине цветов&nbsp;Вы можете заказать доставку цветов и&nbsp;букетов в&nbsp;Санкт-Петербурге. Наш салон цветов находится в&nbsp;городе Санкт-Петербург, поэтому мы&nbsp;обеспечиваем самую быструю и&nbsp;недорогую доставку цветов в&nbsp;городе. Мы&nbsp;доставляем только свежие и&nbsp;качественные цветы, обеспечивая сервис высочайшего уровня. У&nbsp;нас&nbsp;Вы всегда сможете купить красивые цветы и&nbsp;букеты, композиции из&nbsp;цветов, розы, лилии, тюльпаны, ирисы, пионы, чтобы поздравить своих близких. Мы&nbsp;осуществляем экспресс доставку букетов 24&nbsp;часа в&nbsp;сутки. Заказ доставки цветов в&nbsp;Санкт-Петербурге в&nbsp;компании Русский Букет&nbsp;— это отличный выбор!</p>
           <p>Также у&nbsp;нас&nbsp;Вы можете купить и&nbsp;оплатить цветы и&nbsp;подарки с&nbsp;доставкой к&nbsp;праздникам 14&nbsp;февраля и&nbsp;8&nbsp;марта онлайн.</p>
@@ -409,7 +452,7 @@
         <!-- /Левый блок -->
 
         <!-- Правый блок -->
-        <div class="small-3 columns">
+        <div class="large-3 columns">
         </div>
         <!-- /Правый блок -->
       </div>
@@ -419,7 +462,7 @@
     <footer>
       <div class="row">
         <!-- Основное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">Букеты</a></li>
             <li><a href="#">Композиции</a></li>
@@ -431,7 +474,7 @@
         </div>
         <!-- /Основное меню -->
         <!-- Поиск -->
-        <div class="small-3 columns">
+        <div class="medium-3 columns">
           <form>
             <input class="radius" type="search" placeholder="Искать" />
           </form>
@@ -443,7 +486,7 @@
         </div>
 
         <!-- Второстепенное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">О нас</a></li>
             <li><a href="#">Как заказать</a></li>
@@ -455,7 +498,7 @@
         <!-- /Второстепенное меню -->
 
         <!-- Контакты -->
-        <div class="small-3 columns text-right">
+        <div class="medium-3 columns text-right small-only-text-center">
           <div class="info">
             <a class="phone" href="tel:88123545145">(812) 354-51-45</a><br /><small><a class="callback modal" href="#callback">Заказать звонок</a></small>
           </div>
@@ -466,14 +509,14 @@
       <div class="copy">
         <div class="row">
           <!-- Копирайт -->
-          <div class="small-9 columns">
+          <div class="medium-9 columns small-only-text-center">
             © 2015 FLOVER — Доставка букетов в Санкт-Петербурге
           </div>
           <!-- /Копирайт -->
 
           <!-- Авторство -->
-          <div class="small-3 columns text-right">
-            <a href="#">Сделано в UD</a>
+          <div class="medium-3 columns text-right small-only-text-center">
+            <a href="http://uniteddesign.ru/" rel="nofollow" target="_blank">Сделано в UD</a>
           </div>
           <!-- /Авторство -->
         </div>
@@ -490,23 +533,23 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить">
           </div>
         </div>
@@ -522,37 +565,88 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Примечания</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
           </div>
         </div>
+
+        <input type="hidden" value="flower_id" /><!-- Реально ли в этот инпут записать id или имя товара, который быстро заказывают? Или же стоит это сделать при помощи js? -->
+
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить заказ">
           </div>
         </div>
       </form>
     </div>
     <!-- /Быстрый заказ -->
+    <!-- Регистрация -->
+    <div class="hide" id="registrate">
+      <div class="row">
+        <div class="small-12 columns">
+          <span class="h2">Регистрация</span>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="medium-3 columns">
+            <label for="new_login" class="inline">Логин</label>
+          </div>
+          <div class="medium-9 columns">
+            <input type="text" id="new_login" placeholder="Login">
+          </div>
+        </div>
+        <div class="row">
+          <div class="medium-3 columns">
+            <label for="name" class="inline">Имя</label>
+          </div>
+          <div class="medium-9 columns">
+            <input type="text" id="name" placeholder="Иван Васильевич">
+          </div>
+        </div>
+        <div class="row">
+          <div class="medium-3 columns">
+            <label for="phone" class="inline">Номер телефона</label>
+          </div>
+          <div class="medium-9 columns">
+            <input type="tel" id="phone" placeholder="8 921 123-23-23">
+          </div>
+        </div>
+        <div class="row">
+          <div class="medium-3 columns">
+            <label for="email" class="inline">Электронная почта</label>
+          </div>
+          <div class="medium-9 columns">
+            <input type="email" id="email" placeholder="name@domain.ru">
+          </div>
+        </div>
+        <div class="row">
+          <div class="medium-9 medium-offset-3 columns">
+            <input class="button radius" type="submit" value="Зарегистрироваться">
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /Регистрация -->
     <!-- Сбор букета -->
     <div class="hide" id="my_flavor">
       <div class="row">
@@ -563,39 +657,39 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="email" class="inline">Электронная почта</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="email" id="email" placeholder="name@domain.ru">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Описание букета</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить">
           </div>
         </div>
