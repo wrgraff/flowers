@@ -21,7 +21,7 @@
           <!-- /Лого -->
 
           <!-- Мини УТП -->
-          <div class="small-12 medium-3 large-2 columns">
+          <div class="small-12 medium-2 columns small-only-text-center">
             <div class="info">
               <strong>Цветы и&nbsp;букеты с&nbsp;доставкой</strong>
             </div>
@@ -29,7 +29,7 @@
           <!-- /Мини УТП -->
 
           <!-- Контакты -->
-          <div class="small-6 medium-5 large-3 columns">
+          <div class="small-6 medium-3 columns">
             <div class="info">
               <a class="phone" href="tel:88123545145">(812) 354-51-45</a><small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
               <small>Время работы с 9:00 до 21:00</small>
@@ -38,7 +38,7 @@
           <!-- /Контакты -->
 
           <!-- Авторизация и регистрация -->
-          <div class="small-6 medium-1 large-4 columns text-right">
+          <div class="small-6 medium-4 columns text-right">
             <div class="pay info">
               <small>Безопасные платежи PCI DSS</small>
               <img src="/templates/flover/img/pay.jpg" />
@@ -72,8 +72,8 @@
     <!-- Контент -->
     <section class="basket">
       <form>
-        <div class="row" data-equalizer="layout">
-          <div class="medium-10 columns" data-equalizer-watch="layout">
+        <div class="row" data-equalizer="layout" data-equalizer-mq="large-up">
+          <div class="large-10 columns" data-equalizer-watch="layout">
             <div class="row" data-equalizer="items">
               <div class="medium-6 columns">
                 <!-- Товар букет -->
@@ -348,7 +348,7 @@
             </div>
             <!-- /Сопутствующие товары -->
           </div>
-          <div class="medium-2 columns" data-equalizer-watch="layout">
+          <div class="large-2 columns" data-equalizer-watch="layout">
             <!-- Итог -->
             <div class="summary">
               <!-- Итого -->
@@ -370,10 +370,10 @@
               <legend>Контактная информация</legend>
               <!-- Имя -->
               <div class="row">
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <label class="inline" for="name">Имя</label>
                 </div>
-                <div class="small-6 columns end">
+                <div class="medium-6 columns end">
                   <label class="required">
                     <input id="name" type="text" placeholder="Илья Муромец" required />
                     <small>Обязательное поле</small>
@@ -384,10 +384,10 @@
 
               <!-- Телефон -->
               <div class="row">
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <label class="inline" for="tel">Номер телефона</label>
                 </div>
-                <div class="small-6 columns end">
+                <div class="medium-6 columns end">
                   <label class="required">
                     <input id="tel" type="tel" placeholder="8 921 123-45-67" required />
                     <small>Обязательное поле</small>
@@ -398,13 +398,13 @@
 
               <!-- Электропочта -->
               <div class="row">
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <label class="inline" for="email">Электронная почта</label>
                 </div>
-                <div class="small-6 columns">
+                <div class="medium-6 columns">
                   <input id="email" type="email" placeholder="name@domain.ru" />
                 </div>
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <label class="inline" for="email">E-mail не обязателен, но необходим для получения статуса заказа</label>
                 </div>
               </div>
@@ -414,14 +414,19 @@
             <fieldset>
               <legend>Получатель букета</legend>
               <div class="row">
-                <div class="small-9 columns">
+                <div class="medium-3 columns right">
+                  <input id="for_me" type="checkbox" /><label class="inline for_me" for="for_me">Я сам получу цветы</label>
+
+                  <input id="secret" type="checkbox" /><label class="inline radius secret" for="secret" data-tooltip aria-haspopup="true" title="Мы постараемся, но возможно, нам придется, чтобы нас впустили">Не сообщать, что это цветы</label>
+                </div>
+                <div class="medium-9 columns">
                   <div class="destination">
                     <!-- Имя -->
                     <div class="row">
-                      <div class="small-4 columns">
+                      <div class="medium-4 columns">
                         <label class="inline" for="name">Имя</label>
                       </div>
-                      <div class="small-8 columns">
+                      <div class="medium-8 columns">
                         <label class="required">
                           <input id="name" type="text" placeholder="Варвара Краса" required />
                           <small>Обязательное поле</small>
@@ -432,10 +437,10 @@
 
                     <!-- Телефон -->
                     <div class="row">
-                      <div class="small-4 columns">
+                      <div class="medium-4 columns">
                         <label class="inline" for="tel">Номер телефона</label>
                       </div>
-                      <div class="small-8 columns">
+                      <div class="medium-8 columns">
                         <label class="required">
                           <input id="tel" type="tel" placeholder="8 921 123-45-67" required />
                           <small>Обязательное поле</small>
@@ -446,20 +451,15 @@
 
                     <!-- Электропочта -->
                     <div class="row">
-                      <div class="small-4 columns">
+                      <div class="medium-4 columns">
                         <label class="inline" for="email">Электронная почта</label>
                       </div>
-                      <div class="small-8 columns end">
+                      <div class="medium-8 columns end">
                         <input id="email" type="email" placeholder="name@domain.ru" />
                       </div>
                     </div>
                     <!-- /Электропочта -->
                   </div>
-                </div>
-                <div class="small-3 columns">
-                  <input id="for_me" type="checkbox" /><label class="inline for_me" for="for_me">Я сам получу цветы</label>
-
-                  <input id="secret" type="checkbox" /><label class="inline radius secret" for="secret" data-tooltip aria-haspopup="true" title="Мы постараемся, но возможно, нам придется, чтобы нас впустили">Не сообщать, что это цветы</label>
                 </div>
               </div>
             </fieldset>
@@ -468,23 +468,23 @@
               <legend>Адрес доставки</legend>
               <!-- Доставка -->
               <div class="row">
-                <div class="small-9 columns">
+                <div class="medium-9 columns">
                   <div class="row">
-                    <div class="small-5 columns">
+                    <div class="medium-5 columns">
                       <input id="delivery_spb" name="delivery" type="radio" checked="" /><label class="inline" for="delivery_spb">Доставка по Санкт-Петербургу — 350 р.</label>
                     </div>
-                    <div class="small-5 columns">
+                    <div class="medium-5 columns">
                       <input id="delivery_out" name="delivery" type="radio" /><label class="inline" for="delivery_out">Доставка в пригород — 600 р.</label>
                     </div>
-                    <div class="small-2 columns">
+                    <div class="medium-2 columns">
                       <input id="take_myself" name="delivery" type="radio" /><label class="inline" for="take_myself">Самовывоз</label>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="small-4 columns">
+                    <div class="medium-4 columns">
                       <label class="inline" for="address">Адрес</label>
                     </div>
-                    <div class="small-8 columns">
+                    <div class="medium-8 columns">
                       <input id="address" type="text" placeholder="ул. Советская, д. 5, кв. 147, г. Санкт-Петербург, 154575" />
                       <select class="hide" id="take">
                         <option selected="">Купчино, Балканская пл. 5, ТЦ Астра</option>
@@ -493,7 +493,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <label id="delivery_comment" class="inline" for="address">Пожалуйста, укажите адрес настолько полно, насколько знаете. Это поможет избежать трудностей при доставке</label>
                 </div>
               </div>
@@ -501,16 +501,16 @@
 
               <!-- Дата -->
               <div class="row">
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <label class="inline" for="date">Дата и время</label>
                 </div>
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <label class="required">
                     <input id="date" type="date" value="2016-02-04" min="2016-02-04" /><!-- Можно ли ставить по умолчанию текущее число? -->
                     <small>Обязательное поле</small>
                   </label>
                 </div>
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <div class="row collapse">
                     <div class="small-5 columns">
                       <input id="time" type="time" min="06:00" max="22:00" />
@@ -523,7 +523,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="small-3 columns">
+                <div class="medium-3 columns">
                   <input id="call_her" type="checkbox" /><label class="inline radius" for="call_her">Позвонить получателю для уточнения времени и адреса</label>
                 </div>
               </div>
@@ -532,17 +532,17 @@
 
             <div class="summary">
               <div class="row">
-                <div class="small-6 columns">
+                <div class="medium-6 columns">
                   <input id="info_subscribe" type="checkbox" /><label for="info_subscribe">Хочу получать информацию о скидках и ценах</label>
                   <input id="info_subscribe" type="checkbox" checked="" /><label for="info_subscribe">Я согласен с <a class="modal" href="#doc">условиями работы</a></label>
                 </div>
-                <div class="small-1 columns text-right">
+                <div class="small-2 medium-1 columns medium-text-right">
                   <p class="sum">Итого</p>
                 </div>
-                <div class="small-2 columns">
+                <div class="small-10 medium-2 columns">
                   <span class="final price"></span>
                 </div>
-                <div class="small-3 columns text-right">
+                <div class="medium-3 columns text-center medium-text-right">
                   <input class="button radius large" type="submit" value="Перейти к оплате" />
                 </div>
               </div>
@@ -556,7 +556,7 @@
     <footer>
       <div class="row">
         <!-- Основное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">Букеты</a></li>
             <li><a href="#">Композиции</a></li>
@@ -568,7 +568,7 @@
         </div>
         <!-- /Основное меню -->
         <!-- Поиск -->
-        <div class="small-3 columns">
+        <div class="medium-3 columns">
           <form>
             <input class="radius" type="search" placeholder="Искать" />
           </form>
@@ -580,7 +580,7 @@
         </div>
 
         <!-- Второстепенное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">О нас</a></li>
             <li><a href="#">Как заказать</a></li>
@@ -592,7 +592,7 @@
         <!-- /Второстепенное меню -->
 
         <!-- Контакты -->
-        <div class="small-3 columns text-right">
+        <div class="medium-3 columns text-right small-only-text-center">
           <div class="info">
             <a class="phone" href="tel:88123545145">(812) 354-51-45</a><br /><small><a class="callback modal" href="#callback">Заказать звонок</a></small>
           </div>
@@ -603,94 +603,19 @@
       <div class="copy">
         <div class="row">
           <!-- Копирайт -->
-          <div class="small-9 columns">
+          <div class="medium-9 columns small-only-text-center">
             © 2015 FLOVER — Доставка букетов в Санкт-Петербурге
           </div>
           <!-- /Копирайт -->
 
           <!-- Авторство -->
-          <div class="small-3 columns text-right">
-            <a href="#">Сделано в UD</a>
+          <div class="medium-3 columns text-right small-only-text-center">
+            <a href="http://uniteddesign.ru/" rel="nofollow" target="_blank">Сделано в UD</a>
           </div>
           <!-- /Авторство -->
         </div>
       </div>
     </footer>
-
-    <!-- Модальные окна -->
-    <!-- Заказ звонка -->
-    <div class="hide" id="callback">
-      <div class="row">
-        <div class="small-12 columns">
-          <span class="h2">Заказ звонка</span>
-        </div>
-      </div>
-      <form>
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="name" class="inline">Имя</label>
-          </div>
-          <div class="small-9 columns">
-            <input type="text" id="name" placeholder="Иван Васильевич">
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="phone" class="inline">Номер телефона</label>
-          </div>
-          <div class="small-9 columns">
-            <input type="tel" id="phone" placeholder="8 921 123-23-23">
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-9 small-offset-3 columns">
-            <input class="button radius" type="submit" value="Отправить">
-          </div>
-        </div>
-      </form>
-    </div>
-    <!-- /Заказ звонка -->
-    <!-- Быстрый заказ -->
-    <div class="hide" id="fast_order">
-      <div class="row">
-        <div class="small-12 columns">
-          <span class="h2">Быстрый заказ</span>
-        </div>
-      </div>
-      <form>
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="name" class="inline">Имя</label>
-          </div>
-          <div class="small-9 columns">
-            <input type="text" id="name" placeholder="Иван Васильевич">
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="phone" class="inline">Номер телефона</label>
-          </div>
-          <div class="small-9 columns">
-            <input type="tel" id="phone" placeholder="8 921 123-23-23">
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="phone" class="inline">Примечания</label>
-          </div>
-          <div class="small-9 columns">
-            <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
-          </div>
-        </div>
-        <div class="row">
-          <div class="small-9 small-offset-3 columns">
-            <input class="button radius" type="submit" value="Отправить заказ">
-          </div>
-        </div>
-      </form>
-    </div>
-    <!-- /Быстрый заказ -->
-    <!-- /Модальные окна -->
 
     <script src="/templates/flover/js/vendor/modernizr.js"></script>
    

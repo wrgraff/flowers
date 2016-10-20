@@ -13,8 +13,11 @@ $decrease-size: 54px;
       position: absolute;
       right: ($column-gutter * 1.2) / 2;
       top: $column-gutter / 2;
-      opacity: 0;
-      @include single-transition;
+
+      @media #{$large-up} {
+        opacity: 0;
+        @include single-transition;
+      }
     }
     .h4 {
       margin: ($column-gutter / 2) 0;

@@ -14,7 +14,7 @@
         <div class="row">
           <div class="small-12 columns">
             <ul class="inline-list">
-              <li><a href="/about/">О нас</a></li>
+              <li class="active"><a href="/about/">О нас</a></li>
               <li><a href="#">Как заказать</a></li>
               <li><a href="#">Доставка и оплата</a></li>
               <li><a href="#">Свадебный флорист</a></li>
@@ -29,21 +29,23 @@
       <section class="top-info">
         <div class="row">
           <!-- Лого -->
-          <div class="small-3 columns">
-            <img src="/templates/flover/img/logo.png" />
+          <div class="small-6 small-offset-3 medium-offset-0 medium-3 columns">
+            <a href="/">
+              <img src="/templates/flover/img/logo.svg" />
+            </a>
           </div>
           <!-- /Лого -->
 
           <!-- Мини УТП -->
-          <div class="small-2 columns">
-            <div class="info">
+          <div class="small-12 medium-3 large-2 columns">
+            <div class="info text-center medium-text-left">
               <strong>Цветы и&nbsp;букеты с&nbsp;доставкой</strong>
             </div>
           </div>
           <!-- /Мини УТП -->
 
           <!-- Контакты -->
-          <div class="small-4 columns">
+          <div class="small-10 medium-5 large-3 columns">
             <div class="info">
               <a class="phone" href="tel:88123545145">(812) 354-51-45</a><small><a class="callback modal" href="#callback">Заказать звонок</a></small><br />
               <small>Время работы с 9:00 до 21:00</small>
@@ -52,21 +54,28 @@
           <!-- /Контакты -->
 
           <!-- Авторизация и регистрация -->
-          <div class="small-3 columns text-right">
-            <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
-            <a href="#" class="button secondary outline dropdown" data-dropdown="login">Войти</a>
-            <div id="login" data-dropdown-content class="f-dropdown content medium">
-              <form class="login">
+          <div class="small-2 medium-1 large-4 columns text-right">
+            <div class="login-open hide-for-large-up">
+              <a class="modal" href="#login_form"><i class="material-icons md-36">perm_identity</i></a>
+            </div>
+            <div class="show-for-large-up">
+              <a href="#registrate" class="button secondary outline modal">Зарегистрироваться</a>
+              <a href="#" class="button secondary outline dropdown" data-dropdown="login_panel">Войти</a>
+            </div>
+            <div id="login_panel" data-dropdown-content class="f-dropdown content medium">
+              <form id="login_form" class="login">
+                <span class="h2 hide-for-large-up">Авторизация</span>
                 <input type="text" placeholder="Логин" />
                 <input type="password" placeholder="Пароль" />
                 <div class="row collapse">
-                  <div class="small-8 columns">
+                  <div class="large-8 columns">
                     <input type="checkbox" id="remember" /><label for="remember">Запомнить меня</label>
                   </div>
-                  <div class="small-4 columns">
+                  <div class="large-4 columns">
                     <button class="button radius small expand" type="submit">Войти</button>
                   </div>
                 </div>
+                <!--a href="#registrate" class="button secondary outline modal hide-for-large-up">Зарегистрироваться</a-->
               </form>
             </div>
           </div>
@@ -80,19 +89,28 @@
         <div class="small-12 columns sticked">
           <nav class="main-menu">
             <div class="row">
-              <div class="small-9 columns">
-                <ul class="elastic-menu">
-                  <li><a href="/catalog/">Букеты</a></li>
-                  <li><a href="/catalog/">Композиции</a></li>
-                  <li><a href="/catalog/">Свадебные букеты</a></li>
-                  <li><a href="/catalog/">Сувениры</a></li>
-                  <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+              <div class="small-7 medium-9 columns">
+                <ul class="elastic-menu show-for-small-only">
+                  <li><span id="catalog-call"><i class="material-icons">menu</i> Каталог</span></li>
                 </ul>
+                <div class="catalog-menu">
+                  <header class="small-header">
+                    <span class="h3">Каталог</span>
+                    <span class="close"><i class="material-icons">clear</i></span>
+                  </header>
+                  <ul class="elastic-menu">
+                    <li><a href="/catalog/">Букеты</a></li>
+                    <li><a href="/catalog/">Композиции</a></li>
+                    <li><a href="/catalog/">Свадебные букеты</a></li>
+                    <li><a href="/catalog/">Сувениры</a></li>
+                    <li class="primary"><a class="modal" href="#my_flavor">Собрать букет</a></li>
+                  </ul>
+                </div>
               </div>
-              <div class="small-3 columns">
+              <div class="small-5 medium-3 columns">
                 <div class="checkout right full">
                   <a class="checkout-button" href="/cart/">
-                    <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round">3</span>
+                    <i class="material-icons">local_grocery_store</i><span class="text"> Корзина </span><span class="label info round">3</span>
                   </a>
                   <div class="checkout-order">
                     <div class="checkout-order-inner">
@@ -144,7 +162,7 @@
     <section>
       <div class="row">
         <!-- Левый блок -->
-        <div class="small-9 columns">
+        <div class="large-9 columns">
           <!-- Сообщение об ошибке -->
           <div data-alert class="alert-box warning radius">
             <i class="material-icons">warning</i> Не удалось войти. Пожалуйства, проверьте правильность заполнения формы.
@@ -154,10 +172,10 @@
           <!-- Форма регистрации -->
           <form data-abide>
             <div class="row">
-              <div class="small-3 columns">
+              <div class="medium-3 columns">
                 <label for="login_enter" class="inline">Логин</label>
               </div>
-              <div class="small-9 columns">
+              <div class="medium-9 columns">
                 <label class="required">
                   <input type="text" id="login_enter" placeholder="Login" required="">
                   <small>Обязательное поле</small>
@@ -165,10 +183,10 @@
               </div>
             </div>
             <div class="row">
-              <div class="small-3 columns">
+              <div class="medium-3 columns">
                 <label for="pass" class="inline">Пароль</label>
               </div>
-              <div class="small-9 columns">
+              <div class="medium-9 columns">
                 <label class="required">
                   <input type="password" id="pass" placeholder="Login" required="">
                   <small>Обязательное поле</small>
@@ -176,7 +194,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="small-9 small-offset-3 columns">
+              <div class="medium-9 medium-offset-3 columns">
                 <input class="button radius" type="submit" value="Войти">
               </div>
             </div>   
@@ -186,7 +204,7 @@
         <!-- /Левый блок -->
 
         <!-- Правый блок -->
-        <div class="small-3 columns">
+        <div class="large-3 columns">
           <!-- Преимущества -->
           <div class="panel radius callout">
             <span class="h5 text-center">Преимущества</span>
@@ -253,7 +271,7 @@
     <footer>
       <div class="row">
         <!-- Основное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">Букеты</a></li>
             <li><a href="#">Композиции</a></li>
@@ -265,7 +283,7 @@
         </div>
         <!-- /Основное меню -->
         <!-- Поиск -->
-        <div class="small-3 columns">
+        <div class="medium-3 columns">
           <form>
             <input class="radius" type="search" placeholder="Искать" />
           </form>
@@ -277,7 +295,7 @@
         </div>
 
         <!-- Второстепенное меню -->
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
           <ul class="inline-list">
             <li><a href="#">О нас</a></li>
             <li><a href="#">Как заказать</a></li>
@@ -289,7 +307,7 @@
         <!-- /Второстепенное меню -->
 
         <!-- Контакты -->
-        <div class="small-3 columns text-right">
+        <div class="medium-3 columns text-right small-only-text-center">
           <div class="info">
             <a class="phone" href="tel:88123545145">(812) 354-51-45</a><br /><small><a class="callback modal" href="#callback">Заказать звонок</a></small>
           </div>
@@ -300,13 +318,13 @@
       <div class="copy">
         <div class="row">
           <!-- Копирайт -->
-          <div class="small-9 columns">
+          <div class="medium-9 columns small-only-text-center">
             © 2015 FLOVER — Доставка букетов в Санкт-Петербурге
           </div>
           <!-- /Копирайт -->
 
           <!-- Авторство -->
-          <div class="small-3 columns text-right">
+          <div class="medium-3 columns text-right small-only-text-center">
             <a href="http://uniteddesign.ru/" rel="nofollow" target="_blank">Сделано в UD</a>
           </div>
           <!-- /Авторство -->
@@ -324,23 +342,23 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить">
           </div>
         </div>
@@ -356,26 +374,26 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Примечания</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
           </div>
         </div>
@@ -383,7 +401,7 @@
         <input type="hidden" value="flower_id" /><!-- Реально ли в этот инпут записать id или имя товара, который быстро заказывают? Или же стоит это сделать при помощи js? -->
 
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить заказ">
           </div>
         </div>
@@ -399,39 +417,39 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="new_login" class="inline">Логин</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="new_login" placeholder="Login">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="email" class="inline">Электронная почта</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="email" id="email" placeholder="name@domain.ru">
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Зарегистрироваться">
           </div>
         </div>
@@ -448,39 +466,39 @@
       </div>
       <form>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="name" class="inline">Имя</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="text" id="name" placeholder="Иван Васильевич">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Номер телефона</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="tel" id="phone" placeholder="8 921 123-23-23">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="email" class="inline">Электронная почта</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <input type="email" id="email" placeholder="name@domain.ru">
           </div>
         </div>
         <div class="row">
-          <div class="small-3 columns">
+          <div class="medium-3 columns">
             <label for="phone" class="inline">Описание букета</label>
           </div>
-          <div class="small-9 columns">
+          <div class="medium-9 columns">
             <textarea rows="3" placeholder="Детали, которые нам важно знать"></textarea>
           </div>
         </div>
         <div class="row">
-          <div class="small-9 small-offset-3 columns">
+          <div class="medium-9 medium-offset-3 columns">
             <input class="button radius" type="submit" value="Отправить">
           </div>
         </div>

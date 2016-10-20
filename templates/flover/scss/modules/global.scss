@@ -72,9 +72,11 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 			margin-right: rem-calc(10);
 			color: $black;
 			font-weight: $font-weight-bold;
+			white-space: nowrap;
 		}
 		.callback {
 			font-weight: $font-weight-light;
+			white-space: nowrap;
 		}
 		&.pay {
 			margin-top: rem-calc(7);
