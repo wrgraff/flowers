@@ -13,18 +13,20 @@
         $to = $max;
     }
     ?>
-    <fieldset>
-        <legend><?php echo $fieldPrice['attribute:title'];?></legend>
-        <div id="buy_price"></div>
-        <div class="row collapse">
-            <div class="small-6 columns">
-                <input type="text" name="filter[price][from]" data-min="<?php echo $min;?>" value="<?php echo $from;?>" class="slider-value" id="from" readonly>
+    <div class="medium-4 large-12 columns">
+        <fieldset>
+            <legend><?php echo $fieldPrice['attribute:title'];?></legend>
+            <div id="buy_price"></div>
+            <div class="row collapse">
+                <div class="small-6 columns">
+                    <input type="text" name="filter[price][from]" data-min="<?php echo $min;?>" value="<?php echo $from;?>" class="slider-value" id="from" readonly>
+                </div>
+                <div class="small-6 columns">
+                    <input type="text" name="filter[price][to]" data-max="<?php echo $max;?>" value="<?php echo $to;?>" class="slider-value text-right" id="to" readonly>
+                </div>
             </div>
-            <div class="small-6 columns">
-                <input type="text" name="filter[price][to]" data-max="<?php echo $max;?>" value="<?php echo $to;?>" class="slider-value text-right" id="to" readonly>
-            </div>
-        </div>
-    </fieldset>
+        </fieldset>
+    </div>
 <?php endif;?>
 <?php if($fieldEvent = getArrayKey($fields, 'event')):?>
     <?php echo $this->render(array('field' => $fieldEvent), 'modules/catalog/blocks/filter_relation');?>

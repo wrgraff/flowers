@@ -10,8 +10,8 @@ $related = $this->macros('catalog', 'getCatalogObjectRelated', array(PAGE_ID));
             <div class="small-12 columns">
                 <h3>Получателю может понравиться</h3>
             </div>
-            <div class="small-9 columns">
-                <ul class="small-block-grid-3 objects">
+            <div class="large-9 columns">
+                <ul class="small-block-grid-2 medium-block-grid-3 objects">
                     <?php for($i = 0; $i < 3; $i++):
                         $item = getArrayKey($related['items']['nodes:item'], $i);
 
@@ -62,11 +62,11 @@ $related = $this->macros('catalog', 'getCatalogObjectRelated', array(PAGE_ID));
                     </div>
                 </div>*/?>
             </div>
-            <div class="small-3 columns">
+            <div class="large-3 columns">
                 <?php echo $this->render(null, 'blocks/benefits');?>
             </div>
         <?php else:?>
-            <div class="small-9 columns">
+            <div class="large-9 columns">
                 <?php echo $this->render(null, 'blocks/benefits_horizontal');?>
             </div>
         <?php endif;?>

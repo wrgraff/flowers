@@ -4,20 +4,16 @@
     <?php echo $this->render(null, 'blocks/header/blocks/top_menu');?>
     <section class="top-info">
         <div class="row">
-            <div class="small-3 columns">
-                <?php if(!IS_DEFAULT):?>
-                    <a href="/"><img src="<?php echo TEMPLATE_RESOURCES?>/img/logo.svg" /></a>
-                <?php else:?>
-                    <img src="<?php echo TEMPLATE_RESOURCES?>/img/logo.svg" />
-                <?php endif;?>
+            <div class="small-6 small-offset-3 medium-offset-0 medium-3 columns">
+                <a href="/"><img src="<?php echo TEMPLATE_RESOURCES?>/img/logo.svg" /></a>
             </div>
-            <div class="small-2 columns">
+            <div class="small-12 medium-3 large-2 columns">
                 <?php echo $this->render(null, 'blocks/header/blocks/mini_utp');?>
             </div>
-            <div class="small-4 columns">
+            <div class="small-10 medium-5 large-3 columns">
                 <?php echo $this->render(null, 'blocks/header/blocks/contacts');?>
             </div>
-            <div class="small-3 columns text-right">
+            <div class="small-2 medium-1 large-4 columns text-right">
                 <?php echo $this->render(null, 'blocks/header/blocks/auth');?>
             </div>
         </div>
@@ -26,10 +22,21 @@
         <div class="small-12 columns sticked">
             <nav class="main-menu">
                 <div class="row">
-                    <div class="small-9 columns">
-                        <?php echo $this->render(null, 'blocks/header/blocks/main_menu');?>
+                    <div class="small-7 medium-9 columns">
+                        <ul class="elastic-menu show-for-small-only">
+                            <li><span id="catalog-call"><i class="material-icons">menu</i> Каталог</span></li>
+                            <!--li><span id="filter-call"><i class="material-icons">filter_list</i> Фильтр</span></li--> <!-- Вызывает фильтр на моб. устройствах. надо как-то вывести только на страницах, где есть фильтр -->
+                        </ul>
+                        <div class="catalog-menu">
+                            <header class="small-header">
+                                <span class="h3">Каталог</span>
+                                <span class="close"><i class="material-icons">clear</i></span>
+                            </header>
+                        
+                            <?php echo $this->render(null, 'blocks/header/blocks/main_menu');?>
+                        </div>
                     </div>
-                    <div class="small-3 columns">
+                    <div class="small-5 medium-3 columns">
                         <?php echo $this->render(null, 'blocks/header/blocks/cart');?>
                         <?php echo $this->render(null, 'blocks/header/blocks/favorites');?>
                     </div>

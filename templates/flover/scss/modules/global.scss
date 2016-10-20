@@ -170,13 +170,13 @@ $benefits-height: 100px;
 		}
 		&, &.horizontal {
 			display: block;
-			margin: 0 ($column-gutter * -1);
+			margin: 0 ($column-gutter / -2);
 			list-style: none;
 
 			li {
 				float: left;
 				width: 20%;
-				padding: 0 $column-gutter;
+				padding: 0 ($column-gutter / 2);
 				text-align: center;
 			}
 			&:before, &:after {
@@ -193,13 +193,13 @@ $benefits-height: 100px;
 		}
 		&, &.horizontal {
 			display: block;
-			margin: 0 ($column-gutter * -1);
+			margin: 0 ($column-gutter / -2);
 			list-style: none;
 
 			li {
 				float: left;
 				width: 50%;
-				padding: 0 $column-gutter;
+				padding: 0 ($column-gutter / 2);
 				text-align: center;
 			}
 			&:before, &:after {

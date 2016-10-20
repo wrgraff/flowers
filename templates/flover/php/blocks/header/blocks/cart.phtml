@@ -4,7 +4,7 @@
 if(is_array($cart) && isset($cart['items']) && count($cart['items']['nodes:item'])):?>
     <div class="checkout right full">
         <a class="checkout-button" href="/emarket/cart/">
-            <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round"><?php echo $cart['summary']['amount'];?></span>
+            <i class="material-icons">local_grocery_store</i><span class="text"> Корзина </span><span class="label info round"><?php echo $cart['summary']['amount'];?></span>
         </a>
         <div class="checkout-order">
             <div class="checkout-order-inner">
@@ -48,7 +48,7 @@ if(is_array($cart) && isset($cart['items']) && count($cart['items']['nodes:item'
 <?php else:?>
     <div class="checkout right">
         <a class="checkout-button" href="/emarket/cart/">
-            <i class="material-icons">local_grocery_store</i> Корзина <span class="label info round">0</span>
+            <i class="material-icons">local_grocery_store</i><span class="text"> Корзина </span><span class="label info round">0</span>
         </a>
     </div><!-- /checkout -->
 <?php endif;?>

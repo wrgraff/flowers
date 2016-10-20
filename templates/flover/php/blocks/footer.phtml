@@ -2,10 +2,10 @@
 <?php /** @var array $variables */ ?>
 <footer>
     <div class="row">
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
             <?php echo $this->render(null, 'blocks/footer/top_menu');?>
         </div>
-        <div class="small-3 columns">
+        <div class="medium-3 columns">
             <form method="GET" action="/search/search_do/">
                 <input class="radius" type="search" name="search_string" placeholder="Искать" />
             </form>
@@ -13,19 +13,19 @@
         <div class="small-12 columns">
             <hr />
         </div>
-        <div class="small-9 columns">
+        <div class="medium-9 columns">
             <?php echo $this->render(null, 'blocks/footer/bottom_menu');?>
         </div>
-        <div class="small-3 columns text-right">
+        <div class="medium-3 columns text-right small-only-text-center">
             <?php echo $this->render(null, 'blocks/footer/contacts');?>
         </div>
     </div>
     <div class="copy">
         <div class="row">
-            <div class="small-9 columns" umi:object-id="<?php echo SITE_CONFIG_ID;?>" umi:field-name="footer_copyright">
+            <div class="medium-9 columns small-only-text-center" umi:object-id="<?php echo SITE_CONFIG_ID;?>" umi:field-name="footer_copyright">
                 <?php echo $this->getConfigValue('footer_copyright');?>
             </div>
-            <div class="small-3 columns text-right">
+            <div class="medium-3 columns text-right small-only-text-center">
                 <a href="http://uniteddesign.ru/" target="_blank">Сделано в UD</a>
             </div>
         </div>

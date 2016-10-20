@@ -2,11 +2,13 @@
 <?php /** @var array $variables */ ?>
 <?php $field = $variables['field'];
 $fieldName = $field['attribute:name'];?>
-<fieldset>
-    <legend><?php echo $field['attribute:title'];?></legend>
-    <?php foreach($field['nodes:item'] as $i => $item):
-        $itemNode = $item['node:value'];
-        $itemId = sprintf('%s_%s', $fieldName, $i);?>
-        <input type="checkbox" name="filter[<?php echo $fieldName;?>][]" value="<?php echo $itemNode;?>" id="<?php echo $itemId;?>"<?php if(getArrayKey($item, 'attribute:is-selected') == 1):?> checked<?php endif;?> /><label for="<?php echo $itemId;?>"><?php echo $itemNode;?></label>
-    <?php endforeach;?>
-</fieldset>
+<div class="medium-4 large-12 columns">
+	<fieldset>
+	    <legend><?php echo $field['attribute:title'];?></legend>
+	    <?php foreach($field['nodes:item'] as $i => $item):
+	        $itemNode = $item['node:value'];
+	        $itemId = sprintf('%s_%s', $fieldName, $i);?>
+	        <input type="checkbox" name="filter[<?php echo $fieldName;?>][]" value="<?php echo $itemNode;?>" id="<?php echo $itemId;?>"<?php if(getArrayKey($item, 'attribute:is-selected') == 1):?> checked<?php endif;?> /><label for="<?php echo $itemId;?>"><?php echo $itemNode;?></label>
+	    <?php endforeach;?>
+	</fieldset>
+</div>

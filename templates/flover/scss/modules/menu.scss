@@ -474,3 +474,53 @@ $modal-catalog-menu-height: rem-calc(50);
 		}
 	}
 }
+
+$cart-added-size: 450px;
+.cart-added {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  width: $cart-added-size;
+  margin-left: $cart-added-size / -2;
+  padding: $column-gutter;
+  background-color: scale-color($main-menu-color, $lightness: 40%);;
+  border-color: $main-menu-color;
+  z-index: 8000;
+
+  table {
+    width: 100%;
+	text-align: left;
+	background: none;
+	border: none;
+	thead, tfoot {
+		background: none;
+	}
+	thead, tfoot {
+		tr th {
+			color: $info-color;
+		}
+	}
+	tr:nth-child(even) {
+		background: $checkout-bg-hover;
+	}
+  }
+  .close {
+    position: static;
+    margin-top: 0;
+    line-height: normal;
+  }
+  .button {
+    margin-bottom: $column-gutter / 2;
+
+    &.secondary {
+    	background-color: $white;
+
+    	&:hover {
+    		background-color: $snow;
+    	}
+    }
+  }
+  .h3 {
+    text-align: center;
+  }
+}
