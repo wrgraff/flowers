@@ -19,7 +19,7 @@ if(!$value) {
     </div>
     <div class="small-9 columns">
         <?php if($required):?>
-            <label class="required">
+            <label class="required" id="<?php echo $id;?>">
                 <?php if($type == 'text'):?>
                     <textarea id="<?php echo $id;?>" name="<?php echo $name;?>" rows="5" placeholder="<?php echo $placeholder;?>" required <?php echo $attributes;?>><?php echo $value;?></textarea>
                 <?php else:
