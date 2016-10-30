@@ -1,0 +1,34 @@
+<?php /** @var umiTemplaterPHP|BaseExtension $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php $field = $variables['field'];
+$fieldName = $field['attribute:name'];
+$filterVisible = $this->getArrayItem($field['nodes:item'], array('attribute:always-in-filter' => 1), true);?>
+<div class="medium-4 large-12 columns">
+	<fieldset>
+	    <legend><?php echo $field['attribute:title'];?></legend>
+    <?php if($filterVisible):
+        $filterHidden = $this->getArrayItem($field['nodes:item'], array('attribute:always-in-filter' => 0), true);?>
+        <?php foreach($filterVisible as $item):
+            $itemNode = $item['node:value'];
+            $itemId = sprintf('%s_%s', $fieldName, $item['attirbute:id']);?>
+            <input type="checkbox" name="filter[<?php echo $fieldName;?>][]" value="<?php echo $itemNode;?>" id="<?php echo $itemId;?>"<?php if(getArrayKey($item, 'attribute:is-selected') == 1):?> checked<?php endif;?> /><label for="<?php echo $itemId;?>"><?php echo $itemNode;?></label>
+        <?php endforeach;?>
+    <?php if($filterHidden):?>
+        <div class="unknown" style="display: none;">
+            <?php foreach($filterHidden as $item):
+                $itemNode = $item['node:value'];
+                $itemId = sprintf('%s_%s', $fieldName, $item['attirbute:id']);?>
+                <input type="checkbox" name="filter[<?php echo $fieldName;?>][]" value="<?php echo $itemNode;?>" id="<?php echo $itemId;?>"<?php if(getArrayKey($item, 'attribute:is-selected') == 1):?> checked<?php endif;?> /><label for="<?php echo $itemId;?>"><?php echo $itemNode;?></label>
+            <?php endforeach;?>
+        </div>
+        <span class="show-all">Все цветы</span>
+    <?php endif;?>
+    <?php else:?>
+        <?php foreach($field['nodes:item'] as $i => $item):
+            $itemNode = $item['node:value'];
+            $itemId = sprintf('%s_%s', $fieldName, $i);?>
+            <input type="checkbox" name="filter[<?php echo $fieldName;?>][]" value="<?php echo $itemNode;?>" id="<?php echo $itemId;?>"<?php if(getArrayKey($item, 'attribute:is-selected') == 1):?> checked<?php endif;?> /><label for="<?php echo $itemId;?>"><?php echo $itemNode;?></label>
+        <?php endforeach;?>
+    <?php endif;?>
+	</fieldset>
+</div>
