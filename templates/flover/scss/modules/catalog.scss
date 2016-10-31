@@ -238,6 +238,22 @@ $css-triangle-label-color-info: scale-color($info-color, $lightness: $css-triang
       background-color: transparent;
     }
   }
+
+  .unknown {
+    display: none;
+  }
+  .show-all {
+    font-size: $form-label-font-size;
+    line-height: $form-label-line-height;
+    color: $form-label-font-color;
+    border-bottom: 1px dotted;
+    cursor: pointer;
+    @include single-transition(color);
+    
+    &:hover {
+      color: $alert-color;
+    }
+  }
 }
 @media #{$medium-only} {
   .filter {

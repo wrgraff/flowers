@@ -48,6 +48,12 @@ $(document).ready(function() {
     $('.filter').removeClass('showed');
     $('.catalog-menu').removeClass('showed');
   });
+
+  $('.filter .show-all').click(function() {
+    $('.unknown').slideToggle(50, function() {
+      $(document).foundation('equalizer', 'reflow');
+    });
+  });
 });
 
 
