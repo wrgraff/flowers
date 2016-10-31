@@ -40,6 +40,11 @@ $items = $this->macros('catalog', 'getSmartCatalogCustom', array('notemplate', P
                 <?php echo $this->render($sort, 'modules/catalog/blocks/sort');?>
 
                 <div class="filter">
+                    <header class="small-header">
+                      <span class="h3">Фильтр</span>
+                      <span class="close"><i class="material-icons">clear</i></span>
+                    </header>
+                
                     <div class="row">
                         <?php echo $this->render($filter, 'modules/catalog/blocks/filter');?>
                     </div>
