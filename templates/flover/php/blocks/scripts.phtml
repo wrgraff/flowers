@@ -6,29 +6,35 @@
 <script src="<?php echo TEMPLATE_RESOURCES?>/js/foundation.min.js<?php echo TEMPLATE_VERSION?>"></script>
 <script src="<?php echo TEMPLATE_RESOURCES?>/js/vendor/fancybox/jquery.fancybox.pack.js<?php echo TEMPLATE_VERSION?>"></script>
 <script src="<?php echo TEMPLATE_RESOURCES?>/js/vendor/jquery-ui.min.js<?php echo TEMPLATE_VERSION?>"></script>
-<script src="<?php echo TEMPLATE_RESOURCES?>/js/scripts.js<?php echo TEMPLATE_VERSION?>"></script>
-<script src="<?php echo TEMPLATE_RESOURCES?>/js/purchase_one_click.js<?php echo TEMPLATE_VERSION?>"></script>
+<?php if(METHOD !== 'cart'):?>
+    <script src="<?php echo TEMPLATE_RESOURCES?>/js/scripts.js<?php echo TEMPLATE_VERSION?>"></script>
+    <script src="<?php echo TEMPLATE_RESOURCES?>/js/purchase_one_click.js<?php echo TEMPLATE_VERSION?>"></script>
+    <script src="<?php echo TEMPLATE_RESOURCES?>/js/emarket.js<?php echo TEMPLATE_VERSION?>"></script>
 
-<script type="text/javascript">
-    $(function() {
-        var $from = $('#from'),
-            $to = $('#to');
+    <script type="text/javascript">
+        $(function() {
+            var $from = $('#from'),
+                $to = $('#to');
 
-        $('#buy_price').slider({
-            range: true,
-            min: $from.data('min'),
-            max: $to.data('max'),
-            step: 10, // шаг слайдера
-            values: [$from.val(), $to.val()],  // начальные значения - позиции ползунков на шкале
+            $('#buy_price').slider({
+                range: true,
+                min: $from.data('min'),
+                max: $to.data('max'),
+                step: 10, // шаг слайдера
+                values: [$from.val(), $to.val()],  // начальные значения - позиции ползунков на шкале
 
-            slide: function( event, ui ) {
-                $( '#from' ).val( ui.values[ 0 ] ); // выводим  значение от
-                $( '#to' ).val( ui.values[ 1 ] ); // выводим  значение до
-            }
+                slide: function( event, ui ) {
+                    $( '#from' ).val( ui.values[ 0 ] ); // выводим  значение от
+                    $( '#to' ).val( ui.values[ 1 ] ); // выводим  значение до
+                }
+            });
+            $( '#from' ).val( $( '#buy_price' ).slider('values', 0) );
+            $( '#to' ).val( $( '#buy_price' ).slider('values', 1) );
         });
-        $( '#from' ).val( $( '#buy_price' ).slider('values', 0) );
-        $( '#to' ).val( $( '#buy_price' ).slider('values', 1) );
-    });
-</script>
+    </script>
+<?php else:?>
+    <script src="<?php echo TEMPLATE_RESOURCES?>/js/vendor/jquery.sticky-kit.min.js<?php echo TEMPLATE_VERSION;?>"></script>
+    <script src="<?php echo TEMPLATE_RESOURCES?>/js/cart.js<?php echo TEMPLATE_VERSION?>"></script>
+<?php endif;?>
 
 <?php echo $this->getJavascript();?>

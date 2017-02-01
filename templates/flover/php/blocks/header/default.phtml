@@ -25,7 +25,9 @@
                     <div class="small-7 medium-9 columns">
                         <ul class="elastic-menu show-for-small-only">
                             <li><span id="catalog-call"><i class="material-icons">menu</i> Каталог</span></li>
-                            <!--li><span id="filter-call"><i class="material-icons">filter_list</i> Фильтр</span></li--> <!-- Вызывает фильтр на моб. устройствах. надо как-то вывести только на страницах, где есть фильтр -->
+                        <?php if(MODULE === 'catalog' && METHOD !== 'object'):?>
+                            <li><span id="filter-call"><i class="material-icons">filter_list</i> Фильтр</span></li>
+                        <?php endif;?>
                         </ul>
                         <div class="catalog-menu">
                             <header class="small-header">

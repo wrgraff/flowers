@@ -1,0 +1,19 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php echo $this->render($variables, 'blocks/head');?>
+    </head>
+    <body>
+        <?php echo $this->render(null, 'blocks/header');?>
+        <?php try {
+            echo $this->render($variables, 'modules/' . MODULE . '/' . METHOD);
+        } catch(Exception $e) {};?>
+        <?php echo $this->render(null, 'blocks/footer');?>
+        <?php echo $this->render(null, 'blocks/modal');?>
+        <?php echo $this->render(null, 'blocks/scripts');?>
+
+        <?php echo $this->getConfigValue('counters');?>
+    </body>
+</html>

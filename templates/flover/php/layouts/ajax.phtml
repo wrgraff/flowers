@@ -1,0 +1,10 @@
+<?php /** @var umiTemplaterPHP|BaseExtension|AjaxExtension $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+try {
+    $content = $this->render($variables, 'ajax/modules/' . MODULE . '/' . METHOD);
+} catch (Exception $e) {
+    $content = '';
+}
+
+$this->sendAjaxResponse($content);

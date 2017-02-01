@@ -1,0 +1,33 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$cart = $variables['cart'];
+$items = $cart['items']['nodes:item'];
+?>
+<div class="row" data-equalizer="layout" data-equalizer-mq="large-up">
+    <div class="large-10 columns" data-equalizer-watch="layout">
+        <?php for($i = 0; $i < count($items); $i = $i + 2):?>
+            <div class="row" data-equalizer="items">
+                <div class="medium-6 columns">
+                    <?php echo $this->render(array(
+                            'item' => getArrayKey($items, $i)
+                        ), 'modules/emarket/cart/items/item');?>
+                </div>
+            <?php if($item = getArrayKey($items, $i + 1)):?>
+                <div class="medium-6 columns">
+                    <?php echo $this->render(array(
+                        'item' => $item
+                    ), 'modules/emarket/cart/items/item');?>
+                </div>
+            <?php endif;?>
+            </div>
+        <?php endfor;?>
+
+        <?php echo $this->render(null, 'modules/emarket/cart/items/related');?>
+    </div>
+    <div class="large-2 columns" data-equalizer-watch="layout">
+        <div class="summary">
+            Итого <div class="final price" data-cart="total-price" data-suffix=" р."><?php echo $cart['summary']['price']['actual'];?> р.</div>
+        </div>
+    </div>
+</div>

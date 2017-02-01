@@ -1,4 +1,33 @@
-# www.robotstxt.org/
-# www.google.com/support/webmasters/bin/answer.py?hl=en&answer=156449
+User-Agent: Googlebot
+Disallow: /?
+Disallow: /admin
+Disallow: /index.php
+Disallow: /emarket/addToCompare
+Disallow: /emarket/basket
+Disallow: /go-out.php
+Disallow: /search
+Disallow: /cart
 
-User-agent: *
+User-Agent: Yandex
+Disallow: /?
+Disallow: /admin
+Disallow: /index.php
+Disallow: /emarket/addToCompare
+Disallow: /emarket/basket
+Disallow: /go-out.php
+Disallow: /search
+Disallow: /cart
+Host: https://floverart.ru 
+Crawl-delay: 3
+
+User-Agent: *
+Disallow: /?
+Disallow: /admin
+Disallow: /index.php
+Disallow: /emarket/addToCompare
+Disallow: /emarket/basket
+Disallow: /go-out.php
+Disallow: /search
+Disallow: /cart
+
+Sitemap: https://floverart.ru/sitemap.xml 

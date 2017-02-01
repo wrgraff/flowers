@@ -1,0 +1,65 @@
+<?php /** @var umiTemplaterPHP|BaseExtension $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$item = $variables['item'];
+$itemId = $item['attribute:id'];
+
+$name = $item['attribute:name'];
+$image = false;
+
+$page = $item['page'];
+if($page instanceof umiHierarchyElement) {
+    $name = $page->getName();
+    $image = $page->getValue(CATALOG_OBJECT_FIELD_MAIN_IMAGE);
+}
+
+$isBouquet = (getArrayKey($item, 'is_bouquet') == 1);
+$card = getArrayKey($item, 'card');
+$price = $item['price']['actual'];
+?>
+<div class="item cart-item" data-equalizer-watch="items" data-cart="item" data-id="<?php echo $itemId;?>" data-price="<?php echo $price;?>">
+    <div class="row">
+        <div class="small-4 columns">
+        <?php if($image instanceof umiImageFile && !$image->getIsBroken()):?>
+            <a class="th radius modal" href="<?php echo $image->getFilePath(true);?>">
+                <img src="<?php echo $this->makeThumbnailFull($image->getFilePath(), 200, 200);?>" />
+            </a>
+        <?php endif;?>
+        </div>
+
+        <div class="small-8 columns">
+            <span class="h4"><?php echo $name;?></span>
+
+            <div class="row">
+                <div class="small-6 columns">
+                    <div class="row collapse">
+                        <div class="small-3 columns no-select">
+                            <span class="button secondary prefix count-down"><i class="material-icons">keyboard_arrow_left</i></span>
+                        </div>
+                        <div class="small-6 columns">
+                            <input type="number" name="amount[<?php echo $itemId;?>]" value="<?php echo $item['amount'];?>" min="1" id="num_item_<?php echo $itemId;?>">
+                        </div>
+                        <div class="small-3 columns no-select">
+                            <span class="button secondary postfix count-up"><i class="material-icons">keyboard_arrow_right</i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="small-6 columns">
+                    <label class="inline" for="num_item_<?php echo $itemId;?>">× <?php echo $price;?> р.</label>
+                </div>
+            </div>
+
+        <?php if(is_array($card)):?>
+            <input class="add-card" type="checkbox" name="card[<?php echo $itemId;?>]" id="card_<?php echo $itemId;?>" value="1"<?php if(getArrayKey($card, 'attribute:status') == 'active'):?> checked<?php endif;?> /><label for="card_<?php echo $itemId;?>">Добавить открытку — 150 р.</label>
+        <?php endif;?>
+
+            <a class="del" href="/emarket/basket/remove/item/<?php echo $itemId;?>/" data-cart="remove" data-id="<?php echo $itemId;?>"><i class="material-icons">delete</i></a>
+        </div>
+    </div>
+
+<?php if(is_array($card)):?>
+    <div class="card-text">
+        <textarea rows="5" name="message[<?php echo $itemId;?>]" placeholder="Введите текст открытки"><?php echo trim(getArrayKey($card, 'message'));?></textarea>
+    </div>
+<?php endif;?>
+</div>

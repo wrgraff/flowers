@@ -1,0 +1,46 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$result = $this->macros('emarket', 'getCartRelated');
+$items = getArrayKey(getArrayKey($result, 'items'), 'nodes:item');
+if(is_array($items)):?>
+    <div class="row">
+        <div class="small-12 columns">
+            <span class="h5">Получателю может понравиться</span>
+            <ul class="small-block-grid-2 medium-block-grid-5 objects" data-equalizer="related">
+            <?php foreach($items as $item):
+                $id = $item['attribute:id'];
+                $price = $this->macros('emarket', 'price', array($id, '', false));
+                $image = getArrayKey($item, 'image');
+                $category = getArrayKey($item, 'category');
+                ?>
+                <li>
+                    <div class="item">
+                        <div class="top">
+                            <figure>
+                            <?php if($image instanceof umiImageFile && !$image->getIsBroken()):?>
+                                <img src="<?php echo $this->makeThumbnailFull($image->getFilePath(), 280, 280);?>" />
+                            <?php endif;?>
+                                <figcaption>
+                                <?php if($category):?>
+                                    <small><?php echo $category;?></small>
+                                <?php endif;?>
+                                    <strong data-equalizer-watch="related"><?php echo $item['node:text'];?></strong>
+                                <?php if($price):?>
+                                    <span class="price"><?php echo $price['price']['actual'];?> р.</span>
+                                <?php endif;?>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="bottom">
+                            <ul class="buttons">
+                                <li><a href="/emarket/basket/put/element/<?php echo $id;?>/" class="button radius expand"><i class="material-icons">add_shopping_cart</i> Добавить</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            <?php endforeach;?>
+            </ul>
+        </div>
+    </div>
+<?php endif;?>

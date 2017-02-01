@@ -1,0 +1,35 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<table class="checkout-summary">
+    <tfoot>
+    <tr>
+        <th colspan="2">Итого <span class="checkout-total"><?php echo $variables['summary']['price']['actual'];?> р.</span></th>
+    </tr>
+    </tfoot>
+    <tbody>
+    <?php foreach($variables['items']['nodes:item'] as $item):
+        $itemId = $item['attribute:id'];
+        $page = $item['page'];
+
+        $isBouquet = (getArrayKey($item, 'is_bouquet') == '1');
+
+        $category = '';
+        if($isBouquet) {
+            $category = 'Букет';
+        } else {
+            $category = $page->getValue('object_related_category');
+        }
+        ?>
+        <tr data-cart="checkout-summary-item" data-id="<?php echo $itemId;?>">
+            <td><?php if($category):?><span><?php echo $category;?></span> <?php endif;?><?php echo $page->getName();?></td>
+            <td data-cart="checkout-summary-item-price" data-id="<?php echo $itemId;?>"><?php echo $item['total-price']['actual'];?> р.</td>
+        </tr>
+        <?php if($isBouquet && getArrayKey($item['card'], 'attribute:status') == 'active'):?>
+        <tr data-cart="checkout-summary-item-card" data-id="<?php echo $itemId;?>">
+            <td><span>Открытка</span></td>
+            <td><?php echo $item['card']['price'];?> р.</td>
+        </tr>
+    <?php endif;?>
+    <?php endforeach;?>
+    </tbody>
+</table>

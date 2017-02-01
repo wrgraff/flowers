@@ -1,0 +1,14 @@
+<?php /** @var umiTemplaterPHP $this */ ?>
+<?php /** @var array $variables */ ?>
+<?php
+$return = array();
+
+$cart = $this->macros('emarket', 'addToCart');
+if(is_array($cart)) {
+    $return['amount'] = $cart['summary']['amount'];
+    $return['header'] = $this->render($cart, 'blocks/header/blocks/cart/order');
+    $return['popup'] = $this->render($cart, 'blocks/checkout_summary');
+}
+
+echo json_encode($return);
+?>
